@@ -1,0 +1,74 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>我的订单</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script type="text/javascript" src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+</head>
+<style type="text/css">
+    a,a:hover{ text-decoration:none; color:#333}
+    .ajax_return{width:100%;padding: 40px 20px;}
+    .col-xs-6{width: 100%;background: #fff;overflow: auto;font-size: 3.5vw;color: #808080;margin-bottom: 10px;}
+    .order_sns{width: 100%;border-bottom: 1px solid #d2d2d2;margin-bottom: 10px;}
+    .goodimg{width: 20%;margin-bottom: 10px;float: left;}
+    .sp1{font-size: 3.5vw;color: #808080;line-height: 40px;float: left;margin-left: 10px;}
+</style>
+<body style="margin:0 auto; background: #f3f3f4;">
+<header>
+    <a class="back" href="{:U('User/index')}" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>我的订单</h4>
+</header>
+    <div class="ajax_return" style="width:100%">
+
+    </div>
+    <a href="javascript:;" id="get_more" style="text-align:center; display:block;">
+        <img src='__PUBLIC__/images/loader.gif' width="12" height="12">
+    </a>
+</body>
+<include file="Public/footer"/>
+</html>
+<script>
+    var gotop = $("#retop");
+    var page = 1;
+    var pays=$("#pays").val();
+    $(function () {
+        // 保存gotop按钮
+        // 检测滚动条位置，高于600回顶部按钮显示
+        getDateMore();
+
+    });
+
+    $(window).scroll(function(){
+        if($(document).scrollTop()==$(document).height()-$(window).height())
+        {
+            getDateMore();
+        }
+    })
+
+    function getDateMore(){
+        $.ajax({
+            type : "post",
+            url:"{:U('User/ajaxorderlist')}",
+            data:{"page":page},
+            dataType:'html',
+            success: function(data)
+            {
+                $(".ajax_return").append(data);
+                page = page+1;
+                if("<?php echo $cou; ?>"<4){
+                    $('#get_more').css('display','none');
+                    $('#shi').show();
+                }
+            }
+        });
+    }
+
+</script>

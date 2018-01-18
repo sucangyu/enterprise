@@ -1,0 +1,50 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var width = $('.div1').css('width');
+        var heig = parseInt(width);
+        heig = heig+"px";
+        $('.goodimg').css('height',heig);
+    })
+</script>
+<volist name="supportsArr" id="vo" key="k">
+    <div class="order_list1">
+        <p class="serial ">支持单号:{$vo['paynum']}</p>
+        <a href="{:U('Index/index')}">
+            <div>
+                <div class="div1">
+                    <?php $tmp_images = json_decode($vo['Projlist']['projimages']);?>
+                    <notempty name="tmp_images[0]">
+                        <img class="goodimg" src="{$tmp_images[0]}">
+                        <else/>
+                        <img class="goodimg" src="__PUBLIC__/images/sm.jpg">
+                    </notempty>
+
+                </div>
+                <div class="div2">
+                    <p>支持项目:{$vo['Projlist']['titles']}</p>
+                    <p>支持类型:
+                        <if condition="$vo['paykind'] eq 1">
+                            自己支付
+                            <else/>
+                            他人代付
+                        </if>
+                    </p>
+                    <p>
+                        <!--支持金额:<label style="color: red">{$vo['tmoney']}</label>-->
+                        支持金额:{$vo['tmoney']}
+                    </p>
+                </div>
+            </div>
+        </a>
+        <p class="p2">
+            <if condition="$vo['paystas'] eq 0">
+                <if condition="$vo['paykind'] eq 1">
+                    <a class="btn btn-default" href="{:U('Wxpay/wxpayAgain',array('support_id'=>$vo['id']))}" role="button" style="background-color: #EE4000;color: #fff;border:0px;">继续支付</a>
+                    <elseif condition="$vo['paykind'] eq 2"/>
+                    <a class="btn btn-default" href="{:U('User/show_ewm',array('sid'=>$vo['id']))}" role="button" style="background-color: #EE4000;color: #fff;border:0px;">查看二维码</a>
+                </if>
+                <a class="btn btn-default" href="javascript:if(confirm('确定要取消支持?'))location.href='{:U('Wxpay/cancelPay?jj=1&id='.$vo['id'])}'" role="button" style="color: #b5b4b5;">取消支付</a>
+            </if>
+        </p>
+    </div>
+</volist>

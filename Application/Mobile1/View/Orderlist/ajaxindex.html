@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var width = $('.div1').css('width');
+        var heig = parseInt(width);
+        heig = heig+"px";
+        $('.goodimg').css('height',heig);
+    })
+</script>
+<volist name="orderArr" id="vo" key="k">
+    <div class="order_list1">
+        <p class="serial ">订单号:{$vo['order_sn']}</p>
+        <?php $goodsList=getGoodsList($vo['id']);foreach($goodsList as $key1=>$val1){ ?>
+        <a href="{:U('Goods/details',array('good_id'=>$val1['goods_id']))}">
+            <div>
+                <div class="div1">
+                    <?php $tmp_images = json_decode($vo['Projlist']['projimages']);?>
+                    <empty name="val1['Goods']['titlepic']">
+                        <img src="__PUBLIC__/images/sm.jpg"  alt="..." class="goodimg">
+                        <else/>
+                        <img src="{$val1['Goods']['titlepic']}" class="goodimg" style="width:75px;">
+                    </empty>
+                </div>
+                <div class="div2">
+                    <p>{$val1['Goods']['titles']}*{$val1['goods_num']}</p>
+                    <p style="font-size:0.9em;color: #999999;margin-top:15px;">订单状态:
+                        <if condition="$vo['order_status'] eq 0">
+                            待支付
+                            <elseif condition="$vo['order_status'] eq 1"/>
+                            待发货
+                            <elseif condition="$vo['order_status'] eq 2"/>
+                            待收货
+                            <elseif condition="$vo['order_status'] eq 3"/>
+                            待评价
+                            <elseif condition="$vo['order_status'] eq 4"/>
+                            已完成
+                            <elseif condition="$vo['order_status'] eq 5"/>
+                            已取消
+                        </if>
+                    </p>
+                    <p style="font-size:0.9em;color: #999999;">
+                        <notempty name="vo['regtime']">
+                            {$vo['regtime']|date='Y-m-d H:i:s',###}
+                        </notempty>
+                    </p>
+                </div>
+            </div>
+        </a>
+        <?php }?>
+
+        <p class="p2">
+            <if condition="$vo['order_status'] eq 0">
+                <a class="btn btn-default" href="{:U('Wxpay/goodsPayAgain',array('order_id'=>$vo['id']))}" role="button" style="background-color: #EE4000;color: #fff;border:0px;">继续支付</a>
+                <a class="btn btn-default" href="javascript:if(confirm('确定要取消支持?'))location.href='{:U('Wxpay/cancelGoodsPay?id='.$vo['id'])}'" role="button" style="color: #999999;">取消支付</a>
+            </if>
+        </p>
+    </div>
+</volist>

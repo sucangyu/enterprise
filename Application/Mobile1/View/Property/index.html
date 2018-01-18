@@ -1,0 +1,88 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>我的认领</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <!-- <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/> -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/layer/layer.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.cookie.js"></script>
+</head>
+<style type="text/css">
+    .pics{float:left;margin-top:0;width:100%;height:42vh;background-color:#0A0A0A;position: relative;}
+    .pics .active{position: absolute;right: 6vw;top: 3vh;color: #fff;font-size: 15px;background: rgba(0,0,0,0.6);border-radius:10vh;padding: 0px 15px;height: 25px;line-height: 25px;}
+    .yellow{float:left;margin-top:3vh;width:100%;background-color: #F7F7F7;}
+    .g2{float:left;margin-left:7vw;width:86vw;border-bottom: 0.5px solid #ccc;margin-top:10px;}
+    /*.g2{float:left;top:23%;left:7%;height:13%;width:86%;border-bottom: 1px solid white;}*/
+    .renling:focus{
+        outline: none;
+    }
+</style>
+<!--<header>
+    <a class="back" href="{:U('User/index')}" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>我的认领</h4>
+</header>-->
+<body style="background-color:#F7F7F7;margin:0 auto;">
+<div class="pics">
+    <a href="{:U('Property/claimRecord')}" class="btn btn-default btn-lg active" role="button">认领记录</a>
+    <img src="__PUBLIC__/images/beauty.jpg" style="width:100%;height:100%">
+</div>
+<div class="yellow ajax_return" >
+</div>
+<a href="javascript:;" class="get_more" style="text-align:center; display:block;">
+    <img src='__PUBLIC__/images/loader.gif' width="12" height="12">
+</a>
+<span style="float:right;margin-right:9vw;margin-top:2vh;color:#666;font-size: 0.8em">共计:{$totalTree}棵葡萄树</span>
+<script language="javascript">
+    var page = 1;
+    $(function () {
+        // 保存gotop按钮
+        // 检测滚动条位置，高于600回顶部按钮显示
+        getDateMore();
+
+    });
+    $(window).scroll(function(){
+        if($(document).scrollTop()==$(document).height()-$(window).height())
+        {
+            getDateMore();
+        }
+    })
+    function getDateMore(){
+        $.ajax({
+            type : "post",
+            url:"{:U('Property/ajaxindex')}",
+            data:{"page":page},
+            success: function(data)
+            {
+                $(".ajax_return").append(data);
+                page = page+1;
+                if($.cookie('is_end')==1){
+                    $('.get_more').css('display','none');
+                }
+            }
+        });
+    }
+
+    //等级变更
+    function sendProperty(obj){
+        var url =  $(obj).attr('data-url');
+        layer.open({
+            type: 2,
+            title: '转赠',
+            shadeClose: true,
+            offset: '50%',
+            shade: 0.8,
+            area: ['100%', '50%'],
+            content: url,
+        });
+    }
+</script>
+<include file="Public/footer"/>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>认领</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/LArea.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script src="__PUBLIC__/jQuery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/mobile/js/LArea.js"></script>
+    <script src="__PUBLIC__/layer/layer.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+</head>
+<style type="text/css">
+    .tanchu .lli{width:95%;margin:auto}
+    .tanchu{width: 90%;margin: 5px auto;}
+    .tanchu li{width: 100%;border-bottom: 1px solid grey;padding: 5px 0px;overflow: auto;color: black;font-size: 4vw;}
+    .tanchu li .sp2{float: right;}
+    .num{border-radius: 8px; border: 1px solid grey;display: inline-block;width: 25%;text-align: center;font-size: 3vw;height: 25px;margin-top: 2%;line-height: 25px;color:grey}
+    .num span{line-height: 20px;font-size: 4vw;}
+    .input-num{width: 50%;text-align: center;border-top:0px;border-bottom: 0px;line-height: 20px;border-left:1px solid grey; border-right:1px solid grey;height: 23px;margin-top: -5px;}
+    .kenum input{display: none;}
+    input[type=radio]:checked + .rad_1, .rad_1.checked {background: #07d873;color: #fff;border: 0px;}
+    .rad_1 {border: 1px solid #d8d8d8;box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);border-radius: 5px;height: 30px;line-height: 26px;width: 70px;text-align: center;color:black;font-size: 15px}
+    .btns{margin: 15px auto;text-align: center;color: #fff;background: #07d873;border:1px solid #d8d8d8;border-radius:5px;width: 90%;margin: 15px auto;}
+    .btns input{text-align: center;color: #fff;border:0px;background: #07d873;width: 48%}
+    #addressBar{width:100%;height:8px;background-image:url("__PUBLIC__/images/address_bar.png");background-repeat: repeat-x;background-size:auto 8px;text-indent: -999px}
+    .address_bar{height:11vh;line-height:70px;width:100%;font-size: 28px;font-family: "黑体";background-color: #fff;overflow: hidden;background-image:url("__PUBLIC__/images/link.png");background-position:98% center;background-repeat: no-repeat;background-size:4% auto}
+    .address_bar a{color:#333}
+    .address_bar a span{font-size:28px;margin-left:20px}
+    footer{height:50px;background:#07D873;width:100%;line-height:50px;position:fixed;bottom: 0;}
+    footer h4{color:#fff;line-height:50px;text-align: center;font-size:20px}
+</style>
+<body style="background-color:#F7F7F7; margin:0 auto;">
+    <header>
+        <a class="back" href="{:U('Index/index')}" >
+            <span class="glyphicon glyphicon-menu-left"></span>
+            <span class="text">返回</span>
+        </a>
+        <h4>认领</h4>
+    </header>
+    <div>
+        <div id="addressBar">&</div>
+
+        <if condition="$ress eq 1">
+            <div class="address_bar">
+                <a href="{:U('Address/addAddress?goods_id=')}" class="addAddress">
+                    <span style="color:#cccccc;">+ 添加地址</span>
+                </a>
+            </div>
+            <else/>
+            <div class="address_bar2">
+                <span style="float:left;margin-left: 10vw;font-size: 5vw">{$ress.0.consignee}</span><span style="float:right;margin-right: 10vw;font-size:5vw;">{$ress.0.mobile}</span><br/>
+                <span style="float:left;margin-left: 10vw;font-size: 5vw;">{$ress.0.province}{$ress.0.city}{$ress.0.district}</span><span style="font-size: 5vw;float:left">{$ress.0.address}</span>
+            </div>
+        </if>
+
+
+    </div>
+
+
+    <div style="width:100%;background: #fff;margin:auto;margin-top:10px">
+        <form action="{:U('Goods/order')}" method='post'>
+            <ul class="tanchu">
+                <li>
+                    <div style="width:30%;float:left;padding: 10px">
+                        <notempty name="$goods.titlepic">
+                            <img src="{$goods.titlepic}" style="width:80px;height:80px">
+                        <else/>
+                            <img src="__PUBLIC__/images/chi.png" style="width:80px;height:80px">
+                        </notempty>
+                    </div>
+                    <div style="color:black;font-size:22px;letter-spacing: 2px;margin-left: 100px;">
+                        <span>{$goods.titles}</span>
+
+                    </div>
+                </li>
+                <li class="lli">
+                    <span class="sp1" style="font-size: 4vw;color: #231815;">2016 最多可领10箱</span>
+                    <span class="sp2 num">
+                        <span   class="num_jian">-</span>
+                        <input type="text" name="input_num" value="10" class="input-num" onpropertychange="OnPropChanged()">
+                        <span  class="num_jia">+</span>
+                    </span>
+                    </br>
+                    <span class="sp1" style="font-size: 4vw;color: #231815;">2017 最多可领10箱</span>
+                    <span class="sp2 num">
+                        <span   class="num_jian">-</span>
+                        <input type="text" name="input_num" value="10" class="input-num" onpropertychange="OnPropChanged()">
+                        <span   class="num_jia">+</span>
+                    </span>
+                    </br>
+                    <span class="sp1" style="font-size: 4vw;color: #231815;">2018 最多可领10箱</span>
+                    <span class="sp2 num">
+                        <span   class="num_jian">-</span>
+                        <input type="text" name="input_num" value="10" class="input-num" onpropertychange="OnPropChanged()">
+                        <span   class="num_jia">+</span>
+                    </span>
+                    </br>
+                    <label style="float:right;color:#07D873">总计:<span id="zj">20</span>箱</label>
+                </li>
+                <li class="lli kenum">
+                    运费:
+                    <input type="radio" class="radios" name="kind" id="status_on2" value=""/>
+                    <label for="status_on2" class="rad_1">到付</label>
+                    <input type="radio" class="radios" name="kind" id="status_on3"  value=""/>
+                    <label for="status_on3" class="rad_1">自提</label>
+                    <input type="radio" class="radios" name="kind" id="status_on4" value="" checked="checked"/>
+                    <label for="status_on4" class="rad_1">自付</label>
+                    <label style="float:right;color:black">￥10.00</label>
+                </li>
+                <li class="lli">加工费:<label class="sp2" style="float:right;color:black">￥50.00</label></li>
+                <li class="lli" style="border:none;">支付金额:<label class="sp2" style="float:right;color:#07D873">￥50.00</label></li>
+            </ul>
+        </form>
+    </div>
+    <div style="width:100%;height:100px;"></div>
+    <footer>
+        <a class="pay" href="" >
+            <h4>支付</h4>
+        </a>
+    </footer>
+<script language="javascript">
+    zj();
+
+    $(".rad_1").click(function () {
+        var num = $(this).html();
+//        var jiage = num*199;
+//        $('.sp1').html('￥'+jiage);
+        $("#input-num").val(num)
+    });
+
+    $(".num_jia").click(function(){
+
+        var input_num = $(this).prev().val();
+        if(input_num>=10)
+        {
+            input_num =10;
+        }else{
+            input_num = parseInt(input_num) + 1;
+        }
+        $(this).prev().val(input_num);
+
+    zj();
+    });
+    $(".num_jian").click(function(){
+        var input_num = $(this).next().val();
+        if(input_num <= 0) {
+            input_num = 0;
+        } else {
+            input_num = parseInt(input_num) - 1;
+        }
+        $(this).next().val(input_num);
+    zj();
+    });
+
+   function zj()
+   {
+       var num = 0;
+        $("input[name='input_num']").each(function(){
+            var b = $(this).val();
+            num+=parseInt(b);
+        })
+
+       $("#zj").html(num);
+   }
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<volist name="propertylistArr" id="vo">
+	<div class="g2">
+		<div class="inline log_img">
+			<if condition="$vo.kind eq 1"> 
+				<img src="__PUBLIC__/images/claim.png">
+			<elseif condition="$vo.kind eq 2"/>
+				<img src="__PUBLIC__/images/recommend.png">
+			<elseif condition="$vo.kind eq 3"/>
+				<img src="__PUBLIC__/images/send.png">
+			<else /> 
+				<img src="__PUBLIC__/images/send.png">
+			</if>
+			
+		</div>
+		<div class="inline text">
+			<p style="color:#000;font-size: 0.75em;">{$vo.memo}</p>
+			<notempty name="vo['regtime']">
+                <p style="color: #aaaaaa;font-size: 0.6em;">{$vo['regtime']|date='Y-m-d H:i',###}</p>
+            </notempty>
+			
+		</div> 
+		<p class="num">
+			<if condition="$vo.kind eq 4"> 
+				-
+			<else /> 
+				+
+			</if>
+			{$vo.treenum}
+		</p>
+    </div>
+</volist>

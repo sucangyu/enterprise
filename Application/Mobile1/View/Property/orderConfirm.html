@@ -1,0 +1,124 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>认领确认页面</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link href="__PUBLIC__/mobile/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/mobile/css/common.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/user.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <script type="text/javascript" src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+</head>
+<style type="text/css">
+    .ordertop{width: 100%;height: 120px;border-bottom: 10px solid #e5e5e5;padding:20px 15px 10px 15px;font-size: 14px;}
+    .ortple{float: left;width: 30%}
+    .ortpri{float: left;width: 65%;}
+    .ortpri .p2{line-height: 20px;width: 100%;}
+    .ordercon ul{width: 100%;}
+    .ordercon ul li{width: 100%;border-bottom: 1px solid #b5b4b5;padding:5px 20px 5px 20px;overflow:auto; zoom:1;}
+    .ordercon ul li .span1{float: left;}
+    .ordercon ul li .span2{float: right;}
+    .ordercon ul .li1{border-bottom: 1px solid #b5b4b5;height: 30px;line-height: 17px;font-size: 12px;padding:5px 10px 5px 10px;}
+    .ordercon ul .li2{height: auto;background-color: #f7f7f7;}
+    .ordercon ul .li2 img{width: 20%;}
+    .ordercon ul .li3 input{width: 25px;text-align: center;float: left;border:0px;font-size: 16px;}
+    .ordercon ul .li3 .span2 span{background-color:#dfdedd;color: #fff;border-radius:8px;width: 16px;height: 16px;display: list-item;line-height: 14px;float: left;text-align: center;font-size: 16px;margin-top: 5px;}
+    .orderfoot{height: 45px;width: 100%;left:0px;border-top: 1px solid #b5b4b5;position: fixed;bottom: 0px;padding:0px 0px 0px 20px;overflow:auto; zoom:1;overflow:auto; zoom:1;line-height: 44px;background-color: #fff;}
+    .orderfoot div{float: left;}
+    .orderfoot input{text-align: center;background-color: #7d191d;border:0px;width: 40%;color: #fff;font-size: 16px;float: right;height: 44px;}
+    /*#num-jian{background-color:#dfdedd;color: #fff;border-radius:8px;width: 16px;height: 16px;display: list-item;line-height: 14px;float: left;text-align: center;font-size: 16px;margin-top: 5px;}*/
+    .ordercon ul .li6 ul li{border-bottom: 0px;}
+    .ordercon ul .li6 .radio2{float: left;background:url(__PUBLIC__/mobile/img/radion2.png) no-repeat right center;width: 32px;height: 32px;}
+    .ordercon ul .li6 .radio2.active {
+        background:url(__PUBLIC__/mobile/img/radio1.png) no-repeat right center;width: 32px;height: 32px;
+    }
+    #pay{border-radius:0px;-webkit-appearance: none;}
+</style>
+<body style="margin: 0 auto;">
+<header>
+    <a class="back" href="javascript:history.back(-1)" >&lt;</a>
+    <h1 style="line-height: 4px;">认领确认</h1>
+</header>
+<form action="{:U('Property/doOrderConfirm')}"  method="post">
+    <empty name="address">
+        <div class="ordertop" style="text-align: center;">
+            <a href="{:U('Goods/addmanaddress',array('pc_id'=>$order['id'],'input_num'=>$order['num']))}" style="font-size: 26px;color: #b5b4b5;line-height:70px;">新建地址</a>
+        </div>
+    <else /> 
+        <div class="ordertop">
+            <?php $addressArr = memaddress($address['province'],$address['city'],$address['district']);?>
+            <div class="ortple">{$address['consignee']}</div>
+            <div class="ortpri">
+                <p class="p1">{$address['mobile']}</p>
+                <p class="p2">{$addressArr['province']}&nbsp;{$addressArr['city']}&nbsp;{$addressArr['district']}&nbsp;{$address['address']}
+                </p>
+            </div>
+        </div>
+    </empty> 
+    <div class="ordercon">
+        <hr>
+        <ul>
+            <li class="li1">
+                <span class="span1" id="sn">订单号:{$ordernum}</span>
+            </li>
+            <li class="li2">
+                <notempty name="projchildArr['pc_pic']">
+                    <img src="{$projchildArr['pc_pic']}">
+                    <else/>
+                    <img src="__PUBLIC__/images/sm.jpg">
+                </notempty>
+                <span style="margin-left: 10px;">
+                    项目名：{$projchildArr['pc_title']}
+                </span>
+                <span style="margin-top: 15px;float:right">
+                    <span class="price">
+                       ￥{$projchildArr['pc_money']}
+                    </span>
+                </span>
+            </li>
+            <li class="li3">
+                <span class="span1">
+                    购买数量
+                </span>
+                <span class="span2">
+                    {$saleNum}
+                </span>
+            </li>
+            <li class="li4">
+                <span class="span1">单件运费</span>
+                <span class="span2">
+                    <span id="shipping_price">
+                       ￥{$projchildArr['pc_omoney']}
+                    </span>
+                </span>
+            </li>
+        </ul>
+        <hr>
+    </div>
+    <br>
+    <br>
+    <div class="orderfoot">
+        <div class="combined">
+            <span id="span-num">
+                共{$saleNum}件商品
+            </span>
+            <span id="money">
+                合计:{$saleNum*($projchildArr['pc_money']+$projchildArr['pc_omoney'])}
+            </span>
+        </div>
+        <input type="hidden" name="address_id" id="consignee" value="{$address.id}"/>
+        <input type="hidden" name="ordernum"  value="{$ordernum}"/>
+        <input type="hidden" name="pc_id"  value="{$projchildArr.id}"/>
+        <input type="hidden" name="saleNum"  value="{$saleNum}"/>
+        <input type="hidden" name="property_id"  value="{$property_id}"/>
+        <input type="submit" name="" id="pay" value="去付款"/>
+    </div>
+</form>
+<include file="Public/wxshare"/>
+</body>
+</html>

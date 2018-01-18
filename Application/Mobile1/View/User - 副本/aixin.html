@@ -1,0 +1,70 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>我的庄园</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script type="text/javascript" src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <style>
+        .lie2{float:left;width:100%;margin-top:10vw;}
+        .ll2{folat:left;width:90%;margin-left:5%;height:20vw;margin-left:4vw;}
+        .ll2 ul{float:left;margin-left: 3vw;font-size: 3vw;line-height: 3vh;border-radius: 4%;background-color: white;box-shadow:  2px 2px 2px #898989;}
+        .ll2 ul li{width:60vw;}
+        .az{float:left;text-align: center;width:100%;color:red;border-bottom: 1px solid #cccccc;}
+    </style>
+</head>
+<header>
+    <a class="back" href="{:U('index')}" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>爱心记录</h4>
+</header>
+<body style="margin:0px auto;overflow: auto;height:120vw;">
+<div class="az">
+    爱心积分：{$zhi.0.coins}
+</div>
+<div class="lie2">
+
+</div>
+
+<include file="Public/footer"/>
+</body>
+</html>
+<script>
+    var page = 1;
+
+    $(function () {
+        // 保存gotop按钮
+        // 检测滚动条位置，高于600回顶部按钮显示
+        getDateMore();
+
+    });
+
+    $(window).scroll(function(){
+        if($(document).scrollTop()==$(document).height()-$(window).height())
+        {
+            getDateMore();
+        }
+    })
+
+    function getDateMore(){
+        $.ajax({
+            type : "post",
+            url:"{:U('ajaxaixin')}",
+            data:{"page":page},
+            dataType:'html',
+            success: function(data)
+            {
+                $(".lie2").append(data);
+                page = page+1;
+                if("<?php echo $cou; ?>"<4){
+                    $('#get_more').css('display','none');
+                    $('#shi').show();
+                }
+            }
+        });
+    }
+</script>

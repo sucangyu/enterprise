@@ -1,0 +1,18 @@
+<aside class="main-sidebar" style="overflow-y:auto;">
+  <section class="sidebar">
+    <ul class="sidebar-menu">
+      <volist name="node" id="vo">
+        <li class="treeview">
+          <a href="javascript:void(0)">
+            <i class="fa {$vo.remark}"></i><span>{$vo.title}</span><i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <volist name="vo['node']" id="vv">
+              <li onclick="makecss(this,{$vv.id})" id="menu_{$vv.id}"><a href="__APP__/Admin/{$vo.name}/{$vv.name}" target='rightContent'><i class="fa fa-circle-o"></i>{$vv.title}</a></li>
+            </volist>
+          </ul>
+        </li>
+      </volist>
+    </ul>
+  </section>
+</aside>

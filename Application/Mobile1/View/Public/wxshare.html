@@ -1,0 +1,100 @@
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    wx.config({
+        appId: "<?php echo $signPackage['appId'];?>",
+        timestamp: "<?php echo $signPackage['timestamp'];?>",
+    nonceStr: "<?php echo $signPackage['nonceStr'];?>",
+            signature: "<?php echo $signPackage['signature'];?>",
+            jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice',
+        'startRecord',
+        'stopRecord',
+        'onRecordEnd',
+        'playVoice',
+        'pauseVoice',
+        'stopVoice',
+        'uploadVoice',
+        'downloadVoice',
+        'chooseImage',
+        'previewImage',
+        'uploadImage',
+        'downloadImage',
+        'getNetworkType',
+        'openLocation',
+        'getLocation',
+        'hideOptionMenu',
+        'showOptionMenu',
+        'closeWindow',
+        'scanQRCode',
+        'chooseWXPay',
+        'openProductSpecificView',
+        'addCard',
+        'chooseCard',
+        'openCard'
+    ]
+    });
+    wx.ready(function () {
+
+        var shareData = {
+            title: "<?php  echo C('SHARE_TITLE1');?>",
+            desc: "<?php  echo C('SHARE_DESC1');?>",
+            link: "<?php  echo C('SHARE_LINK1').$memberArr['id'];;?>",
+            imgUrl:"<?php  echo C('SHARE_IMG1');?>",
+        };
+        var adurl="<?php  echo C('SHARE_LINK1').$memberArr['id'];?>";//回调
+        //分享朋友
+        wx.onMenuShareAppMessage({
+            title: shareData.title,
+            desc: shareData.desc,
+            link: shareData.link,
+            imgUrl:shareData.imgUrl,
+            trigger: function (res) {
+            },
+            success: function (res) {
+//                window.location.href ="fx.php?bk=2&showfs=1&useid=<?php echo $_SESSION[$PRE.'userid'];?>";
+                window.location.href = adurl;
+            },
+            cancel: function (res) {
+            },
+            fail: function (res) {
+                alert(JSON.stringify(res));
+            }
+        });
+        //朋友圈
+        wx.onMenuShareTimeline({
+            title: shareData.title+"---"+shareData.desc,
+            link: shareData.link,
+            imgUrl:shareData.imgUrl,
+            trigger: function (res) {
+            },
+            success: function (res) {
+//                window.location.href ="fx.php?bk=2&showfs=2&useid=<?php echo $_SESSION[$PRE.'userid'];?>";
+                window.location.href = adurl;
+            },
+            cancel: function (res) {
+            },
+            fail: function (res) {
+                alert(JSON.stringify(res));
+            }
+        });
+
+    });
+
+
+    function share(){
+        document.getElementById('share-wx').style.display = 'block';
+        document.getElementById('share-wx').onclick = function(){
+            this.style.display = 'none';
+        };
+    }
+
+</script>

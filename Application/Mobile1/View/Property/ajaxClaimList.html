@@ -1,0 +1,15 @@
+<volist name="propertytakeMArr" id="vo">
+    <div class="ll2">
+        <notempty name="vo['Goods']['titlepic']">
+            <img src="{$vo['Goods']['titlepic']}" style="float:left;width:12vw;height:6vh;border-radius: 100%;margin-top: 0vh">
+            <else/>
+            <img src="__PUBLIC__/images/tj12.jpg" style="float:left;width:12vw;height:6vh;border-radius: 100%;margin-top: 0vh">
+        </notempty>
+        <ul>
+            <!--<li style="color:#cccccc">{$vo['Goods']['title']}:</li>-->
+            <li style="color:#595757"> {$vo.regtime|date='Y-m-d',###}
+                收取了
+                {$vo['nums']}&nbsp;份&nbsp;{$vo['Goods']['titles']}&nbsp;&nbsp;</li>
+        </ul>
+    </div>
+</volist>

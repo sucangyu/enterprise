@@ -1,0 +1,69 @@
+header{height:47px;width:100%;background: #3c3c3c;color:#fff;text-align: center}
+header h1{line-height: 47px;font-size: 16px}
+
+/*index*/
+.wrapper{width:100%;max-width: 640px;margin:0 auto;overflow: hidden;}
+.mainBox-p{display: inline-block;font-size: 15px;padding:10px}
+.top_banner{width:100%;}
+.top_banner img{display: block;width:100%;}
+.mainBox{width:100%;box-sizing: border-box;}
+.mb_a{display: block;margin-bottom: 0px}
+.mb_a img{display: block;width:100%}
+.mb_img{display: block;width:100%}
+
+/*detail*/
+.detail_content{width:100%}
+.detail_get{width: 100%;position: fixed;bottom:0;height:45px;background: #3c3c3c}
+.detail_get_a{float: right;color:#fff;display: block;border:1px solid #5ec91e;padding:3px;margin-top:10px;margin-right:15px}
+.detail_get_img{float: left;margin-left:15px}
+.detail_get_img img{display: block;width:35px;height:35px;margin-top:5px;float: left}
+.detail_get_info{float: left;margin-top:5px;margin-left:8px}
+.detail_get_info .p1{color:#5ec91e}
+.detail_get_info .p2{color:#fff}
+.index_img{width:100%;position: relative}
+.index_img img{width:100%;display: block}
+.index_img span{position: absolute;left:37%;top:56.5%;font-size: 16px;font-weight: bold;color:red}
+
+/*purchase*/
+.purchase_banner{width:100%;float: left}
+.purchase_banner img{display: block;width:100%}
+.purchase_content{width: 100%;float: left;background: #e9e9e9}
+.purchase_mod{float: left;width: 100%;background: #fff;}
+.purchase_span{display: block;float: left;line-height: 40px;font-size: 15px;color:#666;padding-left:10px}
+.purchase_jiajian{float: right;padding-right:10px;}
+.purchase_jiajian span{display: block;float: left;}
+.add,.min{text-indent: -999px;background-repeat: no-repeat;background-position: left center;width:30px;height:40px;line-height: 40px}
+.add{background-image: url("../images/add.png");}
+.min{background-image: url("../images/min.png");}
+.mid{width:30px;margin:5px 5px;height:30px;text-align: center;line-height: 30px;background: #697077;color:#fff;border-radius:5px;font-size: 15px;font-weight: bold}
+.red,.purchase_mod_span strong{color:#ff0000}
+.purchase_content h2{color:#666;line-height: 30px;padding-left: 10px;font-size: 14px}
+.bot{border-bottom:1px solid #ccc}
+.purchase_mod_box{width:100%;position: relative;box-sizing: border-box;padding-left: 98px;padding-right:20px;margin-bottom:10px}
+.purchase_mod_box input{width:100%;height:30px}
+.purchase_mod_span{position: absolute;left:10px;top:0;color:#666;font-size: 16px;height:30px;line-height: 30px}
+.purchase_submit{width:100%;text-align: center;padding:10px 0 20px 0}
+.purchase_submit button{width:200px;background: #3c3c3c;border:none;padding: 10px 0;color:#fff;font-size: 15px;font-weight: bold;border-radius: 6px}
+.purchase_mod_cy{line-height: 30px;font-size: 16px;color:#000;text-align: center;width:130px;border:1px solid #f93008;border-radius:5px}
+
+/*pay*/
+.pay_mainbox{width:100%;box-sizing: border-box;padding:10px;background: #e9e9e9}
+.pay_mod{width:100%;border:1px solid #ccc;border-radius: 6px;background: #fff;margin-bottom:10px}
+.pay_title{padding:0 20px;line-height: 40px;font-size: 15px;color:#666;border-bottom:1px solid #ccc ;background-image: url("../images/pay_bg.png");background-repeat:repeat-x;border-top-left-radius:6px; border-top-right-radius:6px; }
+.pay_info{width:100%;box-sizing: border-box;padding:10px 15px;}
+.pay_info p{font-size: 16px;line-height: 25px;color:#484848}
+.pay_goods{width:100%;box-sizing: border-box;padding-left:120px;position: relative;height:120px}
+.pay_goods img{display: block;width:100px;height:100px;position: absolute;left:10px;top:10px}
+.pay_goods_info{width:100%;padding-top:20px;position: relative;box-sizing: border-box;height:120px}
+.pay_goods_info p{font-size: 16px;color:#484848}
+.pay_goods_total{position: absolute;bottom:10px;;left:0;color:#ff0000!important;}
+.pay_submit{width:100%;text-align: center;}
+.pay_submit button{width:300px;height:44px;border: none;text-indent: -999px;background-image: url("../images/pay_submit.png");background-repeat: no-repeat;background-size:100% 100%}
+
+.pay_submit1{width:100%;text-align: center;}
+.pay_submit1 button{width:300px;height:44px;border: none;text-indent: -999px;background-image: url("../images/pay_ym1.png");background-repeat: no-repeat;background-size:100% 100%}
+
+.pay_submit2{width:100%;text-align: center;}
+.pay_submit2 button{width:300px;height:44px;border: none;text-indent: -999px;background-image: url("../images/pay_other2.png");background-repeat: no-repeat;background-size:100% 100%}
+.pay_submitok{width:100%;text-align: center;}
+.pay_submitok button{width:300px;height:44px;border: none;text-indent: -999px;background-image: url("../images/pay_ok.png");background-repeat: no-repeat;background-size:100% 100%}

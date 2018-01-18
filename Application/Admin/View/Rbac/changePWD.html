@@ -1,0 +1,79 @@
+<include file="Public/min-header" />
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content ">
+        <!-- Main content -->
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回后台首页"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 修改密码</h3>
+                </div>
+                <div class="panel-body ">
+                    <!--表单数据-->
+                    <form method="post" id="adminHandle" action="{:U('Rbac/do_changePWD')}" onsubmit="return adsubmit();">
+                        <!--通用信息-->
+                        <div class="tab-content col-md-10">
+                            <div class="tab-pane active" id="tab_tongyong">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <td class="col-sm-2">用户名：</td>
+                                        <td class="col-sm-8">
+                                            {$userArr['username']}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>新密码：</td>
+                                        <td >
+                                            <input type="password" name="password" class="form-control" value="" placeholder="不修改请留空" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>确认新密码：</td>
+                                        <td >
+                                            <input type="password" name="r_password" class="form-control" value="" placeholder="不修改请留空" />
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td class="text-right">
+                                            <input type="hidden" name="id" value="{$userArr['id']}">
+                                            <input class="btn btn-primary" type="submit" value="修改">
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </form><!--表单数据-->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    function adsubmit(){
+        var loginPWD = $("input[name='password']");
+        var loginPWD_r = $("input[name='r_password']");
+        if(loginPWD.val() != loginPWD_r.val())
+        {
+            layer.msg('两次密码输入不一致！', {icon: 2,time: 1000});
+            loginPWD.val('');
+            loginPWD_r.val('');
+            loginPWD.focus();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+</script>
+</body>
+</html>

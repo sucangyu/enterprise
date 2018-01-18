@@ -1,0 +1,99 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>认购列表</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link href="__PUBLIC__/mobile/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/mobile/css/common.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <script type="text/javascript" src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+    
+</head>
+<style type="text/css">
+    #ok{border:1px solid #FF0000;transform:rotate(9deg);-ms-transform:rotate(9deg);-moz-transform:rotate(9deg);-webkit-transform:rotate(9deg);-o-transform:rotate(10deg);}
+     .col-xs-6{padding-left: 1px;padding-right: 1px;margin-bottom: 10px;}
+    .details2 .p1{text-align: left;margin-left: 1px;}
+    .goodimg{width: 100%;}
+    p{margin-bottom: 0px;}
+    .hengxian{width:20%;height:1px;padding:0px;overflow:hidden;display:inline-block;background: #CCCCCC;margin-bottom: 5px;}
+    .col-xs-6 .btn{padding:3px 12px;}
+    .foot {bottom: 0px;left: 0px;height: 50px;width: 100%;border-top: 1px solid #b5b4b5;text-align: center;line-height: 50px;font-size: 24px;color: #b5b4b5;background-color: #ffffff;position: fixed;width: 100%;}
+    .foot .foota {font-size: 18px;color: #b5b4b5;width: 45%;text-align: center;display: inline-block;}
+</style>
+<style>
+    a,a:hover{ text-decoration:none; color:#333}
+</style>
+<body style="margin:0 auto;">
+<header>
+    <a class="back" href="javascript:history.back(-1)" >&lt;</a>
+    <h1 style="line-height: 4px;">认购列表</h1>
+</header>
+    <div style="width:100%;overflow: auto;">
+        <img src="__PUBLIC__/images/sm.jpg" class="indeximg" style="width: 100%;">
+    </div>
+    <div style="height: 60px;line-height: 50px;color: #CCCCCC;text-align: center;border-top: 8px solid #dcdddc;border-bottom: 8px solid #dcdddc;">
+        <span class="hengxian"></span>
+        <span style="font-size: 20px;">认购产品展示</span>
+        <span class="hengxian" ></span>
+    </div>
+    <div class="ajax_return" style="width:100%">
+
+    </div>
+    <a href="javascript:;" id="get_more" style="text-align:center; display:block;">
+        <img src='__PUBLIC__/images/loader.gif' width="12" height="12">
+    </a>
+    <div class="foot">
+        <a href="{:U('Index/index')}" class="foota">沙漠的爱</a>
+        |
+        <a href="{:U('User/index')}" class="foota">我的庄园</a>
+    </div>
+</body>
+
+</html>
+<script>
+    $(document).ready(function(){
+        var width = $('.indeximg').css('width');
+        var heig = parseInt(width) * 0.5;
+        heig = heig+"px";
+        $('.indeximg').css('height',heig);
+//      alert(width);
+    })
+    var gotop = $("#retop");
+    var page = 1;
+    var pays=$("#pays").val();
+    $(function () {
+        // 保存gotop按钮
+        // 检测滚动条位置，高于600回顶部按钮显示
+        getDateMore();
+
+    });
+
+    $(window).scroll(function(){
+        if($(document).scrollTop()==$(document).height()-$(window).height())
+        {
+            getDateMore();
+        }
+    })
+
+    function getDateMore(){
+        $.ajax({
+            type : "post",
+            url:"{:U('Goods/ajaxindex')}",
+            data:{"page":page},
+            dataType:'html',
+            success: function(data)
+            {
+                $(".ajax_return").append(data);
+                page = page+1;
+                if("<?php echo $cou; ?>"<4){
+                    $('#get_more').css('display','none');
+                    $('#shi').show();
+                }
+            }
+        });
+    }
+
+</script>

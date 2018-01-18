@@ -1,0 +1,14 @@
+<foreach name="aixin" item="v">
+    <div class="ll2">
+        <ul>
+            <li style="color:#595757"> {$v.regtime|date='Y-m-d H:i',###}
+                <if condition="$v['kind'] eq 3">
+                    打赏了{$v.tmoney}&nbsp;
+                    <else/>
+                    领取了{$v.treenum}棵树
+                </if>
+            </li>
+            <li style="color:#595757">获得了{$v.tmoney}点爱心值</li>
+        </ul>
+    </div>
+</foreach>

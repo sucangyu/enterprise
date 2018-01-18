@@ -1,0 +1,67 @@
+/*CSS reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ol,ul{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0}
+
+/*文字排版*/
+.f12{font-size:12px}
+.f13{font-size:13px}
+.f14{font-size:14px}
+.f16{font-size:16px}
+.f20{font-size:20px}
+.fb{font-weight:bold}
+.fn{font-weight:normal}
+.t2{text-indent:2em}
+.lh150{line-height:150%}
+.lh180{line-height:180%}
+.lh200{line-height:200%}
+.unl{text-decoration:underline}
+.no_unl{text-decoration:none}
+
+/*定位*/
+.tl{text-align:left}
+.tc{text-align:center}
+.tr{text-align: right}
+.bc{margin-left:auto;margin-right:auto}
+.fl{float:left}
+.fr{float:right}
+.cb{clear:both}
+.cr{clear:right}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{display:inline-block}* html .clearfix{height:1%}.clearfix{display:block}
+.vm{vertical-align:middle}
+.pr{position:relative}
+.pa{position:absolute}
+.abs-right{position:absolute;right:0}
+.zoom{zoom:1}
+.hidden{visibility: hidden}
+.none{display: none}
+
+/*长度高度*/
+.w10{width:10px}
+.w{width:100%}
+.h10{height:10px}
+.h{height:100%}
+
+/*边距*/
+.p6{padding:6px}
+.m10{margin:10px}
+.mt10{margin-bottom:10px}
+.mb10{margin-bottom:10px}
+.mb15{margin-top:15px}
+.ml10{margin-left:10px}
+.mr10{margin-right:10px}
+.p10{padding:10px;}
+.pt10{padding-top:10px}
+.pb10{padding-bottom:10px}
+.pl10{padding-left:10px}
+.pr10{padding-right:10px}
+
+/*隐藏*/
+.ow{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}

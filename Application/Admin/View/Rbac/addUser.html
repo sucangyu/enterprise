@@ -1,0 +1,173 @@
+<include file="Public/min-header" />
+<link rel="stylesheet" href="__PUBLIC__/kindeditor/themes/default/default.css" />
+<script src="__PUBLIC__/kindeditor/kindeditor-all.js"></script>
+<script src="__PUBLIC__/kindeditor/lang/zh-CN.js"></script>
+<script type="text/javascript">
+    KindEditor.ready(function(K) {
+        var editor = K.editor({
+            allowFileManager : true
+        });
+        K('#image1').click(function() {
+            editor.loadPlugin('image', function() {
+                editor.plugin.imageDialog({
+                    imageUrl : K('#url1').val(),
+                    clickFn : function(url, title, width, height, border, align) {
+                        K('#url1').val(url);
+                        K('#show_img').html('<img style="width:100%;height:100%" src="'+url+'"/>');
+                        editor.hideDialog();
+                    }
+                });
+            });
+        });
+    });
+</script>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content ">
+        <!-- Main content -->
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回管理员列表"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 添加管理员</h3>
+                </div>
+                <div class="panel-body ">
+                    <!--表单数据-->
+                    <form method="post" id="adminHandle" action="{:U('Rbac/do_addUser')}" onsubmit="return adsubmit();">
+                        <!--通用信息-->
+                        <div class="tab-content col-md-10">
+                            <div class="tab-pane active" id="tab_tongyong">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <td class="col-sm-2">登录名称：</td>
+                                        <td class="col-sm-8">
+                                            <input type="text" class="form-control" name="username" value="" >
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>登录密码：</td>
+                                        <td >
+                                            <input type="password" class="form-control" name="password" value="" >
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>确认登录密码：</td>
+                                        <td >
+                                            <input type="password" class="form-control" name="r_password" value="" >
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-2">管理员姓名：</td>
+                                        <td class="col-sm-8">
+                                            <input type="text" class="form-control" name="truename" value="" >
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-2">管理员手机：</td>
+                                        <td class="col-sm-8">
+                                            <input type="text" class="form-control" name="phone" value="" >
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-2">管理员头像：<br/>(建议尺寸: 100*100或正方型图片)</td>
+                                        <td class="col-sm-8">
+                                            <div>
+                                                <div style="width: 200px; height: 150px;" id="show_img"></div>
+                                                <div>
+                                                    <input type="hidden" id="url1" name="userimg" value="" />
+                                                    <input type="button" id="image1" value="选择图片" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>状态：</td>
+                                        <td>
+                                            <select name="status">
+                                                <option value="1" selected >开启</option>
+                                                <option value="0">关闭</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>用户角色：</td>
+                                        <td>
+                                            <select name="role_id">
+                                                <volist name="role" id="vo1">
+                                                    <option value="{$vo1.id}">{$vo1.name}</option>
+                                                </volist>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td class="text-right">
+                                            <input class="btn btn-primary" type="submit" value="添加">
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </form><!--表单数据-->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    $(function(){
+        $("input[name='username']").on('blur',function(){
+            var pwd = $("input[name='username']").val();
+            $("input[name='password']").val(pwd);
+            $("input[name='r_password']").val(pwd);
+        });
+    });
+    function adsubmit(){
+        var loginName = $("input[name='username']");
+        var loginPWD = $("input[name='password']");
+        var loginPWD_r = $("input[name='r_password']");
+        if(loginName.val()=="")
+        {
+            layer.msg('请输入登录名！', {icon: 2,time: 1000});
+            loginName.focus();
+            return false;
+        }
+        else if(loginPWD.val()=="")
+        {
+            layer.msg('请输入密码！', {icon: 2,time: 1000});
+            loginPWD.focus();
+            return false;
+        }
+        else if(loginPWD_r.val()=="")
+        {
+            layer.msg('请输入确认密码！', {icon: 2,time: 1000});
+            loginPWD_r.focus();
+            return false;
+        }else if(loginPWD.val() != loginPWD_r.val())
+        {
+            layer.msg('两次密码输入不一致！', {icon: 2,time: 1000});
+            loginPWD.val('');
+            loginPWD_r.val('');
+            loginPWD.focus();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+</script>
+</body>
+</html>

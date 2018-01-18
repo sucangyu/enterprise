@@ -1,0 +1,99 @@
+<include file="Public/min-header" />
+<div class="wrapper">
+	<include file="Public/breadcrumb"/>
+	<section class="content">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="box">
+					<div class="box-header">
+						<nav class="navbar navbar-default">
+							<div class="collapse navbar-collapse">
+								<form class="navbar-form form-inline" action="{:U('Rbac/userList')}" method="get">
+									<div class="form-group">
+										<input type="text" name="truename" placeholder="请输入管理员姓名" class="form-control" placeholder="搜索">
+									</div>
+									<button type="submit" class="btn btn-default">搜索</button>
+									<div class="form-group pull-right">
+										<a href="{:U('Rbac/addUser')}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>添加管理员</a>
+									</div>
+								</form>
+							</div>
+						</nav>
+					</div>
+					<div class="box-body">
+						<div class="row">
+							<div class="col-sm-12">
+								<table id="list-table" class="table table-bordered table-striped dataTable">
+									<thead>
+									<tr role="row">
+										<th>ID</th>
+										<th>角色</th>
+										<th>头像</th>
+										<th>帐号</th>
+										<th>姓名</th>
+										<th>手机</th>
+										<th>状态</th>
+										<th>最近登录时间</th>
+										<th>操作</th>
+									</tr>
+									</thead>
+									<tbody>
+									<volist name="userList" id="vo">
+										<tr role="row" align="center">
+											<td class="text-center">{$vo.id}</td>
+											<td class="text-center">
+												<eq name="vo['id']" value="1">
+													超级管理员
+													<else/>
+													{$vo['Role'][0]['name']}
+												</eq>
+											</td>
+											<td class="text-center">
+												<img style="width: 100px;height:50px" src="{$vo.userimg}">
+											</td>
+											<td class="text-center">{$vo.username}</td>
+											<td class="text-center">{$vo.truename}</td>
+											<td class="text-center">{$vo.phone}</td>
+											<td class="text-center">
+												<if condition="$vo['status'] eq 0">
+													<span style="color: red">禁用</span>
+													<else/>
+													<span style="color: green">启用</span>
+												</if>
+											</td>
+											<td class="text-center">
+												<if condition="$vo.logintime neq 0">
+													{$vo.logintime|date='Y-m-d H:i:s',###}
+												</if>
+											</td>
+											<td class="text-center">
+												<if condition="$vo['id'] neq 1">
+													<if condition="$vo['status'] eq 1">
+														<a class="btn btn-danger" href="{:U('Rbac/delUser',array('id'=>$vo['id'],kd=>0))}" onclick="return confirm('确定要禁用该账户吗？');"><i class="icon-edit"></i>禁用账户</a>
+														<else/>
+														<a class="btn btn-primary" href="{:U('Rbac/delUser',array('id'=>$vo['id'],'kd'=>1))}" onclick="return confirm('确定要恢复该账户吗？');"><i class="icon-edit"></i>恢复账户</a>
+													</if>
+													&nbsp;<a  class="btn btn-danger" href="{:U('Rbac/delUser',array('id'=>$vo['id'],'kd'=>2))}" onclick="return confirm('删除后不能恢复，确定要删除吗？');"><i class="icon-edit"></i>删除账户</a>&nbsp;
+												</if>
+												&nbsp;<a  class="btn btn-primary" href="{:U('Rbac/editUser',array('id'=>$vo['id']))}"><i class="icon-edit"></i>账户编辑</a>&nbsp;
+											</td>
+										</tr>
+									</volist>
+									</tbody>
+									<tfoot>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 text-left"></div>
+							<div class="col-sm-6 text-right">{$page}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>

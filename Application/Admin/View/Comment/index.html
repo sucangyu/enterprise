@@ -1,0 +1,81 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 咨询列表</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="navbar navbar-default">
+                        <form action="" id="search-form2" class="navbar-form form-inline" method="post" onsubmit="return false">
+                            <div class="form-group">
+                                <select name="isreturn" id="admin_id" class="form-control">
+                                    <option value="">所有类型</option>
+                                    <option value="1">已答复</option>
+                                    <option value="0">未答复</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="input-mobile">项目</label>
+                                <div class="input-group">
+                                    <input type="text" name="proj_id" value="" placeholder="项目名称" id="input-mobile" class="form-control">
+                                    <!--<span class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></span>-->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="input-email">会员</label>
+                                <div class="input-group">
+                                    <input type="text" name="mid" value="{$mid}" placeholder="会员名称" id="input-email" class="form-control">
+                                    <!--<span class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></span>-->
+                                </div>
+                            </div>
+                            <input type="hidden" name="order_by" value="isdel">
+                            <input type="hidden" name="sort" value="asc">
+                            <button type="submit" onclick="ajax_get_table('search-form2',1)" id="button-filter search-order" class="btn btn-primary pull-right"><i class="fa fa-search">查找</i></button>
+                        </form>
+                    </div>
+                    <div id="ajax_return">
+
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script>
+    $(document).ready(function(){
+        ajax_get_table('search-form2',1);
+
+    });
+    // ajax 抓取页面
+    function ajax_get_table(tab,page){
+        cur_page = page; //当前页面 保存为全局变量
+        var url = "{:U('Comment/ajaxindex')}";
+        $.ajax({
+            type : "POST",
+            url:url+"?p="+page,//+tab,
+            data : $('#'+tab).serialize(),// 你的formid
+            success: function(data){
+                $("#ajax_return").html('');
+                $("#ajax_return").append(data);
+            }
+        });
+    }
+
+    // 点击排序
+    function sort(field)
+    {
+        $("input[name='order_by']").val(field);
+        var v = $("input[name='sort']").val() == 'desc' ? 'asc' : 'desc';
+        $("input[name='sort']").val(v);
+        ajax_get_table('search-form2',cur_page);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<include file="Public/min-header"/>
+<link rel="stylesheet" href="__PUBLIC__/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/admin_css.css" />
+<link href="__PUBLIC__/plugins/daterangepicker2/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="__PUBLIC__/kindeditor/themes/default/default.css" />
+<script src="__PUBLIC__/kindeditor/kindeditor-all.js"></script>
+<script src="__PUBLIC__/kindeditor/lang/zh-CN.js"></script>
+<script src="__PUBLIC__/plugins/daterangepicker2/moment.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/plugins/daterangepicker2/daterangepicker.js" type="text/javascript"></script>
+<!--<script src="__PUBLIC__/js/jquery-1.8.3/jquery.min.js"></script>-->
+<script src="__PUBLIC__/kindeditor/kindeditor-all.js"></script>
+<script type="text/javascript">
+    KindEditor.ready(function(K) {
+        var editor = K.editor({
+            allowFileManager : true
+        });
+        K('#image1').click(function() {
+            editor.loadPlugin('image', function() {
+                editor.plugin.imageDialog({
+                    imageUrl : K('#url1').val(),
+                    clickFn : function(url, title, width, height, border, align) {
+                        K('#url1').val(url);
+                        K('#show_img').html('<img style="width: 200px; height: 150px;" src="'+url+'"/>');
+                        editor.hideDialog();
+                    }
+                });
+            });
+        });
+    });
+</script>
+<div class="wrapper">
+    <!-- Content Header (Page header) -->
+    <include file="Public/breadcrumb"/>
+    <section class="content">
+        <!-- Main content -->
+        <!--<div class="container-fluid">-->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-list"></i> 回复信息</h3>
+                    </div>
+                    <div style="width:1000px;height:300px;overflow-y:scroll;">
+                    <form action="{:U('reply')}" method="post">
+                    <table style="word-break:break-all; word-wrap:break-all;">
+                    <div class="panel-body">
+                        <volist name="comment" id="com">
+                        <if condition="$com.pid == 0">
+                            <input type="hidden" name="proj_id" value="{$com.proj_id}">
+                            <input type="hidden" name="pid" value="{$com.id}">
+                            <tr>
+                                <td style="width:70px;text-align: center;">
+                                    <img src="{$com['userimage']}" width="70px" height="70px" style="border-radius: 50%;margin-top: -15px;margin-left:10px;float: left" >
+                                    <span style="float:left;width:70px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{$com.nickname}</span>
+                                </td>
+                                <td>
+                                    <div style="width:800px;overflow: auto;border:none;float:left;border-radius: 5px;font-size:2vw;color:#000;margin-left: 10px;">
+                                        <span style="float: left;background-color:#7E7E84;border-radius: 5px"> &nbsp;&nbsp;{$com['questions']}&nbsp;&nbsp;  </span>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="text-align: center">
+                                    <sapn style="margin-top:30px;float: left;margin-left: 5px">{$com.regtime|date='Y-m-d H:i',###}</sapn>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <else/>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div style="width:800px;overflow: auto;border:none;float:left;border-radius: 5px;color:#000;margin-left: 10px;">
+                                        <span style="float: right;background-color:#7E7E84;border-radius: 5px;font-size:2vw;">&nbsp;&nbsp;{$com['questions']}&nbsp;&nbsp;</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <img src="{$com['userimage']}" width="70px" height="70px" style="border-radius: 50%;margin-top: -15px;margin-left:10px;float: left" >
+                                    <span style="float:left;width:70px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{$com.nickname}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="text-align: center">
+                                    <sapn style="margin-top:30px;float:right;margin-top: 1px">{$com.regtime|date='Y-m-d H:i',###}</sapn>
+                                </td>
+                                <td></td>
+                            </tr>
+                            </if>
+                            <tr style="height:10px"></tr>
+                        </volist>
+                    </div>
+                    </table>
+                    </div>
+                    <div width="85%" style="margin-top: 150px;">
+                        <textarea class="span12 ckeditor" style="width: 950px;height:320px;" id="goods_content" name="goods_content" title="">{$goodsInfo.goods_content}</textarea>
+                        <select name="mid" style="height:25px">
+                            <option value="0">请选择回复人</option>
+                            <volist name="user" id="use">
+                            <option value="{$use.id}">{$use.nickname}</option>
+                            </volist>
+                        </select>
+                        <span id="err_goods_content" style="color:#F00; display:none;"></span>
+                        <input id="submit" type="submit" value="回复" style="background-color: #0a8ddf;border:none;width:100px;height:30px;font-size: 22px"/>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>    <!-- /.content -->
+    </section>
+</div>
+
+<script type="text/javascript">
+    KindEditor.ready(function(K) {
+        var editor = K.editor({
+            allowFileManager : false
+        });
+        K.create('textarea[name="goods_content"]', {
+            allowFileManager : true,
+            //ajax提交表单时获取tesxarea值
+            afterBlur: function(){this.sync();}
+        });
+
+        K('#original_img').click(function() {
+            editor.loadPlugin('image', function() {
+                editor.plugin.imageDialog({
+                    imageUrl : K('#original_img_save').val(),
+                    clickFn : function(url, title, width, height, border, align) {
+                        K('#original_img_save').val(url);
+                        K('#show_img').html('<img style="width: 200px; height: 150px;" src="'+url+'"/>');
+                        editor.hideDialog();
+                    }
+                });
+            });
+        });
+
+        K('#pics').click(function() {
+            editor.loadPlugin('image', function() {
+                editor.plugin.imageDialog({
+                    clickFn : function(url, title, width, height, border, align) {
+                        var div2 = $('#show_pics');
+                        var html = '<div style="width:100px; text-align:center; margin: 5px; display:inline-block;" class="goods_xc">';
+                        html += '<input type="hidden" value="'+url+'" name="goods_images[]">';
+                        html += '<a><img width="100" height="100" src="'+url+'"></a><br>';
+                        html += '<a href="javascript:void(0)" onclick="ClearPicArr2(this)">删除</a></div>';
+                        div2.append(html);
+                        editor.hideDialog();
+                    }
+                });
+            });
+        });
+    });
+    $('#submit').click(function(){
+        var admin_id=$("select[ name='mid' ] ").val();
+        var questions=$("textarea[ name='goods_content' ] ").val();
+//        alert(admin_id);
+        if(admin_id==0){
+            alert('请选择回复人');
+            return false;
+        }else{
+            if(questions==''){
+                alert('请填写回复内容');
+                return false;
+            }else{
+//                $.ajax({
+//                    type : "get",
+//                    url:"{:U('/Admin/Comment/ajaxAdd')}",
+//                    data:{"admin_id":admin_id,"questions":questions},
+//                    dataType:'',
+//                    success: function(data)
+//                    {
+//                        }
+//
+//                });
+                return true;
+            }
+        }
+    })
+//    $(function(){
+//        Reload();
+//    })
+//    function Reload()
+//    {
+//        window.location.reload();
+//        setTimeou("Reload",1000);//5秒刷新一次
+//    }
+</script>
+</body>
+</html>

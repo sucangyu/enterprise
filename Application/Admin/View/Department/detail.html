@@ -1,0 +1,202 @@
+<include file="Public/min-header"/>
+<!--物流配置 css -start-->
+<style>
+    ul.group-list {
+        width: 96%;min-width: 1000px; margin: auto 5px;list-style: disc outside none;
+    }
+    ul.group-list li {
+        white-space: nowrap;float: left;
+        width: 150px; height: 25px;
+        padding: 3px 5px;list-style-type: none;
+        list-style-position: outside;border: 0px;margin: 0px;
+    }
+</style>
+<!--物流配置 css -end-->
+<link rel="stylesheet" href="__PUBLIC__/kindeditor/themes/default/default.css" />
+<script src="__PUBLIC__/kindeditor/kindeditor-all.js"></script>
+<script src="__PUBLIC__/kindeditor/lang/zh-CN.js"></script>
+<script type="text/javascript">
+    /*
+     * 上传之后删除组图input
+     * @access   public
+     * @val      string  删除的图片input
+     */
+    function ClearPicArr2(obj)
+    {
+        $(obj).parent().remove(); // 删除完服务器的, 再删除 html上的图片
+    }
+
+    KindEditor.ready(function(K) {
+        var editor = K.editor({
+            allowFileManager : false
+        });
+        K.create('textarea[name="content1"]', {
+            allowFileManager : true,
+            //ajax提交表单时获取tesxarea值
+            afterBlur: function(){this.sync();}
+        });
+
+        K('#dep_img').click(function() {
+            editor.loadPlugin('image', function() {
+                editor.plugin.imageDialog({
+                    imageUrl : K('#original_img_save').val(),
+                    clickFn : function(url, title, width, height, border, align) {
+                        K('#original_img_save').val(url);
+                        K('#show_img').html('<img style="width: 200px; height: 150px;" src="'+url+'"/>');
+                        editor.hideDialog();
+                    }
+                });
+            });
+        });
+
+    });
+</script>
+
+<!--以上是在线编辑器 代码  end-->
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content">
+        <!-- Main content -->
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+                <!--<a href="javascript:;" class="btn btn-default" data-url="http://www.tp-shop.cn/Doc/Index/article/id/1007/developer/user.html" onclick="get_help(this)"><i class="fa fa-question-circle"></i> 帮助</a>-->
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i>部门详情</h3>
+                </div>
+                <div class="panel-body">
+                    <!--表单数据-->
+                    <form method="post" id="addEditProjForm" action="__CONTROLLER__/detail">
+
+                        <!--通用信息-->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_tongyong">
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <td>部门名称:</td>
+                                        <td>
+                                            <input type="text" value="{$deparArr.title}" name="title" class="form-control" style="width:550px;" max="50"/>
+                                            <span id="err_title" class="error" style="color:#F00; display:none;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>负责人:</td>
+                                        <td>
+                                            <input type="text" value="{$deparArr.head}" name="head" class="form-control" style="width:550px;" max="50"/>
+                                            <span id="err_head" class="error" style="color:#F00; display:none;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>部门图片:</td>
+                                        <td>
+                                            <div id="show_img">
+                                                <empty name="deparArr['dep_img']">
+                                                    <img width="50" height="50" src="__PUBLIC__/imgs/add-button.jpg">
+                                                <else /> 
+                                                    <img width="200" height="150" src="{$deparArr.dep_img}">
+                                                </empty> 
+                                            </div>
+                                            <div>
+                                                <input type="hidden" id="original_img_save" name="dep_img" value="{$deparArr.dep_img}" />
+                                                <input type="button" id="dep_img" value="上传部门图片" />
+                                            </div>
+                                            <span id="err_dep_img" class="error" style="color:#F00; display:none;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>部门介绍:</td>
+                                        <td width="85%">
+                                            <!-- <textarea class="span12 ckeditor" style="width: 700px;height:500px;" id="content" name="content1" title="">{$deparArr.content}</textarea> -->
+                                            <textarea class="span12 ckeditor" style="width: 700px;height:200px;" id="content" name="content" title="">{$deparArr.content}</textarea>
+                                            <span id="err_content" class="error" style="color:#F00; display:none;"></span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--其他信息-->
+                        </div>
+                        <div class="pull-left">
+                            <input type="hidden" name="id" value="{$deparArr.id}">
+                            <button class="btn btn-info" title="" data-toggle="tooltip" type="button" data-original-title="保存" id="bao"><i class="ace-icon fa fa-check bigger-110"></i>保存</button>
+                        </div>
+                    </form><!--表单数据-->
+                </div>
+            </div>
+        </div>    <!-- /.content -->
+    </section>
+</div>
+<script>
+    $("#bao").click(function(){
+        $(".error").css('display','none');
+        // alert('ssss');
+        var title = $("input[name='title']").val();
+        var content = $("textarea[name='content']").val();
+        var head = $("input[name='head']").val();
+        var dep_img = $("input[name='dep_img']").val();
+        // alert(content);
+        var error = '';
+        if (title==0) {
+            error += '必须添加部门名称,   ';
+            $("#err_title").html('必须添加部门名称');
+            $("#err_title").css('display','block');
+        }
+        if (head==0) {
+            error += '必须添加部门负责人,   ';
+            $("#err_head").html('必须添加部门负责人');
+            $("#err_head").css('display','block');
+        }
+        if (dep_img==0) {
+            error += '必须上传部门图片,   ';
+            $("#err_dep_img").html('必须上传部门图片');
+            $("#err_dep_img").css('display','block');
+        }
+        if (content==0) {
+            error += '必须添加部门介绍,   ';
+            $("#err_content").html('必须添加部门介绍');
+            $("#err_content").css('display','block');
+        }
+
+        if(error){
+            alert(error);
+            return false;
+        }else{
+            $("#addEditProjForm").submit();
+        }
+//
+
+    })
+
+    /*
+     * 以下是图片上传方法
+     */
+    // 上传商品图片成功回调函数
+    function call_back(fileurl_tmp){
+        $("#original_img").val(fileurl_tmp);
+        $("#original_video").val(fileurl_tmp);
+        $("#original_img2").attr('href', fileurl_tmp);
+    }
+
+
+
+
+    // 属性输入框的加减事件
+    function addAttr(a)
+    {
+        var attr = $(a).parent().parent().prop("outerHTML");
+        attr = attr.replace('addAttr','delAttr').replace('+','-');
+        $(a).parent().parent().after(attr);
+    }
+    // 属性输入框的加减事件
+    function delAttr(a)
+    {
+        $(a).parent().parent().remove();
+    }
+
+</script>
+</body>
+</html>

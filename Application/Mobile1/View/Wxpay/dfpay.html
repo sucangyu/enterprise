@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
+    <title>沙漠变绿洲代付页面</title>
+    <link href="__PUBLIC__/mobile/ewm_css/base.css" type="text/css" rel="stylesheet">
+    <link href="__PUBLIC__/mobile/ewm_css/common.css" type="text/css" rel="stylesheet">
+    <link href="__PUBLIC__/mobile/ewm_css/page05.css" rel="stylesheet" type="text/css" />
+    <script src="__PUBLIC__/jquery-2.1.4/jquery.min.js" type="text/javascript"></script>
+    <script src="__PUBLIC__/mobile/js/mobile.js" type="text/javascript"></script>
+</head>
+<body>
+<form name="form1" method="post" action="{:U('Index/dfpay')}">
+    <div class="wrapper">
+        <div class="pay_mainbox mod">
+            <div class="pay_mod">
+                <div class="pay_title">申请代付人信息</div>
+                <div class="pay_info">
+                    <p>姓　名：{$dfMember['username']}</p>
+                    <p>电　话：{$dfMember['userphone']}</p>
+                    <p>昵　称：{$dfMember['nickname']}</p>
+                </div>
+            </div>
+            <div class="pay_mod">
+                <div class="pay_title">代付信息</div>
+                <div class="pay_goods">
+                    <empty name="supportArr['projimages']">
+                        <img src="__PUBLIC__/images/sm.jpg" />
+                        <else/>
+                        <img src="{$supportArr['projimages']}" />
+                    </empty>
+
+                    <div class="pay_goods_info">
+                        <p>{$supportArr['Projlist']['titles']}</p>
+                        <!--<p>￥<?php echo $goodsArr["selprice"]."*".$num ?></p>-->
+                        <p class="pay_goods_total">合计总金额：￥{$supportArr['tmoney']}元</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pay_submit1" id="zhifu">
+                <input type="hidden" name="support_id" value="{$supportArr['id']}">
+                <button type="submit" class="btn_1" onClick="javascript:return confirm('确定支付吗?');" style="color: darkred">帮他支付</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

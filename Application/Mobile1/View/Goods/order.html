@@ -1,0 +1,193 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>沙漠粮仓--订单</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script type="text/javascript" src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+</head>
+<style type="text/css">
+    a, a:hover {text-decoration: none;}
+    #addressBar {width: 100%;height: 8px;background-image: url(/jsshamo/Public/mobile/images/2.png);background-repeat: repeat-x;background-size: auto 8px;text-indent: -999px;}
+    .ordertop{background: #fff;width: 100%;padding: 10px 15px;overflow: auto;color: #645c5a;}
+    .ordertop .addres{font-size: 6vw;color: #aaaaaa;line-height:70px;}
+    .ortple{width: 30%;float: left;font-size: 3.5vw;line-height: 30px;}
+    .ortpri{width: 70%;float: left;font-size: 3.5vw;line-height: 30px;}
+    .ortpri .p2{line-height: 30px;}
+    .order_good{width: 100%;overflow: auto;background: #fff;margin-top: 10px;font-size: 3.5vw;color: #645c5a;}
+    .order_good ul{width: 100%}
+    .order_good ul li{width: 100%;height: 7vh; padding: 0.5vh 15px;border-bottom:0.5px solid #ccc;}
+    .order_good ul li .sp_right{float: right;}
+    .goodimg{width: 25%;height: 70px;margin: 3px 0px;}
+    .num{width: 20%;height: 25px;margin-top: 1.5%;line-height: 25px;text-align: right;}
+    .num span{line-height: 15px;font-size: 2vw;background: #dedddc;color: #FFF;border-radius: 8px;width: 15px;text-align: center;}
+    #input-num{width: 35%;text-align: center;line-height: 25px;border:0px;height: 25px;margin-top: 0px;font-size: 5vw;}
+    .yunfei input{display: none;}
+    input[type=radio]:checked + .rad_1, .rad_1.checked {background: #07d873;color: #fff;border: 0px;}
+    .rad_1 {border: 1px solid #d8d8d8;box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);border-radius: 5px;height: 30px;line-height: 30px;width: 20%;text-align: center;}
+    .message input{width: 75%;border: 0px;background: rgba(255,255,255,0);}
+    .amount{width: 100%;padding: 0px 15px;color: #6b6462;height: 7vh;line-height: 7vh;}
+    .amount .sp_right{color: #07d873;float: right;}
+    #pay{max-width:640px;position: fixed;width: 100%;height: 50px;text-align: center;z-index:97;left: 0;  bottom: 0;background: #07d873;color: #fff;line-height: 50px;zoom: 1;display: block;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var width = $('.goodimg').css('width');
+        var heig = parseInt(width);
+        heig = heig+"px";
+        $('.goodimg').css('height',heig);
+    })
+     
+</script>
+<body style="margin: 0 auto;background: #f7f7f7;">
+<!-- <header>
+    <a class="back" href="{:U('Goods/details',array('good_id'=>$goodArr['id']))}" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>沙漠粮仓</h4>
+</header> -->
+<form action="{:U('Goods/doOrder')}"  method="post" id="payfrom">
+    <div id="addressBar" "></div>
+    <empty name="address">
+        <div class="ordertop">
+            <a href="{:U('Goods/addmanaddress',array('good_id'=>$goodArr['id'],'good_num'=>$saleNum ))}" class="addres"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;添加地址</a>
+        </div>
+    <else /> 
+        <div class="ordertop">
+            <div class="ortple">{$address['consignee']}</div>
+            <div class="ortpri">
+                <p class="p1">{$address['mobile']}</p>
+                <p class="p2">{$address['pcd']}{$address['address']}</p>
+            </div>
+        </div>
+        <input type="hidden" name="address_id" id="ressid" value="{$address['id']}">
+    </empty> 
+    <div class="order_good">
+        <ul>
+            <li>订单号:{$ordernum}<span class="sp_right">商品代码:{$goodArr['goods_sn']}</span>
+                <input type="hidden" name="ordersn" value="{$ordernum}">
+            </li>
+            <li style="width: 100%;height: 16.5vh;">
+                <img src="{$goodArr['titlepic']}" class="goodimg">
+                <span style="display: inline-block;width: 70%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{$goodArr['titles']}
+                    <span style="float: right;"><i class="glyphicon glyphicon-remove" style="font-size: 2vw;"></i>{$saleNum}</span>
+                </span>
+                <input type="hidden" name="goodnum" id="cgnum" value="{$saleNum}">
+            </li>
+            <!-- <li>购买数量:
+                <span class="sp_right num">
+                    <span class="glyphicon glyphicon-minus" id="num_jian"></span>
+                    <input type="text" name="input_num" value="{$saleNum}" id="input-num" readonly="readonly">
+                    <span class="glyphicon glyphicon-plus" id="num_jia"></span>
+                </span>
+                <input type="hidden" name="goodnum" id="cgnum" value="{$saleNum}">
+            </li> -->
+            <li class="yunfei" style="padding-top: 3px;">运费:
+                <input type="radio" class="radios" name="kind" id="status_on1"  value="1"  checked="checked"/>
+                <label for="status_on1" class="rad_1" data-id="1">到付</label>
+                <input type="radio" class="radios" name="kind" id="status_on2" value="2"/>
+                <label for="status_on2" class="rad_1" data-id="2">自提</label>
+                <input type="radio" class="radios" name="kind" id="status_on3"  value="3"/>
+                <label for="status_on3" class="rad_1" data-id="3">自付</label>                
+                <span class="sp_right sendmoney">￥0.0</span>
+                <input type="hidden" name="sendmoy" id="cyf" value="0">
+            </li>
+            <li class="message">买家留言:<input type="text" name="msg"></li>
+        </ul>
+        <div class="amount">
+            支付金额:
+            <if condition="$memberArr.kind eq 1 ">
+                <span class="sp_right">(VIP价)</span>
+            </if>
+            <span class="sp_right" id="amount">￥{$saleNum*$goodArr['tmoney']}</span>
+            <input type="hidden" name="moneys" id="zje" value="{$saleNum*$goodArr['tmoney']}">
+        </div>
+    </div>
+    <input type="hidden" name="goods_id" value="{$goodArr['id']}">
+    <div  id="pay" >支付</div>
+</form>
+<span id="yfck" style="font-size: 0.2vw;float: right;color: #07d873;margin-right: 3vw;">(到付运费仅做参考)</span>
+<script>
+    var nums = {$goodArr.nums}; // 库存数量
+    var tmoney = {$goodArr.tmoney}; // 普通会员价格
+    var kind = {$memberArr.kind}; // 会员类型
+    if (kind==1) {
+        tmoney = {$goodArr.vipmoney}; // 大使价格
+    }
+    var sendmoney = {$goodArr.sendmoney}; // 自付运费
+    var sendtomoney = {$goodArr.sendtomoney}; // 到付运费
+    var sendmax = {$goodArr.sendmax}; // 运费件数比
+    $(".rad_1").click(function(){
+        //var g_num = $("#input-num").val();
+        var type = $(this).data("id");
+        get_goods_price(type);
+    });
+    // $("#num_jia").click(function(){
+    //     var g_num = $("#input-num").val();
+    //     g_num = parseInt(g_num) + 1;
+    //     get_goods_price(g_num);
+    // });
+    // $("#num_jian").click(function(){
+    //     var g_num = $("#input-num").val();
+    //     if(g_num <= 1) {
+    //         g_num = 1;
+    //     } else {
+    //         g_num = parseInt(g_num) - 1;
+    //     }
+    //     get_goods_price(g_num);
+    // });
+    $(document).ready(function(){
+        get_goods_price();
+    })
+    function get_goods_price(is)
+    {
+        // if(g_num<=nums){
+            var g_num = {$saleNum};
+            var type = $("input[type='radio']:checked").val();
+            if (is) {
+                type = is;
+            }
+            var yunfei = g_num/sendmax;
+            var yunfeis = 0;
+            var qian = g_num*tmoney;
+            $("#cyf").val(0);
+            $("#yfck").css('display','none');
+            $(".sendmoney").css('color','#645c5a');
+            if (type==3) {
+                yunfeis = Math.ceil(yunfei)*sendmoney;
+                qian = g_num*tmoney+yunfeis;
+                $("#cyf").val(yunfeis);
+            }
+            if (type==1) {
+                yunfeis = Math.ceil(yunfei)*sendtomoney;
+                $("#yfck").css('display','block');
+                $(".sendmoney").css('color','#ccc');
+            }
+            $("#amount").html('￥'+qian.toFixed(2));
+            $(".sendmoney").html('￥'+yunfeis.toFixed(2));
+            $("#input-num").val(g_num);
+            $("#zje").val(qian);
+            $("#cgnum").val(g_num);
+        // }else{
+        //     layer.alert('此商品库存不足只能购买'+nums+'件');
+        //     $("#input-num").val(nums);
+        // }
+    }
+    //提交
+    $("#pay").click(function(){
+        var ressid = $("#ressid").val();
+        if (ressid) {
+            $("#payfrom").submit();
+        }else{
+            alert('请填写地址后提交');
+        }
+    });
+</script>
+</body>
+</html>

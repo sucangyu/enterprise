@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>支付方式</title>
+    <link href="__PUBLIC__/mobile/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/mobile/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/mobile/css/page02.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/mobile/js/jquery.zclip.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <form id="form1" method="post" action="{:U('Index/doPaykind')}">
+        <header>
+            <a class="back" href="javascript:history.back(-1)" >&lt;</a>
+            <h1>支持类型选择</h1>
+        </header>
+        <div class="goods-data">
+            <div class="goods_photo ">
+                <img src="__PUBLIC__/images/20170317083404_29484.jpg" />
+            </div>
+            <div class="goods_instro">
+                <p class="goods_brief">
+                    感谢您的支持，因为有您的贡献，世界多了一点绿！
+                </p>
+                <div class="goods-buy1">
+                    <span class="buy-title">支持金额：</span>
+                    <em style="color: #ff6b6b">¥</em>
+                    <input type="text" disabled id="buyTotal" value="199"  style="border:0;background: 0" autocomplete="off"/>
+                </div>
+            </div>
+        </div>
+        <div class="buy-list">
+            <input type="hidden" name="good_id" value="1">
+            <input type="hidden" id="tgurl" value="">
+            <a style="background: #ff9000;float: left" onclick="myForm2('form1','{:U('Index/wxpay?is_ajax=2')}')" >他人代付</a>
+            <a style="background: #d9534f;float: right" onclick="myForm2('form1','{:U('Index/wxpay?is_ajax=1')}')">直接支持</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    var before_request = 1; // 标识上一次ajax 请求有没回来, 没有回来不再进行下一次
+    function myForm2(form_id,submit_url){
+        if(before_request == 0)
+            return false;
+        $.ajax({
+            type : "POST",
+            url  : submit_url,
+            data : $('#'+form_id).serialize(),// 你的formid
+            error: function(request) {
+                alert("服务器繁忙, 请联系管理员!");
+            },
+            success: function(v) {
+                before_request = 1; // 标识ajax 请求已经返回
+                var v =  eval('('+v+')');
+                // 验证成功提交表单
+                if(v.hasOwnProperty('status'))
+                {
+                    alert(v.msg);
+                    if(v.status == 1)
+                    {
+                        if(v.hasOwnProperty('data')){
+                            if(v.data.hasOwnProperty('url')){
+                                location.href = v.data.url;
+                            }else{
+                                location.href = location.href;
+                            }
+                        }else{
+                            location.href = location.href;
+                        }
+                        return true;
+                    }
+                    if(v.status == 0)
+                    {
+                        alert(v.msg);
+                        return false;
+                    }
+                    //return false;
+                }
+            }
+        });
+        before_request = 0; // 标识ajax 请求已经发出
+    }
+</script>
+</body>
+</html>

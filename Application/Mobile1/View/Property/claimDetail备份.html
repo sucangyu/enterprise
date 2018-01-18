@@ -1,0 +1,282 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>收成领取</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/LArea.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script src="__PUBLIC__/jQuery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/mobile/js/LArea.js"></script>
+    <script src="__PUBLIC__/layer/layer.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+</head>
+<style type="text/css">
+    .tanchu .lli{width:95%;margin:auto}
+    .tanchu{width: 90%;margin: 5px auto;}
+    .tanchu li{width: 100%;border-bottom: 0.5px solid #ccc;padding: 5px 0px;overflow: auto;color: black;font-size: 4vw;}
+    .tanchu li .sp2{float: right;}
+    /*.num{border-radius: 8px; border: 1px solid grey;display: inline-block;width: 25%;text-align: center;font-size: 3vw;height: 25px;margin-top: 2%;line-height: 25px;color:grey}
+    .num span{line-height: 20px;font-size: 4vw;}
+    .input-num{width: 50%;text-align: center;border-top:0px;border-bottom: 0px;line-height: 20px;border-left:1px solid grey; border-right:1px solid grey;height: 23px;margin-top: -5px;}*/
+    .kenum input{display: none;}
+    input[type=radio]:checked + .rad_1, .rad_1.checked {background: #07d873;color: #fff;border: 0px;}
+    .rad_1,.rad_2 {border: 1px solid #d8d8d8;box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);border-radius: 5px;height: 30px;line-height: 26px;width: 70px;text-align: center;color:black;font-size: 15px}
+    .btns{margin: 15px auto;text-align: center;color: #fff;background: #07d873;border:1px solid #d8d8d8;border-radius:5px;width: 90%;margin: 15px auto;}
+    .btns input{text-align: center;color: #fff;border:0px;background: #07d873;width: 48%}
+    #addressBar{width:100%;height:8px;background-image:url("__PUBLIC__/mobile/images/2.png");background-repeat: repeat-x;background-size:auto 8px;text-indent: -999px}
+    .address_bar{height:11vh;line-height:70px;width:100%;font-size: 28px;font-family: "黑体";background-color: #fff;overflow: hidden;background-image:url("__PUBLIC__/images/link.png");background-position:98% center;background-repeat: no-repeat;background-size:4% auto}
+    .address_bar a{color:#333}
+    .address_bar a span{font-size:28px;margin-left:20px}
+    footer{height:50px;background:#07D873;width:100%;line-height:50px;position:fixed;bottom: 0;}
+    footer h4{color:#fff;line-height:50px;text-align: center;font-size:20px}
+    .checkboxs{display: none;}
+    input[type=checkbox]:checked + .rad_2, .rad_2.checked {background: #07d873;border: 0px;color: #fff;}
+    .num{border-radius: 8px; border: 1px solid #d8d8d8;display: inline-block;width: 40%;text-align: center;font-size: 3vw;height: 25px;margin-top: 2%;line-height: 25px; color: #d8d8d8;}
+    .num span{line-height: 20px;font-size: 3vw;}
+    #zj{width: 50%;text-align: center;border-top:0px;border-bottom: 0px;line-height: 20px;border-left:1px solid #d8d8d8; border-right:1px solid #d8d8d8;height: 22px;margin-top: -4px;border-radius:0px;-webkit-appearance: none;}
+    .address_bar2{overflow: auto; width:100%;color:#595757;background-color: #fff;overflow: hidden;background-image:url("__PUBLIC__/images/link.png");background-position:98% center;background-repeat: no-repeat;background-size:4% auto}
+	form label{font-weight:normal;}
+
+</style>
+<body style="background-color:#F7F7F7; margin:0 auto;">
+<!--    <header>
+        <a class="back" href="{:U('Index/index')}" >
+            <span class="glyphicon glyphicon-menu-left"></span>
+            <span class="text">返回</span>
+        </a>
+        <h4>认领</h4>
+    </header>-->
+<div>
+    <div id="addressBar">&</div>
+
+    <div class="address_bar2">
+        <span style="float:left;margin-left: 10vw;font-size: 0.8em;font-color:#000;">{$has_address['consignee']}</span><span style="float:right;margin-right: 10vw;font-size:0.8em;">{$has_address['mobile']}</span>
+        <span style="float:left;margin-left: 10vw;font-size: 0.6em;font-color:#aaa;margin-top:-10px;"><?php $memberAddress = memaddress($has_address['province'],$has_address['city'],$has_address['district']);?>{$memberAddress['province']}{$memberAddress['city']}{$memberAddress['district']}{$has_address['address']}</span>
+    </div>
+    
+</div>
+<form action="{:U('Property/doClaim')}" method='post' id="payfrom">
+    <div style="width:100%;background: #fff;margin:auto;margin-top:10px">
+        <ul class="tanchu">
+            <li>
+                <div style="width:30%;float:left;padding: 10px">
+                    <notempty name="goodsArr['titlepic']">
+                        <img src="{$goodsArr['titlepic']}" style="width:80px;height:80px">
+                        <else/>
+                        <img src="__PUBLIC__/images/sm.jpg" style="width:80px;height:80px">
+                    </notempty>
+                </div>
+                <div style="color:black;font-size:1em;letter-spacing: 0px;margin-left: 100px;">
+                    <span>{$goodsArr['titles']}</span>
+                </div>
+            </li>
+            <li class="lli">选择年份:
+                <?php ?>
+                <volist name="batchnum" id="vo" key="i">
+                    <input type="checkbox" class="checkboxs" name="years[]" id="status_ono{$i}" value="{$vo.id}" checked/>
+                    <label for="status_ono{$i}" data-id="{$i}" class="rad_2">{$vo.batchnum|date='Y',###}</label>
+                </volist>
+                <br/>
+                <label id="zjs" style="float:left;color:#000;text-align: left;width: 100%;">数量:
+                        <span class="sp_right num" style="float:right;margin-right:0px;width: 25%;" >
+                            <span class="glyphicon glyphicon-minus" id="num_jian"></span>
+                            <input type="text" name="input_num" value="0" id="zj" readonly="readonly">
+                            <span class="glyphicon glyphicon-plus" id="num_jia"></span>
+                        </span>
+                    <!-- <span id="zj">0
+                    </span> -->
+                    <!--箱-->
+                </label>
+            </li>
+            <li class="lli kenum show_yf" >
+                运费:
+                <input type="radio" class="radios" name="kind" id="status_on2" value="1"/>
+                <label for="status_on2" class="rad_1">到付</label>
+                <input type="radio" class="radios" name="kind" id="status_on3"  value="0"/>
+                <label for="status_on3" class="rad_1">自提</label>
+                <input type="radio" class="radios" name="kind" id="status_on4" value="2" checked="checked"/>
+                <label for="status_on4" class="rad_1">自付</label>
+                <label style="float:right;color:black" id="yf_show"> ￥0.00</label>
+            </li>
+            <li class="lli show_yf">加工费:<label class="sp2" style="float:right;color:black" id="jgf_show">￥0.00</label></li>
+            <li class="lli show_yf" style="border:none;">支付金额:<label class="sp2" style="float:right;color:#07D873" id="totalmoney_show">￥0.00</label></li>
+        </ul>
+        <input type="hidden" id="goods_id" name="goods_id" value="{$goodsArr.id}">
+        <input type="hidden" id="maxnum" name="maxnum" value="0">
+        <input type="hidden" id="sendmoney" name="sendmoney" value="0">
+        <input type="hidden" id="omoney" name="omoney" value="0">
+        <input type="hidden" id="sendtomoney" name="sendtomoney" value="0">
+        <input type="hidden" id="address_id" name="address_id" value="{$has_address.id}">
+    </div>
+    <div style="width:100%;height:100px;"></div>
+    <footer>
+        <h4 class="pay" style="font-size:0.8em;">确定领取</h4>
+    </footer>
+</form>
+<script language="javascript">
+    var rlzyxqb = {$goodsArr.minpropertynum};//认领时资源数量需求比
+    var goods_id = {$goodsArr.id};//认领时商品id--判断已领取的收成数
+    var maxNum = 0;//认领时可领最大收成数量
+
+    var temp_omoney = {$goodsArr.omoney};//认领时加工费
+    temp_omoney  = parseFloat(temp_omoney);
+    var temp_sendmoney = {$goodsArr.sendmoney};//认领时自付运费
+    temp_sendmoney = parseFloat(temp_sendmoney);
+    var temp_sendtomoney = {$goodsArr.sendtomoney};//认领时到付运费
+    temp_sendtomoney = parseFloat(temp_sendtomoney);
+    var temp_sendmax = {$goodsArr.sendmax};//认领时运费件数比
+    temp_sendmax = parseFloat(temp_sendmax);
+
+    $("input[name='years[]']:checkbox").on('change',function () {
+        var aa = '';
+        // var bb = $(this).attr("id");
+        $("input[name='years[]']:checkbox:checked").each(function(){
+            if(aa=='')
+            {
+                aa=$(this).val();
+            }else
+            {
+                aa+=','+$(this).val();
+            }
+        });
+        if(aa=='')
+        {
+            $("#zj").val(0);
+            $("#sendmoney").val(0);
+            $("#omoney").val(0);
+            $("#sendtomoney").val(0);
+            $(".show_yf").hide();
+        }else
+        {
+            $(".show_yf").show();
+        }
+        $.ajax({
+            url:"{:U('Jsajax/getClaim')}",
+            type:'POST', //GET
+            data:{property_id:aa,goods_id:goods_id},
+            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            success:function(data){
+                if(data.stsc==1)
+                {
+                    maxNum = data.maxnum;
+                    $("#zj").val(maxNum);
+                    $("#sendmoney").val(data.sendmoney);
+                    $("#omoney").val(data.omoney);
+                    $("#sendtomoney").val(data.sendtomoney);
+
+                    $("#yf_show").html('￥'+data.sendmoney);
+                    $("#jgf_show").html('￥'+data.omoney);
+                    var total_money = data.sendmoney+data.omoney;
+                    $("#totalmoney_show").html('￥'+total_money.toFixed(2));
+                    //alert(data.msg);
+                }
+                if (data.stsc==0) {
+                    //$("#"+bb).attr("checked",false);
+                    alert(data.msg);
+                    //$(".show_yf").hide();
+                }
+            },
+        });
+    });
+    //0--自提   1-到付   2-自付
+    $("input[name='kind']").on('change',function () {
+        var is_kind = parseInt(this.value);
+        var input_num = $("#zj").val();
+        if(is_kind==0){
+            $("#yf_show").html('￥0.00');
+            var temp_jgf = input_num*temp_omoney;
+            $("#jgf_show").html('￥'+temp_jgf);
+            $("#totalmoney_show").html('￥'+temp_jgf);
+        }else if(is_kind==2){
+            var tem_totalsendmoney = Math.ceil(input_num/temp_sendmax)*temp_sendmoney;
+            var temp_jgf = input_num*temp_omoney;
+            $("#jgf_show").html('￥'+temp_jgf);
+            $("#yf_show").html('￥'+tem_totalsendmoney);
+            var total_money = tem_totalsendmoney+temp_jgf;
+            $("#totalmoney_show").html('￥'+total_money);
+        }else{
+            var tem_totalsendmoney = Math.ceil(input_num/temp_sendmax)*temp_sendtomoney;
+            var temp_jgf = input_num*temp_omoney;
+            $("#yf_show").html('￥'+tem_totalsendmoney);
+            $("#jgf_show").html('￥'+temp_jgf);
+            $("#totalmoney_show").html('￥'+temp_jgf);
+        }
+
+    });
+    //数量加减
+    $("#num_jia").click(function(){
+        var input_num = $("#zj").val();
+        input_num = parseInt(input_num)+1;
+        if(input_num>maxNum){
+           alert('您不能领取您目前可领取的最大数量的收成');
+            input_num = parseInt(input_num)-1;
+            $("#zj").val(input_num);
+        }else
+        {
+            $("#zj").val(input_num);
+        }
+        setNums();
+    });
+    $("#num_jian").click(function(){
+        var input_num = $("#zj").val();
+        if(input_num <= 1) {
+            var yea=$("input[name='years[]']:checkbox:checked").val();
+            if(!empty(yea)) {
+                input_num = 1;
+            }
+        } else {
+            input_num = parseInt(input_num) - 1;
+        }
+        $("#zj").val(input_num);
+        setNums();
+    });
+    function setNums() {
+        var input_num = $("#zj").val();
+        input_num = parseInt(input_num);
+        var is_kind = parseInt($("input[name='kind']:checked").val());
+        if(is_kind==0)
+        {
+            $("#yf_show").html('￥0.00');
+            var temp_jgf = input_num*temp_omoney;
+            $("#jgf_show").html('￥'+temp_jgf);
+            $("#totalmoney_show").html('￥'+temp_jgf);
+            $("#omoney").val(temp_jgf);
+        }else if(is_kind==2)
+        {
+            var tem_totalsendmoney = Math.ceil(input_num/temp_sendmax)*temp_sendmoney;
+            var temp_jgf = input_num*temp_omoney;
+            $("#jgf_show").html('￥'+temp_jgf);
+            $("#yf_show").html('￥'+tem_totalsendmoney);
+            var total_money = parseFloat(tem_totalsendmoney)+parseFloat(temp_jgf);
+            $("#totalmoney_show").html('￥'+total_money);
+            $("#sendmoney").val(tem_totalsendmoney);
+            $("#omoney").val(temp_jgf);
+        }else
+        {
+            var tem_totalsendmoney = Math.ceil(input_num/temp_sendmax)*temp_sendtomoney;
+            var temp_jgf = input_num*temp_omoney;
+            $("#yf_show").html('￥'+tem_totalsendmoney);
+            $("#jgf_show").html('￥'+temp_jgf);
+            $("#totalmoney_show").html('￥'+temp_jgf);
+            $("#omoney").val(temp_jgf);
+            $("#sendtomoney").val(tem_totalsendmoney);
+        }
+    }
+    //提交
+    $(".pay").click(function(){
+        var zf = $("#totalmoney_show").html();
+        if (zf!='￥0.00') {
+            $("#payfrom").submit();
+        }else{
+            alert('请选择您需要领取的收成箱数');
+        }
+    });
+	
+</script>
+
+
+</body>
+</html>

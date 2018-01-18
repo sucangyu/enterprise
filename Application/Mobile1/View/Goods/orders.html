@@ -1,0 +1,298 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>沙漠粮仓--订单</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script type="text/javascript" src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+</head>
+<style type="text/css">
+    a, a:hover {text-decoration: none;}
+    #addressBar {width: 100%;height: 8px;background-image: url(/jsshamo/Public/mobile/images/2.png);background-repeat: repeat-x;background-size: auto 8px;text-indent: -999px;}
+    .ordertop{background: #fff;width: 100%;padding: 10px 15px;overflow: auto;color: #645c5a;}
+    .ordertop .addres{font-size: 6vw;color: #aaaaaa;line-height:70px;}
+    .ortple{width: 30%;float: left;font-size: 3.5vw;line-height: 30px;}
+    .ortpri{width: 70%;float: left;font-size: 3.5vw;line-height: 30px;}
+    .ortpri .p2{line-height: 20px;}
+    .order_good{width: 100%;overflow: auto;background: #fff;margin-top: 10px;font-size: 3.5vw;color: #645c5a;}
+    .order_good ul{width: 100%}
+    .order_good ul li{width: 100%;height: 7vh;padding: 0.5vh 15px;border-bottom:0.5px solid #ccc;}
+    .order_good ul li .sp_right{float: right;}
+    .goodimg{width: 23%;height: 70px;margin: 3px 0px;float: left;margin-right: 5px;}
+    .num{width: 20%;height: 25px;margin-top: 1.5%;line-height: 25px;text-align: right;}
+    .num span{line-height: 15px;font-size: 2vw;background: #dedddc;color: #FFF;border-radius: 8px;width: 15px;text-align: center;}
+    .input-num{width: 35%;text-align: center;line-height: 25px;border:0px;height: 25px;margin-top: 0px;font-size: 5vw;}
+    .yunfei input{display: none;}
+    input[type=radio]:checked + .rad_1, .rad_1.checked {background: #07d873;color: #fff;border: 0px;}
+    .rad_1 {border: 1px solid #d8d8d8;box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);border-radius: 5px;height: 30px;line-height: 30px;width: 20%;text-align: center;}
+    .message input{width: 75%;border: 0px;}
+    .amount{width: 100%;padding: 0px 15px;color: #6b6462;height: 7vh;line-height: 7vh;}
+    .amount .sp_right{color: #07d873;float: right;}
+    #pay{width: 100%;height: 50px;text-align: center;position: fixed;z-index:97;left: 0; bottom: 0;background: #07d873;color: #fff;line-height: 50px;zoom: 1;display: block;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var width = $('.goodimg').css('width');
+        var heig = parseInt(width);
+        heig = heig+"px";
+        $('.goodimg').css('height',heig);
+    })
+     
+</script>
+<body style="margin: 0 auto;background: #f7f7f7;">
+<!-- <header>
+    <a class="back" href="{:U('Goods/cart')}" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>沙漠粮仓</h4>
+</header> -->
+<form action="{:U('Goods/doOrders')}"  method="post" id="payfrom">
+    <div id="addressBar" "></div>
+    <empty name="address">
+        <div class="ordertop">
+            <a href="{:U('Goods/addmanaddress',array('type'=>2 ))}" class="addres"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;添加地址</a>
+        </div>
+    <else /> 
+        <div class="ordertop">
+            <div class="ortple">{$address['consignee']}</div>
+            <div class="ortpri">
+                <p class="p1">{$address['mobile']}</p>
+                <p class="p2">{$address['pcd']}{$address['address']}</p>
+            </div>
+        </div>
+        <input type="hidden" name="address_id" id="ressid" value="{$address['id']}">
+    </empty> 
+    <div class="order_good">
+        <ul>
+            <li style="line-height: 30px;height: 30px;">订单号:{$ordernum}<!-- <span class="sp_right">商品代码:{$goodArr['goods_sn']}</span> -->
+                <input type="hidden" name="ordersn" value="{$ordernum}">
+            </li>
+            <!-- 遍历购物车商品 -->
+            <volist name="cartlist" id="row">
+                <li style="height: 16.5vh;">
+                    <img src="{$row['titlepic']}" class="goodimg">
+                    <span style="float: left;display: inline-block;width: 25%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{$row['titles']}</span>
+                    <span class="sp_right">商品代码:{$row['goods_sn']}</span>
+                    <p style="display: inline-block;width: 30%;float: right;text-align: right;color:#645c5a"><span ><i class="glyphicon glyphicon-remove" style="font-size: 2vw;color:#645c5a"></i>{$row['goods_num']}</span></p>
+                    <input type="hidden" name="goodnum[]" value="{$row['goods_num']}" class="input-num" id="input-num{$row['goods_id']}" readonly="readonly">
+                    <if condition="$memberArr.kind eq 1 ">
+                        
+                        <input type="hidden" name="price" id="cgprice{$row['goods_id']}" value="{$row['vipmoney']}">
+                        <else /> 
+                        
+                        <input type="hidden" name="price" id="cgprice{$row['goods_id']}" value="{$row['tmoney']}">
+                    </if>
+                    <input type="hidden" name="nums" id="cgnums{$row['goods_id']}" value="{$row['nums']}">
+                </li>
+                <!-- <li>购买数量:
+                    <span class="sp_right num">
+                        <span class="glyphicon glyphicon-minus num_jian" id="num_jian" data-id="{$row['goods_id']}"></span>
+                        <input type="text" name="goodnum[]" value="{$row['goods_num']}" class="input-num" id="input-num{$row['goods_id']}" readonly="readonly">
+                        <span class="glyphicon glyphicon-plus num_jia" id="num_jia" data-id="{$row['goods_id']}"></span>
+                    </span>
+                </li> -->
+                <input type="hidden" class="radios" name="kind{$row['goods_id']}" data-id="1" id="status_on1{$row['goods_id']}"  value="{$row['sendtomoney']}"  checked="checked"/>
+                <input type="hidden" class="radios" name="kind{$row['goods_id']}" data-id="2" id="status_on2{$row['goods_id']}" value="0"/>
+                <input type="hidden" class="radios" name="kind{$row['goods_id']}" data-id="3" id="status_on3{$row['goods_id']}"  value="{$row['sendmoney']}"/>
+                <input type="hidden" name="goods_id[]" class="goodid" value="{$row['goods_id']}">
+                <input type="hidden" name="sendmax" id="cyfsendmax{$row['goods_id']}" value="{$row['sendmax']}">
+            </volist>
+            <li class="yunfei" style="padding-top: 3px;">运费:
+                <input type="radio" class="radios" name="kind" data-id="1" id="status_on1"  value="1"  checked="checked"/>
+                <label for="status_on1" class="rad_1" id="" data-id="1">到付</label>
+                <input type="radio" class="radios" name="kind" data-id="2" id="status_on2" value="2"/>
+                <label for="status_on2" class="rad_1" id="" data-id="2">自提</label>
+                <input type="radio" class="radios" name="kind" data-id="3" id="status_on3"  value="3"/>
+                <label for="status_on3" class="rad_1" id="" data-id="3">自付</label>
+                <span class="sp_right sendmoney">￥{$row['sendtomoney']}</span>
+                <input type="hidden" name="sendmoy" id="cyf" value="0">
+            </li>
+            <li class="message">买家留言:<input type="text" name="msg"></li>
+        </ul>
+        <div class="amount">
+            支付金额:
+            <if condition="$memberArr.kind eq 1 ">
+                <span class="sp_right">(VIP价)</span>
+            </if>
+            <span class="sp_right" id="amount">
+                ￥{$saleNum*$goodArr['tmoney']}
+            </span>
+            
+            <input type="hidden" name="moneys" id="zje" value="{$saleNum*$goodArr['tmoney']}">
+        </div>
+    </div>
+    <span id="yfck" style="font-size: 0.2vw;float: right;color: #07d873;margin-right: 3vw;">(到付运费仅做参考)</span>
+    <div style="width: 100%;height: 60px;"></div>
+    
+</form>
+
+<div class="foot_btn" id="pay">支付</div>
+<script>
+    
+    $(".rad_1").click(function(){
+        // var id = undefined;
+        var type = $(this).data("id");
+        var qian = 0;//总金额
+        var gqian = 0;//单个商品金额
+        var yunfeis = 0;
+        //var gyfs = 0;
+        var zyf = 0;//总运费     
+        // get_goods_price(id,g_num,g_price,g_nums,g_yf,g_sendmax,type);
+        $(".goodid").each(function(){
+            var ids = $(this).val();
+            var b = $("#input-num"+ids).val();//数量
+            var jg = $("#cgprice"+ids).val();//价格
+            var g_sendmax = $("#cyfsendmax"+ids).val();//运费比
+            $(".sendmoney").css('color','#645c5a');
+            if (type==3) {
+                g_yf = parseInt($("#status_on3"+ids).val());
+                yunfeis = Math.ceil(b/g_sendmax)*g_yf;
+                qian += b*jg+yunfeis;
+                $("#yfck").css('display','none');
+            }
+            if (type==2) {
+                yunfeis = 0;
+                qian += b*jg;
+                $("#yfck").css('display','none');
+            }
+            if (type==1) {
+                g_yf = parseInt($("#status_on1"+ids).val());
+                yunfeis = Math.ceil(b/g_sendmax)*g_yf;
+                qian += b*jg;
+                $("#yfck").css('display','block');
+                $(".sendmoney").css('color','#ccc');
+            }
+
+            zyf += yunfeis;
+        })
+        $("#amount").html('￥'+qian.toFixed(2));
+        $(".sendmoney").html('￥'+zyf.toFixed(2));
+        $("#zje").val(qian);
+        $("#cyf").val(zyf);
+    });
+    // $(".num_jia").click(function(){
+    //     var id = $(this).data("id");
+    //     var g_num = $("#input-num"+id).val();
+    //     var g_price = $("#cgprice"+id).val();
+    //     var g_nums = $("#cgnums"+id).val();//库存
+    //     var type = $("input[name='kind']:checked").data("id");//运送方式
+    //     var g_yf = 0;//运费
+    //     if (type==3) {
+    //         g_yf = parseInt($("#status_on3"+id).val());
+    //     }
+    //     if (type==1) {
+    //         g_yf = parseInt($("#status_on1"+id).val());
+    //     }
+    //     var g_sendmax = $("#cyfsendmax"+id).val();//运费比
+    //     g_num = parseInt(g_num) + 1;
+    //     get_goods_price(id,g_num,g_price,g_nums,g_yf,g_sendmax,type);
+    // });
+    // $(".num_jian").click(function(){
+    //     var id = $(this).data("id");
+    //     var g_num = $("#input-num"+id).val();//数量
+    //     var g_price = $("#cgprice"+id).val();//价格
+    //     var g_nums = $("#cgnums"+id).val();//库存
+    //     var type = $("input[name='kind']:checked").data("id");
+    //     var g_yf = 0;//运费
+    //     if (type==3) {
+    //         g_yf = parseInt($("#status_on3"+id).val());
+    //     }
+    //     if (type==1) {
+    //         g_yf = parseInt($("#status_on1"+id).val());
+    //     }
+    //     var g_sendmax = $("#cyfsendmax"+id).val();//运费比
+    //     if(g_num <= 1) {
+    //         g_num = 1;
+    //     } else {
+    //         g_num = parseInt(g_num) - 1;
+    //     }
+    //     get_goods_price(id,g_num,g_price,g_nums,g_yf,g_sendmax,type);
+    // });
+    $(document).ready(function(){
+        get_goods_price();
+    })
+    /*
+        id:商品id
+        g_num:商品数量
+        g_price:商品价格
+        g_nums:商品库存
+        g_yf:商品运费
+        g_sendmax:运费比
+        is:运送方式
+    */
+    function get_goods_price(id,g_num,g_price,g_nums,g_yf,g_sendmax,is)
+    {
+        var yunfei = g_num/g_sendmax;     
+        var qian = 0;//总金额
+        var gqian = 0;//单个商品金额
+        var yunfeis = 0;
+        //var gyfs = 0;
+        var zyf = 0;//总运费       
+        $(".goodid").each(function(){
+            var ids = $(this).val();
+            if (ids!=id) {
+                var b = $("#input-num"+ids).val();//数量
+                var jg = $("#cgprice"+ids).val();//价格
+                var type = $("input[name='kind']:checked").data("id");
+                var g_sendmax = $("#cyfsendmax"+ids).val();//运费比
+                var g_yf = 0;//运费
+                if (type==3) {
+                    g_yf = parseInt($("#status_on3"+ids).val());
+                    yunfeis = Math.ceil(b/g_sendmax)*g_yf;
+                    qian += b*jg+yunfeis;
+                }
+                if (type==1) {
+                    $(".sendmoney").css('color','#ccc');
+                    g_yf = parseInt($("#status_on1"+ids).val());
+                    yunfeis = Math.ceil(b/g_sendmax)*g_yf;
+                    qian += b*jg;
+                }
+                zyf += yunfeis;
+            }
+            
+        })
+        yunfeis = Math.ceil(yunfei)*g_yf;
+        if (id) {
+            zyf = zyf + yunfeis;
+        }
+        if (is==3) {
+            gqian = g_num*g_price+yunfeis;
+            qian = qian + gqian;
+            $("#cyf").val(zyf);
+        }
+        if (is==1||is==2) {
+            gqian = g_num*g_price;
+            qian = qian + gqian;
+        }
+        if(g_num>g_nums){
+            layer.alert('此商品库存不足只能购买'+g_nums+'件');
+            $("#input-num").val(g_nums);
+        }else{
+            $("#amount").html('￥'+qian.toFixed(2));
+            $(".sendmoney").html('￥'+zyf.toFixed(2));
+            $("#input-num"+id).val(g_num);
+            $("#zje").val(qian);
+        }
+    }
+    //提交
+    $("#pay").click(function(){
+        var ressid = $("#ressid").val();
+        var zj = $("#zje").val();
+        if (!ressid) {
+            alert('请填写地址后提交');
+        }else if (zj==0) {
+            alert('请勿重复提交表单');
+        }else{
+            $("#payfrom").submit();
+            
+        }
+    });
+</script>
+</body>
+</html>

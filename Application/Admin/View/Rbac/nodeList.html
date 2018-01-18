@@ -1,0 +1,84 @@
+<include file="Public/min-header"/>
+<style type="text/css">
+	th{text-align: center}
+</style>
+<div class="wrapper">
+	<include file="Public/breadcrumb"/>
+	<section class="content">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<i class="fa fa-list"></i>&nbsp;权限管理
+						</h3>
+					</div>
+					<div class="panel-body">
+						<nav class="navbar navbar-default">
+							<div class="collapse navbar-collapse">
+								<form class="navbar-form form-inline" role="search">
+									<div class="form-group pull-right">
+										<a href="{:U('Rbac/addNode')}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>添加权限</a>
+									</div>
+								</form>
+							</div>
+						</nav>
+						<div class="table-responsive">
+							<table  class="table table-bordered table-striped">
+								<thead>
+								<tr>
+									<th>权限ID</th>
+									<th>权限结构</th>
+									<th>权限名称</th>
+									<th>类型</th>
+									<th>状态</th>
+									<th>排序</th>
+									<th>操作</th>
+								</tr>
+								</thead>
+								<tbody>
+								<volist name="nodeList" id="vo">
+									<tr role="row" align="center">
+										<td>{$vo.id}</td>
+										<td>
+											<p style="text-indent: {$vo['level']*20}px;"><b style="font-size: 22px;">.&nbsp;</b>{$vo.title}</p>
+										</td>
+										<td>{$vo.name}</td>
+										<td>
+											<if condition="$vo.level eq 1" >
+												项目
+												<elseif condition="$vo.level eq 2"/>
+												<span style="color: green">模块</span>
+												<else/>
+												<span style="color: blue">方法</span>
+											</if>
+										</td>
+										<td>
+											<if condition="$vo['status'] eq 0">
+												<space style="color: red">关闭</space>
+												<else/>
+												<space style="color: green">开启</space>
+											</if>
+										</td>
+										<td>{$vo.sort}</td>
+										<td>
+											<a class="btn btn-primary" href="{:U('Rbac/editNode',array('id'=>$vo['id']))}"><i class="fa fa-pencil">&nbsp;修&nbsp;改&nbsp;</i></a>
+											<a class="btn btn-danger" href="{:U('Rbac/delNode',array('id'=>$vo['id']))}" onclick="return confirm('此操作不可恢复，确认删除？');"><i class="fa fa-trash-o">&nbsp;删&nbsp;除&nbsp;</i></a>
+										</td>
+									</tr>
+								</volist>
+								</tbody>
+							</table>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 text-left"></div>
+							<div class="col-sm-6 text-right"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>

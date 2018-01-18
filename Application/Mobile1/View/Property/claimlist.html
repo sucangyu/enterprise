@@ -1,0 +1,72 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>收成领取</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+</head>
+<style type="text/css">
+    .big{float:left;width:100%;}
+    .lie{float:left;width:100%;margin-top: 1vh}
+    .ll{float:left;width:90%;margin-left:5%;height:100px;background-color:white;margin-top:0.5vh;border-radius: 10px;}
+    .lie2{float:left;width:100%;margin-top:10vw;}
+    .ll2{folat:left;width:90%;margin-left:5%;height:20vw;margin-left:4vw;}
+    .ll2 ul{float:left;margin-left: 3vw;font-size: 3vw;line-height: 5vh;border-radius: 4%;background-color: white;box-shadow:  2px 2px 2px #898989;}
+</style>
+
+<body style="background-color:#F7F7F7;margin:0 auto;">
+    <div class="big">
+        <p style="margin-left:5%;margin-top:1vw;color:#000;font-size: 0.9em">我的收成</p>
+        <div class="lei">
+            <volist name="goodsArr" id="vo">
+                <div class="ll">
+                    <notempty name="vo['titlepic']">
+                        <img src="{$vo['titlepic']}" style="float:left;width:80px;height:80px;margin-left: 3vw;margin-top: 2vh">
+                        <else/>
+                        <img src="__PUBLIC__/images/tj12.jpg" style="float:left;width:50px;height:50px;margin-left: 3vw;margin-top: 2vh">
+                    </notempty>
+                    <span style="font-size: 0.8em;color:#000;float:left;margin-top: 1vh;margin-left: 2vw">{$vo['titles']}</span>
+                    <if condition="($vo['begintime'] elt time()) and ($vo['endtime'] egt time())">
+                        <button onclick="window.location.href='{:U('claimDetail',array('pc_id'=>$vo['id']))}'"  style="font-size: 4vw;outline:none;background-color: #07D873;border:none;border-radius:10vh;padding:0.5vh 4vw;float:right;margin-right: 3vw;margin-top: 3vh;text-align: center;color:white;">领&nbsp;取</button>
+                        <else/> 
+                        <button style="font-size: 4vw;background-color: #CCCCCC;border:none;border-radius:10vh;padding:0.5vh 4vw;float:right;margin-right: 3vw;margin-top: 3vh;text-align: center;color:white;">领&nbsp;取</button>
+                    </if>
+                </div>
+            </volist>
+        </div>
+        <div class="lie2 ajax_return">
+        </div>
+    </div>
+<include file="Public/footer"/>
+    <script language="javascript">
+        var page = 1;
+        $(function () {
+            // 保存gotop按钮
+            // 检测滚动条位置，高于600回顶部按钮显示
+//            getDateMore();
+
+        });
+        $(window).scroll(function(){
+            if($(document).scrollTop()==$(document).height()-$(window).height())
+            {
+                getDateMore();
+            }
+        })
+        function getDateMore(){
+            $.ajax({
+                type : "post",
+                url:"{:U('Property/ajaxClaimList')}",
+                data:{"page":page},
+                success: function(data)
+                {
+                    $(".ajax_return").append(data);
+                    page = page+1;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

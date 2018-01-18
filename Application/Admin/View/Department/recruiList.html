@@ -1,0 +1,73 @@
+<include file="Public/min-header"/>
+<style type="text/css">
+.panel-title{height: 33px;}
+.fa-list{line-height: 33px}
+.title{line-height: 33px}
+.btn-default{margin-left: 10px;margin-top: 10px;min-height: 10px;}
+</style>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <!--<a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+                <a href="javascript:;" class="btn btn-default" data-url="http://www.tp-shop.cn/Doc/Index/article/id/1007/developer/user.html" onclick="get_help(this)"><i class="fa fa-question-circle"></i> 帮助</a>-->
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i class="fa fa-list"></i> <span class="title">{$projArr['titles']}招聘信息列表</span>
+                        <button type="button" onclick="location.href='{:U('Department/addRecruitment')}'" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>添加新招聘信息</button>
+                    </h3>
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="navbar navbar-default">
+                        <form action="" id="search-form2" class="navbar-form form-inline" method="post" onsubmit="return false">
+                            <div class="form-group">
+                                <label class="control-label" for="input-titles">招聘职位</label>
+                                <div class="input-group">
+                                    <input type="text" name="position" value="" placeholder="招聘职位" id="input-titles" class="form-control">
+                                </div>
+                            </div>
+                            <input type="hidden" name="order_by" value="id">
+                            <input type="hidden" name="sort" value="desc">
+                            <button type="submit" onclick="ajax_get_table('search-form2',1)" id="button-filter search-order" class="btn btn-primary pull-right"><i class="fa fa-search">查找</i></button>
+                        </form>
+                    </div>
+                    <div id="ajax_return">
+
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script>
+    $(document).ready(function(){
+        ajax_get_table('search-form2',1);
+
+    });
+
+    // ajax 抓取页面
+    function ajax_get_table(tab,page){
+        cur_page = page; //当前页面 保存为全局变量
+        var url = "{:U('Department/ajaxRecruiList')}";
+        //var id = {$projArr['id']};
+        $.ajax({
+            type : "POST",
+            url:url+"?p="+page,//+tab,
+            data : $('#'+tab).serialize(),// 你的formid
+            //data : {"id":id},
+            success: function(data){
+                $("#ajax_return").html('');
+                $("#ajax_return").append(data);
+            }
+        });
+    }
+</script>
+</body>
+</html>

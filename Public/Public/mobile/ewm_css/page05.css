@@ -1,0 +1,43 @@
+#addressBar{width:100%;height:4px;background-image:url("../home_images/address_bar.png");background-repeat: repeat-x;background-size:auto 4px;text-indent: -999px}
+.address_select{width:100%;height:75px;background: #fff;border:0;outline: none}
+.pay-mod{background: #fff;margin-top:15px;border-top:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1;color:#333;font-family: "黑体"}
+.pay-line>p,.pay-rmb{padding:15px;}
+.pay-line .logo,.pay-title{font-size: 18px;line-height: 22px;}
+.pay-title{border-bottom:1px solid #e1e1e1}
+.pay-line .logo{background-image: url("../home_images/logo-1.png");background-position: 15px center;background-size:22px auto;background-repeat:no-repeat;padding-left:42px;line-height: 22px;border-bottom:1px solid #e1e1e1;}
+.goods-data{height:125px;width:100%;position: relative}
+.goods-data img{float:left;display:block;width:85px;height:85px;margin-top:19px;margin-bottom:19px;margin-left:15px;border:1px solid #e1e1e1;}
+.goods-data p{float:left;display:block;position: absolute;top:30px;left:115px;right:15px;font-size: 18px}
+.pay-line strong{color: #ff6b6b;font-weight: bold}
+.pay-rmb{text-align: right;font-size: 22px}
+.pay-btn{position: fixed;left:0;bottom:0;width: 100%;background: #f5f5f5;}
+.pay-btn .payBtn_1,.pay-btn .payBtn_2{display:block;float:left;text-align:center;width:40%;line-height: 45px;font-size: 18px;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;margin-bottom:15px;margin-top:15px}
+.pay-btn .payBtn_1{background: #fff;color: #333;margin-right:4%;border:1px solid #e1e1e1;line-height: 43px;margin-left:5%}
+.pay-btn .payBtn_2{background: #ef4949;color: #fff;line-height: 45px;border:0;outline: none}
+.bot{margin-bottom:75px}
+input[type=radio]{display: none}
+.pay_kind{font-size: 15px;padding:10px;border:1px solid #ccc;}
+input[type=radio]:checked + .pay_kind{border:1px solid #ef4949;background-image:url("../home_images/tec_checked.png");background-position:right bottom;background-size:auto 35px;background-repeat:no-repeat;}
+.remarks{font-size: 15px;color:#333;font-family: "黑体";border:0;outline: none;width:190px}
+.pay_password{width:150px;padding:5px;}
+.address_bar{width:100%;font-size: 16px;font-family: "黑体";background-color: #fff;overflow: hidden;background-image:url("../home_images/link.png");background-position:98% center;background-repeat: no-repeat;background-size:4% auto}
+.address_bar a{color:#333}
+.address-one{width:92%;float: left;border-bottom: 1px solid #e1e1e1;}
+.address-one,.address-two{line-height: 35px}
+.address-two{width:100%;float: left}
+.address-name{display: block;float: left;padding-left:15px}
+.address-phone{display: block;float: right;padding-right:15px}
+.address-two p{padding-left:15px;padding-right:15px}
+.addAddress{display: block;line-height: 60px;width:100%}
+.addAddress span{padding-left:20px}
+.address_select{display: block;width:100%;border-bottom: 1px solid #e1e1e1;height:62px}
+.address_mod{padding-left:45px}
+.address_mod .p1{line-height: 35px;font-size: 16px}
+.address_mod .p2{line-height: 20px;font-size: 13px;}
+input[type=radio]:checked + .address_select{background-image:url("../home_images/address_select.png");background-position: 10px center;background-size:25px auto;background-repeat: no-repeat;background-color:#e1e1e1 }
+.sub{width:100%;text-align: center;margin-top:15px}
+.btn{width:100px;border:0;outline: none;background: #ef4949;color: #fff;line-height: 40px;font-size: 20px;;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;}
+.address_add{width:100%;height:40px}
+.address_add a{float: right;line-height: 40px;font-size: 16px;padding-right:10px;color: #0887d8}
+.bop{border-top: 1px solid #e1e1e1;}
+#paypassword{display: none}

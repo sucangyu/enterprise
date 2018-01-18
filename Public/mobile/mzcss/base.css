@@ -1,0 +1,17 @@
+*{padding:0;margin:0}
+table { border-collapse:collapse;}
+fieldset,img { border:0;}
+address,caption,cite,code,dfn,th,var { font-style:normal; font-weight:normal;}
+ul,ol{list-style: none}
+caption,th { text-align:left;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal;}
+:focus {outline:0;}
+
+/*统一字体*/
+body,button,input,select,textarea{font:14px/1.5 tahoma, arial}
+body{font-family:"微软雅黑", Helvetica, Arial, STHeiti, Tahoma}
+select, input, button, textarea{font: 100% Tahoma,Helvetica,Arial,sans-serif;}
+
+/*链接*/
+a{text-decoration: none}
+a:link,a:visited,a:hover,a:active{text-decoration: none}

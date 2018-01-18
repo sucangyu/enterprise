@@ -1,0 +1,102 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>地址管理</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/pay_css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/index2.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <script src="__PUBLIC__/jQuery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/mobile/js/jquery.json.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+    <script src="__PUBLIC__/layer/layer.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <style type="text/css">
+        .mantop{float:left;background-color: #fff;width: 100%;}
+        .mantop img{float:left;width: 100%;}
+        .mancon{width: 100%;padding:10px 15px 10px 15px;height: 80px;border-bottom: 0.5px solid #cccccc;font-size: 16px;}
+        .mancon span{width:18%;float: left;overflow:hidden;height:6vh;word-wrap : break-word ;word-break: break-all;}
+        .mancon div{width: 60%;float: left;margin-left: 5px;margin-top: 3px;}
+        .mancon div p{width: 100%;word-break:break-word;line-height: 16px;}
+        .mancon input{float: right;margin-top: 20px;}
+        .mancon .radioclass{float: right;margin-top: 20px;background:url(__PUBLIC__/images/radion2.png) no-repeat right center;background-size:32px 32px;width: 32px;height: 32px;}
+        .mancon .radioclass.active {
+            background:url(__PUBLIC__/images/radio1.png) no-repeat right center;background-size:32px 32px;width: 32px;height: 32px;
+        }
+        #newadd{width:100%;bottom: 0px;left: 0;height: 50px;background-color: #07D873;color: #ffffff;text-align: center;line-height: 50px;position: absolute;font-size: 0.8em;position: fixed;}
+
+        .header{height: 55px;border-bottom: 0 solid #ccc;background-color: #ffffff}
+        .sb-back{line-height: 55px;margin-left: 8px;float: left;}
+        .h-mid{line-height: 55px;text-align: center;height: 55px;width: 86%}
+        #heatatle{font-size: 20px;color: #96908f;margin:0 auto;}
+    </style>
+</head>
+<body style="background-color:#EAEAEC;margin:0 auto;">
+<!--<header>
+    <a class="back" href="{:U('User/index')}" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>地址管理</h4>
+</header>-->
+
+<div class="mantop">
+    <img src="__PUBLIC__/mobile/images/2.png">
+</div>
+<volist name="addressList" id="vo">
+    <div class="mancon">
+        <span>{$vo['consignee']}</span>
+        <a href="{:U('Address/editAddress',array('aid'=>$vo['id']))}">
+            <div>
+                <p>{$vo.mobile}</p>
+                <p class="text-left">
+                    <?php $tmp_address = memaddress($vo['province'],$vo['city'],$vo['district']);?>
+                    {$tmp_address['province']},{$tmp_address['city']},{$tmp_address['district']},{$vo['address']}
+                </p>
+            </div>
+        </a>
+        <if condition="$vo['is_default'] eq 1">
+            <div class="radioclass" onclick="Modify('{$vo.id}')" id="radioclass" style="background:url(__PUBLIC__/images/radio1.png) no-repeat right ;background-size:32px 32px;width: 32px;height: 32px;">
+            </div>
+        </if>
+        <if condition="$vo['is_default'] eq 0">
+            <div class="radioclass" onclick="Modify('{$vo.id}')" id="radioclass">
+            </div>
+        </if>
+    </div>
+</volist>
+<div style="margin-bottom: 61px;width: 100%;height: 1px;"></div>
+<a id="newadd" href="{:U('Address/addAddress')}">+新建地址</a>
+<script type="text/javascript">
+    function Modify(id)
+    {
+        $.ajax({
+            type: 'POST',
+            url: "{:U('Address/ajaxDefaultCity')}",
+            data:{'lid':id},
+            success: function(data){
+                layer.alert(data['msg'],function () {
+                    location.href=data['jurl'];
+                });
+            },
+
+        });
+    }
+    $(".radioclass").click(function() {
+        clear();
+        $(this).addClass("active");
+    });
+    function clear() {
+        $(".radioclass").each(function() {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

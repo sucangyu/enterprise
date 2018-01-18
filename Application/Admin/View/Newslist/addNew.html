@@ -1,0 +1,161 @@
+<include file="Public/min-header"/>
+<!--物流配置 css -start-->
+<style>
+    ul.group-list {
+        width: 96%;min-width: 1000px; margin: auto 5px;list-style: disc outside none;
+    }
+    ul.group-list li {
+        white-space: nowrap;float: left;
+        width: 150px; height: 25px;
+        padding: 3px 5px;list-style-type: none;
+        list-style-position: outside;border: 0px;margin: 0px;
+    }
+</style>
+<!--物流配置 css -end-->
+<link rel="stylesheet" href="__PUBLIC__/kindeditor/themes/default/default.css" />
+<script src="__PUBLIC__/kindeditor/kindeditor-all.js"></script>
+<script src="__PUBLIC__/kindeditor/lang/zh-CN.js"></script>
+<script type="text/javascript">
+    /*
+     * 上传之后删除组图input
+     * @access   public
+     * @val      string  删除的图片input
+     */
+    function ClearPicArr2(obj)
+    {
+        $(obj).parent().remove(); // 删除完服务器的, 再删除 html上的图片
+    }
+
+    KindEditor.ready(function(K) {
+        var editor = K.editor({
+            allowFileManager : false,
+
+        });
+        K.create('textarea[name="content"]', {
+            allowFileManager : true,
+            //ajax提交表单时获取tesxarea值
+            afterBlur: function(){this.sync();}
+        });
+
+        
+    });
+</script>
+
+<!--以上是在线编辑器 代码  end-->
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content">
+        <!-- Main content -->
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+                <!--<a href="javascript:;" class="btn btn-default" data-url="http://www.tp-shop.cn/Doc/Index/article/id/1007/developer/user.html" onclick="get_help(this)"><i class="fa fa-question-circle"></i> 帮助</a>-->
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i>信息详情</h3>
+                </div>
+                <div class="panel-body">
+                    <!--表单数据-->
+                    <form method="post" id="addEditProjForm" action="__CONTROLLER__/addNew">
+
+                        <!--通用信息-->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_tongyong">
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <td>标题:<i style="color: red;">*</i></td>
+                                        <td>
+                                            <input type="text" value="{$newArr.title}" name="title" class="form-control" style="width:550px;"/>
+                                            <span id="err_comp_name" class="error" style="color:#F00; display:none;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>关键词:<span style="color: #eee">(如:XXXX XXXX XXXXX)</span></td>
+                                        <td>
+                                            <input type="text" value="{$newArr.tag}" name="tag" maxlength="30" class="form-control" style="width:150px;"/>
+                                            <span id="err_comp_phone" class="error" style="color:#F00; display:none;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>新闻详情描述:<i style="color: red;">*</i></td>
+                                        <td width="85%">
+                                            <textarea class="span12 ckeditor" style="width: 700px;height:500px;" id="content" name="content" title="">{$newArr.content}</textarea>
+                                            <span id="err_comp_content" style="color:#F00; display:none;"></span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--其他信息-->
+                        </div>
+                        <div class="pull-left">
+                            <input type="hidden" name="comp_id" value="{$newArr.id}">
+                            <button class="btn btn-info" title="" data-toggle="tooltip" type="button" data-original-title="保存" id="bao"><i class="ace-icon fa fa-check bigger-110"></i>保存</button>
+                        </div>
+                    </form><!--表单数据-->
+                </div>
+            </div>
+        </div>    <!-- /.content -->
+    </section>
+</div>
+<script>
+    $("#bao").click(function(){
+
+        var comp_name = $("input[name='title']").val();//新闻标题
+        var comp_content = $("#content").val();//详情介绍
+
+        //var proj_price = $("input[name='comp_price']").val();
+        var error = '';
+        //alert(comp_name+","+comp_desc+","+comp_phone+","+comp_email+","+log_img+","+area+","+detailed+","+comp_images+","+comp_content);
+
+        $(".error").css('display','none');
+        if (!comp_name) {
+            error += '必须添加公司名称,   ';
+            $("#err_comp_name").html('必须添加公司名称');
+            $("#err_comp_name").css('display','block');
+        }
+        if (!comp_content) {
+            error += '必须添加公司详情,   ';
+            $("#err_comp_content").html('必须添加公司详情');
+            $("#err_comp_content").css('display','block');
+        }
+        if(error){
+            alert(error);
+            return false;
+        }else{
+            $("#addEditProjForm").submit();
+        }
+//
+
+    })
+
+    /*
+     * 以下是图片上传方法
+     */
+    // 上传商品图片成功回调函数
+    function call_back(fileurl_tmp){
+        $("#original_img").val(fileurl_tmp);
+        $("#original_video").val(fileurl_tmp);
+        $("#original_img2").attr('href', fileurl_tmp);
+    }
+
+    // 属性输入框的加减事件
+    function addAttr(a)
+    {
+        var attr = $(a).parent().parent().prop("outerHTML");
+        attr = attr.replace('addAttr','delAttr').replace('+','-');
+        $(a).parent().parent().after(attr);
+    }
+    // 属性输入框的加减事件
+    function delAttr(a)
+    {
+        $(a).parent().parent().remove();
+    }
+
+
+</script>
+</body>
+</html>

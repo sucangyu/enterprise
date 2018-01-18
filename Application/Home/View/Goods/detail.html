@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>{$enprArr.name}</title>
+    <!-- Bootstrap -->
+    <link href="__PUBLIC__/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .carousel-inner .item a img{width: 100%;height: 32vh;}
+        .jumbotron {padding-top: 30px;padding-bottom: 30px;margin-top: 30px;}
+        .jumbotron p{word-wrap:break-word;color: #919191;font-size: 16px;}
+        .page-header{margin: 10px 0 20px;}
+        .page-header h4{display: inline-block;}
+        .page-header a{float: right;line-height: 49px;}
+        .shell{ border:1px solid #eee; width:100%; padding:5px 2px; margin-left: 0px;border-radius:5px;overflow: auto;}
+        .new-img{width: 90%;float: left;height: 16vh;margin-bottom: 2vh;margin-left: 5%}
+        #one{ height:16vh; overflow:hidden; float: left;width: 90%;margin-left: 0px;} 
+        #one a{text-decoration:none;font-family:Arial;font-size:16px;color:#333;height: 22px;display: inline-block;width: 92%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;} 
+        #one li{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-bottom: 15px;margin-left: -10px;}
+        #one li:hover{ background-color:#eee;}
+        .caption h4{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+        .goodimg{width: 100%;}
+        .zhuti{min-height: 60vh;}
+    </style>
+</head>
+<body>
+<include file="Public/nav"/>
+<div class="container" style="margin-top: 70px;">
+    <div class="row zhuti">
+        <!--新闻-->
+        <div class="col-lg-4 col-sm-4 col-xs-12">
+            <div class="page-header">
+              <h4>公司信息</h4>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item"><i class="glyphicon glyphicon-map-marker">&nbsp;</i>
+                {$ress.province}&nbsp;{$ress.city}&nbsp;{$ress.district}&nbsp;{$enprArr.address}
+              </li>
+              <li class="list-group-item"><i class="glyphicon glyphicon-earphone">&nbsp;</i> 
+                <a href="tel:{$enprArr.phone}" style="color: #333">{$enprArr.phone}</a>
+              </li>
+              <li class="list-group-item"><i class="glyphicon glyphicon-envelope">&nbsp;</i>
+                {$enprArr.email}
+              </li>
+              <li class="list-group-item"><i class="glyphicon glyphicon-print">&nbsp;</i>{$enprArr.fax}
+              </li>
+              <li class="list-group-item"><i class="glyphicon glyphicon-comment">&nbsp;</i>{$enprArr.qq}
+              </li>
+            </ul>
+
+            <div class="page-header">
+              <h4>最新资讯 <small>NEWS</small></h4>
+              <a href="{:U('News/index')}">更多</a>
+            </div>
+
+            <div class="shell"> 
+                <div id="one">
+                    <div id="test">
+                        <ol>
+                            <volist name="newlist" id="vo1" key="k">
+                            <li><a href="{:U('News/detail',array('id'=>$vo1['id']))}">{$vo1.title}</a><span class="badge">{$vo1.browser}</span></li>
+                            </volist>
+                        </ol>
+                    </div> 
+                    <div id="test2"></div>
+                </div>
+            </div> 
+            
+            <script> 
+                var one =document.getElementById("one");
+                var test1=document.getElementById("test");
+                var test2=document.getElementById("test2");
+                    test2.innerHTML=test1.innerHTML;
+                var dt=setInterval(function(){                    
+                        if(test1.offsetHeight-one.scrollTop<=0){
+                               one.scrollTop-=test1.offsetHeight;
+                        }
+                        one.scrollTop++; 
+                    },30);
+
+                
+                $(document).ready(function(){
+                    //定义商品图片的高
+                    var width = $('.goodimg').css('width');
+                    var heig = parseInt(width);//var heig = parseInt(width)*0.75 宽高比4:3
+                    heig = heig+"px";
+                    $('.goodimg').css('height',heig);
+                    //alert(width);
+                    //为第一张轮播图添加class名
+                    $(".item:first").addClass("active");
+                })
+
+
+                
+            </script> 
+        </div>
+        <div class="col-lg-8 col-sm-8 col-xs-12">
+              <!-- 轮播组件 -->
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner" role="listbox">
+                    <volist name="goodArr['original_img']" id="vo" key="k">
+                        <div class="item">
+                          <a href="#"><img src="{$vo}" alt="..." title="{$goodArr.goods_name}"></a>
+                          
+                          <div class="carousel-caption">
+                          </div>
+                        </div>
+                    </volist>
+                  </div>
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div><!-- 轮播组件end -->  
+                <div class="alert alert-warning" role="alert" style="margin-top: 10px;">
+                    <h4>{$goodArr.goods_name}</h4>
+                    <p>
+                      <if condition="$vo2.market_price neq 0.00 ">
+                          <s>{$vo2.market_price}</s>&nbsp;
+                      </if>
+                      <strong style="color: red;">{$goodArr.shop_price}</strong>
+                    </p>
+                    <p>{$goodArr.goods_remark}</p>
+                </div>
+                
+                <!-- 商品详情 -->
+                <div class="panel panel-default">
+                  <div class="panel-heading">商品详情</div>
+                  <div class="panel-body">
+                    {$goodArr.goods_content}
+                  </div>
+                </div>
+        </div>
+        
+    </div>
+</div>
+<include file="Public/footer"/>
+</body>
+
+</html>

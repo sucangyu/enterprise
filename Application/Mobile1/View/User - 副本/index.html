@@ -1,0 +1,73 @@
+<!DOCTYPE html >
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>我的庄园</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <style>
+        /*.back{width:100%;height:90%;background:url(__PUBLIC__/images/ui8.png);background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;}*/
+        body{background:url(__PUBLIC__/images/ui8.png);background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;}
+        .top{position:absolute;top:10%;left:15%;width:70%;height:20%;background-color:white;border-radius: 5%;box-shadow: 5px 2px 2px #888888;}
+        .head{position:absolute;top:15%;left:10%;width:30%;height:70%}
+        .head img{border-radius:100%;position:absolute;top:10%;width:100%;height:80%;}
+        .char{position:absolute;top:25%;left:45%;}
+        .char ul{line-height: 6vw;}
+        .love{position:absolute;top:5%;height:20%;width:100%}
+        .love p{float:right;margin-right:1vw;color:red;font-size: 3vw;}
+        .love img{float:right;width:5vw;height:4vw;margin-top: 1.5vh;margin-right: 1vw;}
+        .lie{position:absolute;top:36%;width:100%;height:35%}
+        .ll{height:40px;width:90vw;margin-left:5vw;border-bottom: 1px solid #a1a1a1;;}
+        .ll span{margin-top:30vh;margin-left:3vw;font-size: 5vw;color:#898989;}
+        .ll img{width:5vw;float:right;margin-right: 4vw;margin-top: 12px}
+    </style>
+</head>
+<header>
+    <a class="back" href=" " >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>我的庄园</h4>
+</header>
+<body style="margin:0px auto;overflow: auto;height:120vw;">
+    <div class="top">
+        <div class="head">
+            <img src="{$user['userimage']}">
+        </div>
+        <div class="char">
+           <ul>
+               <li><span style="float:left;margin-top:15%;color:#1C1B20;font-size:5vw">{$user['nickname']}</span></li>
+               <li><span style="float:left;color:#1C1B20;font-size:3vw;">爱心编号:{$user['id']+6000000}</span></li>
+           </ul>
+        </div>
+        <div class="love">
+            <p>{$user['coins']}</p>
+            <img src="__PUBLIC__/images/xx.png">
+
+        </div>
+    </div>
+    <div class="lie">
+        <a href="{:U('property')}">
+            <div class="ll"><span>我的收成</span><img src="__PUBLIC__/images/ui1.png"></div>
+        </a>
+        <a href="{:U('Order/orderlist')}">
+            <div class="ll"><span>我的订单</span><img src="__PUBLIC__/images/ui1.png"></div>
+        </a>
+        <a href="{:U('myget')}">
+            <div class="ll"><span>我的认领</span><img src="__PUBLIC__/images/ui1.png"></div>
+        </a>
+        <a href="{:U('memberInfo')}">
+            <div class="ll"><span>个人资料</span><img src="__PUBLIC__/images/ui1.png"></div>
+        </a>
+        <a href="{:U('Address/addressList')}">
+            <div class="ll"><span>地址管理</span><img src="__PUBLIC__/images/ui1.png"></div>
+        </a>
+        <a href="{:('aixin')}">
+            <div class="ll"><span>爱心记录</span><img src="__PUBLIC__/images/ui1.png"></div>
+        </a>
+    </div>
+    <include file="Public/footer"/>
+</body>
+</html>

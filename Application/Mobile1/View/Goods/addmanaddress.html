@@ -1,0 +1,236 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>添加地址</title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/index2.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/public.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/pay_css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/LArea.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+	<script src="__PUBLIC__/jQuery-2.1.4/jquery.min.js"></script>
+	<script src="__PUBLIC__/mobile/js/LArea.js"></script>
+	<script src="__PUBLIC__/mobile/js/jquery.json.js"></script>
+	<script src="__PUBLIC__/layer/layer.js"></script>
+	<script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+	<style type="text/css">
+		.addmantop{width: 100%;height: 50px;border-bottom: 1px solid #b5b4b5;text-align: center;color: #898a89;background-color: rgba(248,248,248,0.95)}
+		.addmantop span{line-height: 50px;font-size: 20px;}
+		.addmantop input{float: right;margin-right: 15px;line-height: 48px;border:0px;height: 49px;background-color: rgba(248,248,248,0.95);}
+		.addmancon ul li{width: 100%;height: 50px;padding:6px 15px 6px 15px;border-bottom: 1px solid #E5E5E5;line-height: 40px;font-size: 16px;color: #898a89;}
+		.addmancon ul li input{width: 100%;height: 100%;border: 0px;}
+		.addmancon ul li select{width: 31%;font-size: 12px;height: 35px;margin-top: -15px;}
+		.default{color: #898a89;font-size: 18px;margin: 0 auto;line-height: 32px;margin-top: 20px;}
+		.default div{width: 32px;height: 32px;float: left;margin-left: 30%}
+		.default .radioclass{background:url(__PUBLIC__/images/radion2.png) no-repeat center center;width: 32px;height: 32px;}
+		.default .radioclass.active {
+			background:url(__PUBLIC__/images/radio1.png) no-repeat right center;width: 32px;height: 32px;
+		}
+		.addman{ position:fixed;width: 100%;height: 100%;background-color: #fff;top:0px;overflow: auto;right: -100%;}
+		.addman .glyphicon-menu-left{float: left;}
+		.addman ul li{width: 100%;height: 50px;padding:6px 15px 6px 15px;border-bottom: 1px solid #E5E5E5;line-height: 40px;font-size: 16px;color: #898a89;}
+		.addman ul li .glyphicon-menu-right{float: right;line-height: 40px;}
+		.addman ul .li1{border-bottom: 1px solid #E5E5E5;height: 30px;line-height: 20px;font-size: 14px;width: 100%;}
+		.addman ul .li1 .col-md-4{width: 33%;}
+		.addman ul .li1 #left{color: #0094DE;}
+        .btn-default{margin: 0 auto;text-align: center;background: #07d873;color: #fff;width: 90%;margin-left:5%;font-size: 5vw;}
+	</style>
+</head>
+<body style="margin:0 auto;">
+<form action="{:U('Goods/doAddAddress')}" id="addman_form" method="post" onSubmit="return checkForm()">
+	<div class="addmantop">
+		<!-- <a class="sb-back" href="{:U('Goods/order',array('good_id'=>$type['good_id'],'good_num'=>$type['good_num']))}" style="float: left;padding-top: 12px;margin-left: 10px;">
+			<img class="" src="__PUBLIC__/images/back.png" style="height: 25px;">
+		</a> -->
+		<span>添加地址</span>
+		
+	</div>
+	<div class="addmancon">
+		<ul>
+			<li><input type="text" name="consignee" placeholder="姓名"></li>
+			<li><input type="text" name="phone" placeholder="手机号码"></li>
+			<li id="demo1">
+				<span id="demo2">省份、城市、区县</span>
+				<input type="hidden" name="pre" id="prov">
+				<input type="hidden" name="city" id="city">
+				<input type="hidden" name="area" id="area">
+			</li>
+
+			<li><input type="text" name="detailed" placeholder="详细地址，街道，楼牌号" value="" /></li>
+		</ul>
+	</div>
+	<div class="addman">
+		<div class="addmantop">
+			<span id="houtui" class="glyphicon glyphicon-menu-left"></span>
+			<span>选择地址</span>
+		</div>
+		<ul class="rightNav">
+			<li class="li1">
+				<span id="left" class="col-md-4">&nbsp;&nbsp;&nbsp;&nbsp;省份&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span id="content" class="col-md-4">&nbsp;&nbsp;&nbsp;&nbsp;城市&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span id="right" class="col-md-4">&nbsp;&nbsp;&nbsp;&nbsp;区县&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</li>
+			<volist name="good1" id="vo">
+				<li id='{$vo.id}' class='prov'>{$vo.name}<span class='glyphicon glyphicon-menu-right'></span></li>
+			</volist>
+		</ul>
+	</div>
+    <input type="hidden" name="good_id" value="{$type.good_id}">
+    <input type="hidden" name="good_num" value="{$type.good_num}">
+    <input type="hidden" name="order_type" value="{$type.type}">
+    <input type="submit" class="btn btn-default" name=""  value="保存">
+</form>
+<script type="text/javascript">
+    var addman=$(".addman");
+    var rightNav=$(".rightNav");
+    var vo = {$tree};
+    $("#demo1").click(function(){
+        var prov = $(".prov");
+//alert(prov.length);
+        addman.css({
+            //display: "block",
+            right: "0px",
+            transition: "right 0.5s"
+        });
+        if (prov.length<1) {
+            $(".cit").remove();
+            $(".area").remove();
+            $("#left").text('省份');
+            $("#content").text('城市');
+            $("#right").text('区县');
+            $("#left").css({
+                color:"#0094DE",
+            });
+            $("#content").css({
+                color:"#898a89",
+            });
+            $("#right").css({
+                color:"#898a89",
+            });
+            //console.log(vo);
+            for (var i = 0; i < vo.length; i++) {
+                var pre = "<li id='"+vo[i]['id']+"' class='prov'>"+vo[i]['name']+"<span class='glyphicon glyphicon-menu-right'></span></li>";
+                rightNav.append(pre);
+            }
+        }
+        $(".prov").click(function(){
+            var id=$(this).attr("id");
+            var name=$(this).text();
+            $("#left").text(name);
+            $("#prov").val(id);
+            $("#left").css({
+                color:"#898a89",
+            });
+            $("#content").css({
+                color:"#0094DE",
+            })
+            city_ajax(id)
+        })
+    })
+    $("#houtui").click(function(){
+        addman.css({
+            //display: "none",
+            right: "-100%",
+            transition: "right 0.5s",
+        });
+    })
+    function city_ajax(id){
+        $.ajax({
+            type: 'POST',
+            url: "{:U('Address/ajaxCityList')}",
+            data:"lid="+id,
+            success: function(data){
+                //console.log(data);
+                var jnobj=JSON.parse(data);
+                //console.log(jnobj);
+                $(".prov").remove();
+                for (var a = 0; a < jnobj.length; a++) {
+                    var op = "<li id='"+jnobj[a]['id']+"' class='cit'>"+jnobj[a]['name']+"<span class='glyphicon glyphicon-menu-right'></span></li>";
+                    rightNav.append(op);
+                }
+                $(".cit").click(function(){
+                    var cid=$(this).attr("id");
+                    var cname=$(this).text();
+                    $("#content").text(cname);
+                    $("#city").val(cid);
+                    $("#content").css({
+                        color:"#898a89",
+                    });
+                    $("#right").css({
+                        color:"#0094DE",
+                    })
+                    $.ajax({
+                        type: 'POST',
+                        url: "{:U('Address/ajaxCityList')}",
+                        data:"lid="+cid,
+                        success: function(data){
+                            var jnobj=JSON.parse(data);
+                            //console.log(jnobj);
+                            $(".cit").remove();
+                            for (var b = 0; b < jnobj.length; b++) {
+                                //声明option.<option value="pres[i]">Pres[i]</option>
+                                var op1 = "<li id='"+jnobj[b]['id']+"' class='area'>"+jnobj[b]['name']+"</li>";
+                                //添加
+                                rightNav.append(op1);
+                            }
+                            $(".area").click(function(){
+                                var aid=$(this).attr("id");
+                                var aname=$(this).text();
+                                $("#right").text(aname);
+                                $("#area").val(aid);
+                                var manaddress = $(".li1").text();
+                                $("#demo2").html(manaddress);
+                                addman.css({right: "-100%",transition: "right 0.5s",});
+                            })
+                        },
+                    });
+                })
+            },
+        });
+    }
+
+    function checkMobile(tel) {
+        var reg = /(^1[3|4|5|7|8][0-9]{9}$)/;
+        if (reg.test(tel)) {
+            return true;
+        }else{
+            return false;
+        };
+    }
+    function checkForm()
+    {
+        if($('input[name="consignee"]').val()=='')
+        {
+            layer.alert('收货人不能为空');
+            return false;
+        }else if($('input[name="pre"]').val()=='')
+        {
+            layer.alert('请选择省份');
+            return false;
+        }else if($('input[name="city"]').val()=='')
+        {
+            layer.alert('请选择城市');
+            return false;
+        }else if($('input[name="area"]').val()=='')
+        {
+            layer.alert('请选择区域');
+            return false;
+        }else if($('input[name="detailed"]').val()=='')
+        {
+            layer.alert('请填写地址');
+            return false;
+        }else if(!checkMobile($('input[name="phone"]').val()))
+        {
+            layer.alert('手机号码格式有误');
+            return false;
+        }else
+        {
+            return true;
+        }
+    }
+</script>
+<!--<include file="Public/wxshare"/>-->
+</body>
+</html>

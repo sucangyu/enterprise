@@ -1,0 +1,16 @@
+.addnew{margin-left: 40px;margin-top:20px;font-size: 14px}
+.addnew span{display:inline-block;width:170px;text-align: right;padding-right:10px;font-weight: bold;}
+.sp_1{vertical-align: 100%}
+.inp:active,.inp:focus,.inp_1:active,.inp_1:focus{border:1px solid #64b0ec;box-shadow:0 0 6px #98cbf3}
+.addnew .btn_2,.btn_0{margin-left: 187px;}
+.btn_3{margin-left:20px}
+.btn_2{line-height: 20px;padding:6px 14px;background-image:linear-gradient(to bottom,#08c,#04c);border:0;color:#fff;border-radius:4px;font-size:15px}
+.btn_2:hover{background:#0049cc}
+input[type=radio] {
+    display: none;
+}
+.rad_1{border:1px solid #ccc;padding:7px 16px;box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);border-radius:5px;}
+input[type=radio]:checked + .rad_1, .rad_1.checked {
+    background:#ccc
+}
+.addnew .yushe{text-align: left;font-weight: normal}

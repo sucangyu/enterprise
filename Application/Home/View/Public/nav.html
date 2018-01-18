@@ -1,0 +1,36 @@
+<link href="__PUBLIC__/images/logo.ico" rel="shortcut icon" type="image/x-icon" />
+<style type="text/css">
+    .navbar-brand img{width: 30px;height: 30px;display: inline-block;margin-right: 5px;margin-top: -5px;}
+</style>
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img src="{$enprArr.log_img}" alt="Brand"><span>{$enprArr.name}</span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="{:U('Index/index')}">首页 <span class="sr-only">(current)</span></a></li>
+                <li><a href="{:U('Goods/index')}">产品信息</a></li>
+                <li><a href="{:U('News/index')}">最新消息</a></li>
+                <li><a href="{:U('Index/aboutMy')}">关于我们</a></li>
+                <li><a href="{:U('Recr/index')}">人才招聘</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="tel:{$enprArr.phone}"><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;{$enprArr.phone}</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-envelope"></i>&nbsp;{$enprArr.email}</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </div>
+    
+</nav>

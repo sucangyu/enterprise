@@ -1,0 +1,16 @@
+.clalist{width: 100%;height: 80px;}
+.clalist .col-xs-6{height: 80px;    padding-right: 5px;padding-left: 5px;}
+.clalist .col-xs-6 .btn{width: 70px;margin-top: 15px;border-color:#A52A2A;}
+.clalist .col-xs-6 .btn .glyphicon{color:#A52A2A;}
+.clalist .col-xs-6 p{font-size: 12px;}
+.product{border-top:5px solid #8A8A8A ;width: 100%; }
+.product .col-xs-6{margin-bottom: 5px;}
+.product .col-xs-6 img{width: 100%;margin:0 auto;border:1px solid #E3E3E3;}
+.product .col-xs-6 .details{margin-top: 10px;}
+.product .col-xs-6 .details .details1{float: left;width: 20%;}
+.product .col-xs-6 .details .details1 img{width: 100%;}
+.product .col-xs-6 .details .details1 p{font-size: 12px;text-align: center;}
+.product .col-xs-6 .details .details2{float: left;width: 80%;margin-top: 6px;padding-left:5px;}
+.product .col-xs-6 .details .details2 .p1{width: 100%;overflow: hidden;text-overflow: ellipsis; white-space: nowrap; font-size: 12px;}
+.product .col-xs-6 .details .details2 .span1{color: #CD0000;font-size: 12px;}
+.product .col-xs-6 .details .details2 .span2{color: #A8A8A8; font-size: 10px;}

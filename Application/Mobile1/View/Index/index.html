@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>{$shop_config['store_name']}</title>
+    <!-- Bootstrap -->
+    <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/LArea.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/mobile/css/comments_201502032021.css">
+    <link rel="stylesheet" href="__PUBLIC__/mobile/css/style_201502032021.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/mobile/js/jquery.backstretch.js"></script>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="__PUBLIC__/mobile/js/LArea.js"></script>
+    <script src="__PUBLIC__/layer/layer.js"></script>
+
+    <style type="text/css">
+        .msg-info{position: relative;width: 100%;padding-bottom:56%;height:0;margin:auto}
+        .shang li{float:left; width:55px;
+            height: 35px;
+            line-height:35px;}
+        .shang li a{display:block; /* 将链接设为块级元素 */
+            margin:2px;
+            text-align: center;
+            color: #07D873; /* 设置文字颜色 */
+            text-decoration:none; /* 去掉下划线 */
+            border:1px solid grey; /* 在左侧加上分隔线 */
+            border-radius:5px;
+            font-size:10px;}
+        .shang li a:hover{background:#07D873;color:white;}
+        .shang li a sub{font-size:12px}
+        .shang li span{font-size:18px;}
+        #layui-layer1{top: 60%;}
+    </style>
+</head>
+<body>
+
+<div class="container-builder">
+    <script type="text/javascript">
+        $(function () {
+            $(".msg-info").css({ opacity: .8 });   //设置透明度
+            $(".msg-info").backstretch([
+                "__PUBLIC__/images/sm1.jpg",
+//                "__PUBLIC__/images/sm1.jpg",
+            ], { duration: 3000, fade: 750 });
+            $(".renling").click(function () {
+                //alert('aa');
+                if($("input[name='paylist']").is(':checked'))
+                {
+                    layer.open({
+                        type: 2,
+                        title: '认领信息',
+                        shadeClose: true,
+                        offset: '50%',
+                        shade: 0.8,
+                        area: ['100%', '50%'],
+                        content: "{:U('Index/supports',array('proj_id'=>1))}" //iframe的url
+                    });
+                }else
+                {
+                    layer.alert('请先阅读免责声明，并接受平台的规则才能认领');
+                }
+            })
+        });
+    </script>
+    <div class="msg-info" >
+        <div class="hd-txt-box">
+            <div class="hd-wrapper">
+                <!-- <div class="hd-tab-cell message "> -->
+                <span class="time-line-title " id="wxdesc" style="font-size: 24px;color:white">{$projArr['titles']}</span>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!--项目介绍-->
+    <div>
+        <a href="{:U('Index/detail',array('id'=>1))}" >
+            <div style="width:95%;height:0px;padding-bottom:16px;margin:auto;margin-top:10px;border-radius: 5px">
+                <img src="__PUBLIC__/images/xian.png">
+            </div>
+        </a>
+    </div>
+
+    <!--我要认领-->
+
+    <div style="position:relative;width:95%;background:white;margin:auto;height:120px;margin-top:15%;line-height: 100px;border-radius: 5px">
+        <div style="width:45%;height:35px;margin:auto;">
+            <button class="renling" style="color:white;background: #07D873;border-radius: 30px;width:100%;height:35px;border:none">
+                我要认领
+            </button>
+        </div>
+        <div style="margin: auto;width:100%;text-align: center">
+            <input type="checkbox" checked="" name="paylist" value="" style="width:10px;height:10px">
+            <a style="color:lightgrey;font-size: 12px" href="{:U('Index/zcxy')}">我已阅读《免责条款》</a>
+        </div>
+    </div>
+</div>
+<!--留言部分-->
+<section id="cd-timeline" style="width:90%;margin:auto;margin-top:0px;margin-bottom: 15px;">
+    <div id="payinfos" class="cd-timeline cd-container">
+        <volist name="leaveMsg" id="vo">
+            <div class="cd-timeline-block">
+                <div class="cd-timeline-img cd-picture">
+                    <notempty name="vo['Member']['userimage']">
+                        <img src="{$vo['Member']['userimage']}" alt="Picture">
+                        <else/>
+                        <img src="__PUBLIC__/images/people.jpg" alt="Picture">
+                    </notempty>
+                </div><!-- 用户头像 -->
+                <div class="cd-timeline-content">
+                    <h2 style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width:80%;">{$vo['Member']['nickname']} ：<a href="#" class="cd-read-more"></a></h2>
+                    <h2>{$vo['questions']}</h2>
+                    <span class="cd-date"><notempty name="vo['regtime']">{$vo['regtime']|date='m月 d日 H:i',###}</notempty></span>
+                </div>
+            </div>
+        </volist>
+        <!---循环结束---->
+    </div>
+</section>
+<!--投赏部分-->
+<form method="post" action="{:U('Index/rewards')}">
+<div style="width:95%;height:240px;background:white;margin:auto;margin-top:-15px;border-radius: 5px" class="shang">
+    <div style="margin:auto;text-align:center;font-size:14px;padding-top:10px;padding-bottom:5px">为沙漠变绿洲献一份力</div>
+    <div style="text-align:center;margin: auto;width:95%;" >
+        <!--<div style="width:100%;margin:auto">-->
+        <ul style="margin:0 auto;display:table;text-align: center;margin-bottom: 5px;">
+            <li ><a><span>5</span><sub  style="bottom:0px;">元</sub></a></li>
+            <li ><a><span>10</span><sub  style="bottom:0px;">元</sub></a></li>
+            <li ><a><span>20</span><sub  style="bottom:0px;">元</sub></a></li>
+            <li ><a><span>50</span><sub  style="bottom:0px;">元</sub></a></li>
+            <li ><a><span>100</span><sub  style="bottom:0px;">元</sub></a></li>
+        </ul>
+        <input type="text" value="" id="money" name="rewardMoney" placeholder="亲看着给啊" style="text-align: center;width:80%;height:40px;margin-top:12px;border:1px solid grey;font-size:12px;border-radius: 5px">
+        <input type="hidden" value="1"  name="proj_id">
+    </div>
+    <div style="width:50%;height:35px;margin:auto;margin-top:15px">
+        <button style="color:white;background: #07D873;border-radius: 30px;width:100%;height:35px;border:none;font-size:18px">
+            赏
+        </button>
+    </div>
+    <div style="font-size:12px;text-align:center;margin:auto;color:grey">已有{$supportNum+968}人打赏</div>
+</div>
+</form>
+<div class="idx-footer" style="text-align:center;font-size: 12px;line-height:40px;">
+    ©2017-2018
+    善聚信息
+    提供技术服务
+</div>
+<include file="Public/wxshare"/>
+<include file="Public/footer"/>
+</body>
+<script type="text/javascript" src="__PUBLIC__/layer/layer-min.js"></script>
+<script type="text/javascript">
+    $("ul li").click(function(){
+        var item = $(this).index();  //获取索引下标 也从0开始
+        var textword = $(this).find('span').text();  //文本内容
+        $("#money").val(textword);
+    })
+
+</script>
+</html>

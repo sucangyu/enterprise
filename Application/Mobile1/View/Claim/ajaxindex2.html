@@ -1,0 +1,41 @@
+<notempty name="claimArr">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var width = $('.div1').css('width');
+            var heig = parseInt(width);
+            heig = heig+"px";
+            $('.goodimg').css('height',heig);
+        })
+    </script>
+    <volist name="claimArr" id="vo" key="k">
+        <div class="order_list1">
+            <p class="serial ">
+                <span>认购产品:{$vo['Projchild']['pc_title']}</span><span style="float: right"><notempty name="vo['regtime']">{$vo['regtime']|date='Y-m-d',###}</notempty></span>
+            </p>
+            <a href="{:U('Index/index')}">
+                <div>
+                    <div class="div1">
+                        <notempty name="vo['Projchild']['pc_pic']">
+                            <img class="goodimg" src="{$vo['Projchild']['pc_pic']}">
+                            <else/>
+                            <img class="goodimg" src="__PUBLIC__/images/sm.jpg">
+                        </notempty>
+                    </div>
+                    <div class="div2">
+                        <p>认购数量:{$vo['claimnum']}*{$vo['claimprice']}
+                        </p>
+                        <p>
+                            支付金额:{$vo['claimnum']*$vo['claimprice']+$vo['othermoney']}
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <p class="p2">
+                <if condition="$vo['paystas'] eq 0">
+                    <a class="btn btn-default" href="{:U('Wxpay/claimPayAgain',array('claim_id'=>$vo['id']))}" role="button" style="background-color: #EE4000;color: #fff;border:0px;">继续支付</a>
+                    <a class="btn btn-default" href="javascript:if(confirm('确定要取消支持?'))location.href='{:U('Wxpay/cancelClaimPay?ckd=2&id='.$vo['id'])}'" role="button" style="color: #b5b4b5;">取消支付</a>
+                </if>
+            </p>
+        </div>
+    </volist>
+</notempty>

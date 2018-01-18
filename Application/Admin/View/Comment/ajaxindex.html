@@ -1,0 +1,123 @@
+<form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"></td>
+
+                <td class="text-center">
+                    <a href="javascript:sort('id');">ID</a>
+                </td>
+                <td class="text-center">
+                    <a>会员</a>
+                </td>
+                <td class="text-center">
+                    <a>项目</a>
+                </td>
+                <td class="text-center">
+                    <a>回复对象</a>
+                </td>
+                <td class="text-center">
+                    <a>留言/回复内容</a>
+                </td>
+                <td class="text-center">
+                    <a>是否删除</a>
+                </td>
+                <td class="text-center">
+                    <a>是否回复</a>
+                </td>
+                <td class="text-center">
+                    <a href="javascript:sort('jointime');">添加时间</a>
+                </td>
+                <td class="text-center"><a>操作</a></td>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="userList" id="list">
+                <tr>
+                    <td class="text-center">
+                        <input type="checkbox" name="selected[]" value="6">
+                        <input type="hidden" name="shipping_code[]" value="flat.flat">
+                    </td>
+                    <td class="text-center">{$list.id
+
+                        }</td>
+                    <td class="text-center">
+                        <notempty name="list['mid']">
+                            {$list.mid}
+                        </notempty>
+                    </td>
+                    <td class="text-center">
+                        <notempty name="list['proj_id']">
+                            {$list.proj_id}
+                        </notempty>
+                    </td>
+                    <td class="text-center">
+                        {$list.pid}
+                    </td>
+                    <td class="text-center">
+                        <div style="width:200px;margin:0 auto;overflow: hidden;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{$list.questions}</div>
+                    </td>
+                    <td class="text-center">
+                        <if condition="$list.isdel ==0">
+                            正常
+                            <else/>
+                            已删除
+                        </if>
+                    </td>
+                    <td class="text-center">
+                        <if condition="$list.isreturn ==0">
+                            未回复
+                            <else/>
+                            已回复
+                        </if>
+                    </td>
+                    <td class="text-center">
+                        <notempty name="list['regtime']">
+                            {$list.regtime}
+                        </notempty>
+                    </td>
+                    <td class="text-center">
+                        <a href="javascript:;" onclick="reply('{$list.admin_id}','{$list.id
+
+}')"  data-toggle="tooltip"  title="" class="btn btn-info reply" data-original-title="查看详情"><i class="fa fa-eye">回复信息</i></a>
+                        <a href="javascript:;" onclick="del('{$list.isdel}','{$list.id
+
+}')" data-toggle="tooltip" title="" class="btn btn-info del" ><i class="fa fa-eye">删除信息</i></a>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</form>
+<div class="row">
+    <div class="col-sm-6 text-left"></div>
+    <div class="col-sm-6 text-right">{$page}</div>
+</div>
+<script>
+    function reply(e,id){
+//        alert(id);
+        if(e!=0){
+            alert('只能回复客户信息');
+            return false;
+        }else{
+            window.location.href = "{:U('Comment/reply')}?id="+id;
+        }
+//        alert(1);
+    }
+    function del(e,id) {
+//        alert(e);
+        if(e==1){
+            alert('本条信息已删除，无需再次删除');
+            return false;
+        }else{
+            window.location.href = "{:U('Comment/del')}?id="+id;
+        }
+//        alert(1);
+    }
+    $(".pagination  a").click(function(){
+        var page = $(this).data('p');
+        ajax_get_table('search-form2',page);
+    });
+</script>

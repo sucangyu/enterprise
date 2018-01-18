@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>我的庄园</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+</head>
+<style type="text/css">
+    .big{float:left;width:100%;}
+    .lie{float:left;width:100%;}
+    .ll{float:left;width:90%;margin-left:5%;height:25vw;background-color:white;margin-top:2vh;box-shadow:  2px 2px 2px #898989;}
+    .lie2{float:left;width:100%;margin-top:10vw;}
+    .ll2{folat:left;width:90%;margin-left:5%;height:20vw;margin-left:4vw;}
+    .ll2 ul{float:left;margin-left: 3vw;font-size: 3vw;line-height: 3vh;border-radius: 4%;background-color: white;box-shadow:  2px 2px 2px #898989;}
+</style>
+<header>
+    <a class="back" href="{:U('index')}" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>我的庄园</h4>
+</header>
+<body style="background-color:#F7F7F7;margin:0 auto;">
+    <div class="big">
+        <p style="margin-left:5%;margin-top:10vw;color:#898989;font-size: 6vw">我的收成</p>
+        <div class="lei">
+            <foreach name="projc" item="goods">
+            <div class="ll">
+                <if condition="goods.totaltree gt goods.minpropertynum">
+                <form action="{:U('renling')}" method="post">
+                    <notempty name="goods['titlepic']">
+                        <img src="{$goods['titlepic']}" style="float:left;width:23%;height:10vh;margin-left: 3vw;margin-top: 2vh">
+                    <else/>
+                        <img src="__PUBLIC__/images/tj12.jpg" style="float:left;width:23%;height:10vh;margin-left: 3vw;margin-top: 2vh">
+                    </notempty>
+                    <span style="font-size: 7vw;color:#898989;float:left;margin-top: 1vh;margin-left: 2vw">{$goods['titles']}</span>
+                        <input type="hidden" value="{$goods.id}" name="id">
+                        <input type="submit" value="领取" style="background-color: #07D873;border:none;border-radius:10vh;padding:0.5vh 4vw;float:right;margin-right: 3vw;margin-top: 3vh;text-align: center;color:white;">
+                </form>
+                <else/>
+                        <input type="hidden"value="">
+                        <img src="__PUBLIC__/images/tj12.jpg" style="float:left;width:23%;height:10vh;margin-left: 3vw;margin-top: 2vh">
+                        <span style="font-size: 7vw;color:#898989;float:left;margin-top: 1vh;margin-left: 2vw">葡萄</span>
+                        <input type="submit" value="领取" style="background-color: #CCCCCC;border:none;border-radius:10vh;padding:0.5vh 4vw;float:right;margin-right: 3vw;margin-top: 3vh;text-align: center;color:white;">
+                </if>
+            </div>
+            </foreach>
+        </div>
+        <div class="lie2">
+            <foreach name="propertylist" item="v">
+            <div class="ll2">
+                <notempty name="user['userimage']">
+                     <img src="{$user['userimage']}" style="float:left;width:12vw;height:6vh;border-radius: 100%;margin-top: 0vh">
+                <else/>
+                    <img src="__PUBLIC__/images/tj12.jpg" style="float:left;width:12vw;height:6vh;border-radius: 100%;margin-top: 0vh">
+                </notempty>
+                <ul>
+                    <li style="color:#cccccc">{$user['nickname']}:</li>
+                    <li style="color:#595757"> {$v.regtime|date='Y-m-d',###}
+                        <if condition="$v.kind eq 1">
+                            认领
+                        <else/>
+                            获赠
+                        </if>
+                        {$v.treenum}棵树&nbsp;</li>
+                    <!--<li style="color:#cccccc">2000年5月8日</li>-->
+                </ul>
+            </div>
+            </foreach>
+        </div>
+    </div>
+<include file="Public/footer"/>
+</body>
+</html>

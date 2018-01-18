@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>沙漠粮仓--购物车</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/shopcart.css" />    
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script type="text/javascript" src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/mobile2/js/shopcart.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+    <style type="text/css">
+        body{background: #f3f3f4;}
+        .num{font-size: 0.24rem;color: #000;}
+        .jgq .dynamicNum{margin-top: 0.25rem;border-radius: 8px; border: 1px solid #d8d8d8;display: inline-block;width: 25vw;text-align: center;font-size: 3vw;height: 25px;line-height: 25px; float: right;color: #d8d8d8;}
+        .num-jian,.num-jia{line-height: 20px;font-size: 2vw;background: #fff;color: #d8d8d8;margin-top: 0px;display: inline-block;width: 20%;}
+        .input-num{width: 57%;text-align: center;border-top:0px;border-bottom: 0px;line-height: 20px;border-left:1px solid #d8d8d8; border-right:1px solid #d8d8d8;height: 22px;margin: 0px auto;border-radius:0px;-webkit-appearance: none;}
+        /*.num-jian,.num-jia{
+            background-color:#dfdedd;color: #fff;border-radius:8px;width: 16px;height: 16px;line-height: 14px;float: left;text-align: center;font-size: 16px;margin-top: 5px;
+        }
+        .input-num{width: 25px;text-align: center;float: left;border:0px;font-size: 4vw;width: 50px;height: 25px;line-height: 25px;}*/
+        .lb .jgq .num{margin-top: 0.39rem}
+        .lb{margin-top: 0rem;border-bottom: 5px solid #f3f3f4;background: #fff;}
+        .lb .mid .jj .price{
+            display: block;
+            float: left;
+            text-align: center;
+            line-height: 0.4rem;
+            width: 0.48rem;
+            height: 0.4rem;
+            font-size: 0.24rem;
+            border-left: 1px solid #dcdcdc;
+            border-right: 1px solid #dcdcdc;
+        }
+        #retop{width: 50px;height: 50px;border: 1px solid #EDEDED;position:fixed;bottom: 50px;right: 10px;background: rgba(248,248,248,0.5);border-radius:25px;text-align: center;font-size: 22px;}
+        .hengxian{width:20%;height:1px;padding:0px;overflow:hidden;display:inline-block;background: #CCCCCC;margin-bottom: 5px;}
+        .goodimg{width: 100%;}
+        .product .col-xs-6{padding-right: 1px;padding-left: 1px;}
+        .lb .check .xz{width: 0.5rem;}
+        .check input{display: none;}
+        input[type=checkbox]:checked + .rad_1, .rad_1.checked {background:url(__PUBLIC__/images/radio1.png) no-repeat right center;background-size:25px 25px;width: 25px;height: 25px;}
+        .rad_1 {background:url(__PUBLIC__/images/radion2.png) no-repeat right center;background-size:25px 25px;width: 25px;height: 25px;}
+        .lb .spt{margin-left: 0.1rem;width: 1.3rem;height: 1.3rem;}
+        .check .glyphicon-ok{color: #fff;font-size: 16px;}
+        .lb .mid .name{font-size: 1em;}
+        .dle .glyphicon-trash{color: #B0B0B0;}
+        .fix_bottom .yxzl{margin-left: 2vw;}
+        .fix_bottom .zjq{width: 3rem;color: red;}
+        
+        #zj{color: red;}
+    </style>
+<script type="text/javascript">
+$(document).ready(function(){
+    var width = $('.col-xs-6').css('width');
+    var heig = parseInt(width);
+        heig = heig+"px";
+    $('.goodimg').css('height',heig);
+})
+</script>
+</head>
+<body>
+<!-- <header>
+    <a class="back" href="{:U('Goods/details',array('good_id'=>$goodid))}" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>沙漠粮仓</h4>
+</header> -->
+<if condition="$cartlist eq null">
+    <div style="text-align: center;font-size: 16px;margin-top: 10px;">
+        <img src="__PUBLIC__/images/empty_cart.png">
+        <h4 style="color: #DEDEDE;">您的购物车中还没有商品</h4>
+        <a href="{:U('/Mobile/Index/index')}" class="btn btn-primary btn-lg btn-block" style="width: 60%;margin:10px auto;height: 45px;background-color: #07d873;border:0px;color: #fff;font-size: 4vw;"><p>立即购物</p></a>
+    </div>
+</if>
+<div class="cartlist" style="margin-top:5%">
+    <!-- 遍历购物车商品 -->
+    <volist name="cartlist" id="row">
+        <div class="lb" id="lb{$row['cid']}">
+
+            <div class="check">
+                <div class="xz">
+                    <input type="checkbox" class="checkboxs" name="kind" id="status_on{$row['cid']}"  value="{$row['cid']}"  <if condition="$row['selected'] eq 1">checked="checked"</if>/>
+                    <label for="status_on{$row['cid']}" class="rad_1" id="{$row['cid']}"></label>
+                </div>
+                
+            </div>
+            <a href="{:U('Goods/details?good_id='.$row['goods_id'])}">
+            <empty name="row['titlepic']">
+                <img src="__PUBLIC__/images/sm3.jpg"  alt="..." class="spt img-rounded">
+                <else/>
+                <img src="{$row['titlepic']}" class="spt img-rounded">
+            </empty>
+            </a>
+            <div class="mid">
+                <a href="{:U('Goods/details?good_id='.$row['goods_id'])}">
+                    <p class="name">
+                        <span style="width: 40%; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{$row.titles}</span>
+                    </p>
+                </a>
+                <div class="num">
+                    <p>
+                        <span>￥</span>
+                        <span class="price" id="price{$row['cid']}">
+                        {$row.tmoney}
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="jgq">
+                <div class="num dle">
+                    <p><span class="glyphicon glyphicon-trash" id="{$row['cid']}"></span></p>
+                </div>
+                <br />
+                <p class="dynamicNum">
+                    <span class="num-jian glyphicon glyphicon-minus" data-id="{$row['cid']}"></span>
+                    <input type="text" class="input-num" data-id="{$row['cid']}" id="input-num{$row['cid']}" onpropertychange="OnPropChanged({$row['cid']})" value="{$row.goods_num}" />
+                    <span class="num-jia glyphicon glyphicon-plus" data-id="{$row['cid']}"></span>
+                    <input type="hidden" id="goods_id" value="{$row['cid']}" >
+                </p>
+            </div>
+        </div>
+    </volist>
+</div>
+
+
+
+
+<a href="javascript:void(0)" target="_self" id="retop" >
+    <span class="glyphicon glyphicon-menu-up" style="line-height: 50px;color: #C4C4C4"></span>
+</a>
+
+<div style="width: 100%;height: 50px;"></div>
+<div class="fix_bottom" style="border-top:0.01vh solid #ccc">
+    <div  class="yxz"></div>
+    <span class="yxzl">已 选 (<span id="zsl">{$num}</span>)</span>
+    <div class="zjq">
+        <p class="p1">￥ <span id="zj">{$total}</span> </p>
+    </div>
+    <!-- <input id="js" type="submit" name="" value="下单"> -->
+    <a id="js" href="{:U('Goods/orders')}" style="background: #07d873;">下单</a>
+</div>
+<script type="text/javascript">
+
+    $(function(){
+
+        $(".rad_1").click(function(){
+            var id = $(this).attr("id");
+            if ($('#status_on'+id).is(':checked')) {
+                //本身为选中(1)需要改变为未选中(0)
+                ckAjax(id,0);
+            }else{
+                ckAjax(id,1);
+            }
+        })
+        function ckAjax(id,type){
+            $.ajax({
+                type: 'POST',
+                url: "{:U('Goods/cart')}",
+                data:{"cid":id,"type":type},
+                success: function(data){ 
+                    //console.log(data);
+                    js();
+                },
+            });
+        }
+        $(".num-jia").click(function(){
+            var id= $(this).data("id");
+            var num =$("#input-num"+id).val();
+            var nums = parseInt(num) + 1;
+            numAjax(id,nums);
+        })
+
+        $(".num-jian").click(function(){
+            var id= $(this).data("id");
+            var num =$("#input-num"+id).val();
+            if(num>1){
+                var nums = parseInt(num) - 1;
+                numAjax(id,nums);                
+            }else{
+                $("#input-num"+id).val('1');
+            }
+        })
+        $('input').bind('input propertychange', function(cart) {
+            var str = $(this).data("id");
+            var num = $(this).val();
+
+            var cart_id = parseInt(str);
+            var nums = parseInt(num);
+            //alert(str);
+            if (nums > 0) {
+                numAjax(cart_id,nums); 
+            }
+
+        });
+        function numAjax(id,nums){
+            $.ajax({
+                type: 'POST',
+                url: "{:U('Goods/cart')}",
+                data:{"cartID":id,"nums":nums},
+                success: function(data){ 
+                    //console.log(data);
+                    if (data.type==1) {
+                        $("#input-num"+id).val(nums);
+                        js();
+                    }
+                    if (data.type==2) {
+                        alert('此商品库存不足只能购买'+data.msg+'件');
+                        $("#input-num"+id).val(data.msg);
+                    }
+                },
+            });
+
+        }
+        $(document).ready(function(){
+            js();
+        })
+        $(".glyphicon-trash").click(function(){
+            var id = $(this).attr("id");
+
+            $.ajax({
+                type: 'POST',
+                url: "{:U('Goods/delete')}",
+                data:{"cid":id},
+                success: function(data){ 
+                    //location.reload();
+                    if (data == 1) {
+                        $("#lb"+id).remove();
+                        js();
+                    }
+                    
+                },
+            });
+        })
+        function js(){
+            var num=0;
+            var conut=0;
+            $(".checkboxs").each(function(){
+                if ($(this).is(':checked')) {
+                    var id = $(this).attr('value');
+                    var b = $("#input-num"+id).val();
+                    var jg = $("#price"+id).text();
+                    num+=parseInt(b);
+                    conut+=b*jg;
+                }
+            })
+            conut = conut.toFixed(2);
+            //console.log(num);
+            $('#zj').html(conut);
+            $('#zsl').html(num);
+        }
+        
+    })
+
+
+
+    $(function () {
+        // 保存gotop按钮
+        var gotop = $("#retop");
+        // 检测滚动条位置，高于600回顶部按钮显示
+        $(window).scroll(function () {
+            console.log($(window).scrollTop());
+            if ($(window).scrollTop() > 600) {
+                gotop.fadeIn(1000);
+            }
+            else {
+                gotop.fadeOut(1000);
+            }
+        });
+        // gotop按钮点击，圆滑回到顶部 scrollTop: 0表示到滚动条的0，800(ms)表示用时。
+        gotop.click(function () {
+            $('body,html').animate({ scrollTop: 0 }, 800);18   });
+    });
+</script>
+<include file="Public/wxshare"/>
+</body>
+</html>

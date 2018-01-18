@@ -1,0 +1,144 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>沙漠粮仓</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script type="text/javascript" src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/mobile/js/TouchSlide.1.1.js"></script>
+    <script src="__PUBLIC__/mobile/js/touchslider.dev.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+</head>
+<style type="text/css">
+    .scrollimg{position:relative; overflow:hidden; margin:0px auto; /* 设置焦点图最大宽度 */}
+    .scrollimg .hd{ position: absolute;bottom:0px;text-align: center;width: 100%;}
+    .scrollimg .hd li{display: inline-block;width: .4em;height: .4em;margin: 0 .4em;-webkit-border-radius: .8em;-moz-border-radius: .8em;-ms-border-radius: .8em;-o-border-radius: .8em; border-radius: .8em;background: #FFF;filter: alpha(Opacity=60);opacity: .6;box-shadow: 0 0 1px #ccc; text-indent:-100px; overflow:hidden; }
+    .scrollimg .hd li.on{ filter: alpha(Opacity=90);opacity: .9;background: #f8f8f8;box-shadow: 0 0 2px #ccc; }
+    .scrollimg .bd{position:relative; z-index:0;}
+    .scrollimg .bd li{position:relative; text-align:center;}
+    .scrollimg .bd li img{vertical-align:top; width:100%;/* 图片宽度100%，达到自适应效果 */}
+    #ok{border:1px solid #FF0000;transform:rotate(9deg);-ms-transform:rotate(9deg);-moz-transform:rotate(9deg);-webkit-transform:rotate(9deg);-o-transform:rotate(10deg);}
+    .col-xs-6{padding:3px;margin-bottom: 10px;}
+    .details2 .p1{text-align: left;margin-left: 1px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .goodimg{width: 100%;}
+    p{margin-bottom: 0px;}
+    .hengxian{width:18%;height:1px;padding:0px;overflow:hidden;display:inline-block;background: #CCCCCC;margin-bottom: 5px;}
+    .col-xs-6 .btn{padding:3px 12px;}
+    .foot {bottom: 0px;left: 0px;height: 50px;width: 100%;border-top: 1px solid #b5b4b5;text-align: center;line-height: 50px;font-size: 24px;color: #b5b4b5;background-color: #ffffff;position: fixed;width: 100%;}
+    .foot .foota {font-size: 18px;color: #b5b4b5;width: 45%;text-align: center;display: inline-block;}
+    .details{background-color: #fff;overflow: auto;}
+    .details2{padding: 5px 10px;width:100%;color: #a1a1a1;text-align: center;margin-top: 1vh;margin-bottom: 1vh;}
+    .details2 p{line-height: 15px;font-size: 3vw;color: red;}
+    .details2 .p1{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;text-align: center;font-size: 4vw;color: #000;line-height: 20px;}
+    a,a:hover{ text-decoration:none; color:#333}
+</style>
+<body style="margin:0 auto; background: #f3f3f4;">
+<!-- <header>
+    <a class="back" href="javascript:history.back(-1)" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>沙漠粮仓</h4>
+</header> -->
+    <div id="scrollimg" class="scrollimg">
+        <div class="bd">
+            <ul>
+                <li>
+                    <a class="pic" href="#"><img src="__PUBLIC__/images/smlc03.jpg" class="indeximg pics"></a>
+                </li>
+                <li>
+                    <a class="pic" href="#"><img src="__PUBLIC__/images/smlc04.jpg" class="indeximg pics"></a>
+                </li>
+                <!-- <li>
+                    <a class="pic" href="#"><img src="__PUBLIC__/images/Drywhitewine.jpg" class="indeximg pics"></a>
+                </li> -->
+            </ul>
+        </div>
+        <!-- <div class="hd">
+            <ul></ul>
+        </div> -->
+    </div>
+    <script type="text/javascript">
+        if ($(".bd li").length<2) {
+            TouchSlide({
+                slideCell:"#scrollimg",
+                titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                mainCell:".bd ul",
+                effect:"leftLoop",
+                autoPage:false,//自动分页
+                autoPlay:false //自动播放
+            });
+        }else{
+            TouchSlide({
+                slideCell:"#scrollimg",
+                titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                mainCell:".bd ul",
+                effect:"leftLoop",
+                autoPage:false,//自动分页
+                autoPlay:true //自动播放
+            });
+        }
+        
+    </script>
+    <div style="height: 45px;line-height: 45px;color: #909090;text-align: center;margin-top: 5%;">
+        <span class="hengxian"></span>
+        <span style="font-size: 20px;">产品展示</span>
+        <span class="hengxian" ></span>
+    </div>
+    <div class="ajax_return" style="width:100%">
+
+    </div>
+    <a href="javascript:;" id="get_more" style="text-align:center; display:block;">
+        <img src='__PUBLIC__/images/loader.gif' width="12" height="12">
+    </a>
+
+</body>
+<include file="Public/footer"/>
+</html>
+<script>
+    $(document).ready(function(){
+        var width = $('.indeximg').css('width');
+        var heig = parseInt(width) * 0.6;
+        heig = heig+"px";
+        $('.indeximg').css('height',heig);
+//      alert(width);
+    })
+    var gotop = $("#retop");
+    var page = 1;
+    var pays=$("#pays").val();
+    $(function () {
+        // 保存gotop按钮
+        // 检测滚动条位置，高于600回顶部按钮显示
+        getDateMore();
+
+    });
+
+    $(window).scroll(function(){
+        if($(document).scrollTop()==$(document).height()-$(window).height())
+        {
+            getDateMore();
+        }
+    })
+
+    function getDateMore(){
+        $.ajax({
+            type : "post",
+            url:"{:U('Goods/ajaxindex')}",
+            data:{"page":page},
+            dataType:'html',
+            success: function(data)
+            {
+                $(".ajax_return").append(data);
+                page = page+1;
+                if("<?php echo $cou; ?>"<4){
+                    $('#get_more').css('display','none');
+                    $('#shi').show();
+                }
+            }
+        });
+    }
+
+</script>

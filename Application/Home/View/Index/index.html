@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>{$enprArr.name}</title>
+    <!-- Bootstrap -->
+    <link href="__PUBLIC__/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/home/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/home/book.css" rel="stylesheet">
+    <script src="__PUBLIC__/jquery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+    <script src="__PUBLIC__/js/modernizr.custom.79639.js"></script>
+    <script src="__PUBLIC__/js/jquery.swatchbook.js"></script>
+    <style type="text/css">
+        .carousel-inner .item a img{width: 100%;height: 32vh;}
+        .jumbotron {padding-top: 30px;padding-bottom: 30px;margin-top: 30px;}
+        .jumbotron p{word-wrap:break-word;color: #919191;font-size: 16px;}
+        .page-header{margin: 10px 0 20px;}
+        .page-header h4{display: inline-block;}
+        .page-header a{float: right;line-height: 49px;}
+        .shell{ border:1px solid #eee; width:100%; padding:5px 2px; margin-left: 0px;border-radius:5px;overflow: auto;}
+        .new-img{width: 90%;float: left;height: 16vh;margin-bottom: 2vh;margin-left: 5%}
+        #one{ height:16vh; overflow:hidden; float: left;width: 90%;margin-left: 5%;} 
+        #one a{text-decoration:none;font-family:Arial;font-size:16px;color:#333;height: 22px;display: inline-block;width: 92%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;} 
+        .badge{}
+        #one li{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-bottom: 15px;margin-left: 0px;}
+        #one li:hover{ background-color:#eee;}
+        .caption h4{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+        .goodimg{width: 100%;}
+        .dep_img{width: 80px;height: 80px}
+    </style>
+</head>
+<body>
+<include file="Public/nav"/>
+<div class="container" style="margin-top: 70px;">
+  <!-- 轮播组件 -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <!-- <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li> 
+      </ol>-->
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <volist name="shufflingArr" id="vo" key="k">
+            <div class="item">
+              <a href="{$vo.a_href}"><img src="{$vo.img_src}" alt="{$vo.alt}" title="{$vo.alt}"></a>
+              
+              <div class="carousel-caption">
+              </div>
+            </div>
+        </volist>
+      </div>
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- 轮播组件end -->  
+
+    <!-- 公司简介 -->
+    <div class="jumbotron">
+        
+        <div class="row">
+            <div class="col-lg-9 col-sm-9 col-xs-12">
+                <h4>公司简介</h4>
+                {$enprArr.desc}
+            </div>
+            <!-- 右侧部门特效 -->
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+                
+                <eq name="deparNum" value="6">
+                <!-- 部门数等于6 -->
+                    <div class="wrap">   <!--最大的空间div-->
+                        <div class="cube">   <!--正方体的box-->
+                            <!--这个是大的正方体的六面-->
+                            <div class="out-front">{$deparList[0]['title']}</div>
+                            <div class="out-back">{$deparList[1]['title']}</div>
+                            <div class="out-left">{$deparList[2]['title']}</div>
+                            <div class="out-right">{$deparList[3]['title']}</div>
+                            <div class="out-top">{$deparList[4]['title']}</div>
+                            <div class="out-bottom">{$deparList[5]['title']}</div>
+
+                            <!--这个是小的正方体的六面-->
+                            <span class="in-front">             <!--前面的点数1-->
+                                <img src="{$deparList[0]['dep_img']}" class="dep_img img-rounded">
+                            </span>
+                            <span class="in-back">              <!--后面的点数3-->
+                                <img src="{$deparList[1]['dep_img']}" class="dep_img img-rounded">
+                            </span>
+                            <span class="in-left">              <!--左面的点数2-->
+                                <img src="{$deparList[2]['dep_img']}" class="dep_img img-rounded">
+                            </span>
+                            <span class="in-right">             <!--右面的点数4-->
+                                <img src="{$deparList[3]['dep_img']}" class="dep_img img-rounded">
+                            </span>
+                            <span class="in-top">               <!--上面的点数5-->
+                                <img src="{$deparList[4]['dep_img']}" class="dep_img img-rounded">
+                            </span>
+                            <span class="in-bottom">            <!--下面的点数6-->
+                                <img src="{$deparList[5]['dep_img']}" class="dep_img img-rounded">
+                            </span>
+                        </div>
+                    </div>
+                <else/>
+                    <section class="main">
+            
+                        <div id="sb-container" class="sb-container">
+                            <volist name="deparList" id="vo">
+                                <div>
+                                    <span class="glyphicon glyphicon-inbox" style="font-size: 4vh;"></span>
+                                    <h4><span>{$vo.title}</span></h4>
+                                </div>
+                            </volist>
+                            
+                            <div>
+                                <h4><span>部门</span></h4>
+                                <h5><span>department</span></h5>                                         
+                            </div>
+                            
+                            
+                        </div><!-- sb-container -->
+                        
+                    </section>
+                </eq>
+                    
+                
+            </div>
+        </div>
+    </div>
+    <!-- 动态新闻和产品 -->
+    <div class="row">
+        <!--新闻-->
+        <div class="col-lg-4 col-sm-4 col-xs-12">
+            <div class="page-header">
+              <h4>最新资讯 <small>NEWS</small></h4>
+              <a href="{:U('News/index')}">更多</a>
+            </div>
+
+            <div class="shell"> 
+                <img src="__PUBLIC__/images/new.jpg" class="new-img" alt="最新资讯">
+                <div id="one">
+                <div id="test">
+                    <ol>
+                        <volist name="newlist" id="vo1" key="k">
+                        <li><a href="{:U('News/detail',array('id'=>$vo1['id']))}">{$vo1.title}</a><span class="badge">{$vo1.browser}</span></li>
+                        </volist>
+                    </ol>
+                </div> 
+                <div id="test2"></div>
+                </div>
+            </div> 
+            <script> 
+                $(document).ready(function(){
+                  //定义商品图片的高
+                    var width = $('.goodimg').css('width');
+                    var heig = parseInt(width);//var heig = parseInt(width)*0.75 宽高比4:3
+                    heig = heig+"px";
+                    $('.goodimg').css('height',heig);
+                    //alert(width);
+                    //为第一张轮播图添加class名
+                    $(".item:first").addClass("active");
+                })
+
+                var one =document.getElementById("one");
+                var test1=document.getElementById("test");
+                var test2=document.getElementById("test2");
+                    test2.innerHTML=test1.innerHTML;
+                var dt=setInterval(function(){                    
+                        if(test1.offsetHeight-one.scrollTop<=0){
+                               one.scrollTop-=test1.offsetHeight;
+                        }
+                        one.scrollTop++; 
+                    },30);
+
+
+                $(function() {
+                    var aa = {$deparNum};
+                    var bb = 0
+                    if (aa<6) {
+                        bb = 2;
+                    }else if (aa>6&&aa<=9) {
+                        bb = 3
+                    }else if (aa>9&&aa<12) {
+                        bb = 5
+                    }
+                    $( '#sb-container' ).swatchbook({center : bb});
+                
+                });
+            </script> 
+        </div>
+        <!--产品-->
+        <div class="col-lg-8 col-sm-8 col-xs-12">
+            <div class="page-header">
+              <h4>最新产品 <small>NEW GOOD</small></h4>
+              <a href="{:U('Goods/index')}">更多</a>
+            </div>
+            <div class="row goods">
+                <volist name="goodlist" id="vo2" key="i">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a href="{:U('Goods/detail',array('id'=>$vo2['goods_id']))}"><img class="goodimg" src="<php>echo json_decode($vo2['original_img'])[0];</php>" alt="..."/></a>
+                            <div class="caption">
+                                <h4><a href="{:U('Goods/detail',array('id'=>$vo2['goods_id']))}">{$vo2.goods_name}</a></h4>
+                                <p>
+                                    <if condition="$vo2.market_price neq 0.00 ">
+                                        <s>{$vo2.market_price}</s>&nbsp;
+                                    </if>
+                                    <strong style="color: red;">{$vo2.shop_price}</strong>
+                                </p>
+                                <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                            </div>
+                        </div>
+                    </div>
+                </volist>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer"/>
+</body>
+
+</html>

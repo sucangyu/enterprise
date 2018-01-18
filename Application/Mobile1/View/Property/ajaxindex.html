@@ -1,0 +1,9 @@
+<volist name="propertyArr" id="vo">
+    <div class="g2">
+        <span style="color:#000;font-size: 0.8em;float:left;margin-top: 0vh;">{$vo['batchnum']|date='Y',###}年 认领了{$vo['totaltree']}棵葡萄树</span>
+        <if condition="$vo['totaltree'] gt 0">
+            <button class="renling" data-url="{:U('Property/sendProperty',array('id'=>$vo['id']))}"  onclick="sendProperty(this)" style="float:right;margin-top:1vh;width:20vw;background-color: #07D873;color:white;border-radius: 10vh;border:1px solid white;">转赠</button>
+        </if>
+
+    </div>
+</volist>

@@ -1,0 +1,244 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>沙漠粮仓--详情</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/LArea.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <link href="__PUBLIC__/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+    <script src="__PUBLIC__/jQuery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/mobile/js/LArea.js"></script>
+    <!-- <script src="__PUBLIC__/mobile2/js//jquery.superslide.2.1.1.js"></script> -->
+    <script src="__PUBLIC__/mobile/js/TouchSlide.1.1.js"></script>
+    <script src="__PUBLIC__/mobile/js/touchslider.dev.js"></script>
+    <script src="__PUBLIC__/layer/layer.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+</head>
+<style type="text/css">
+    p{margin-bottom: 0px;}
+    /*.slideBox{width:100%;margin:0px auto;overflow:hidden;position: relative;}
+    .slideBox li{width:100%;}*/
+    .scrollimg{position:relative; overflow:hidden; margin:0px auto; /* 设置焦点图最大宽度 */}
+    .scrollimg .hd{ position: absolute;bottom:0px;text-align: center;width: 100%;}
+    .scrollimg .hd li{display: inline-block;width: .4em;height: .4em;margin: 0 .4em;-webkit-border-radius: .8em;-moz-border-radius: .8em;-ms-border-radius: .8em;-o-border-radius: .8em; border-radius: .8em;background: #FFF;filter: alpha(Opacity=60);opacity: .6;box-shadow: 0 0 1px #ccc; text-indent:-100px; overflow:hidden; }
+    .scrollimg .hd li.on{ filter: alpha(Opacity=90);opacity: .9;background: #f8f8f8;box-shadow: 0 0 2px #ccc; }
+    .scrollimg .bd{position:relative; z-index:0;}
+    .scrollimg .bd li{position:relative; text-align:center;}
+    .scrollimg .bd li img{vertical-align:top; width:100%;/* 图片宽度100%，达到自适应效果 */}
+    .goodimg{width: 100%;}
+    .lli{overflow: auto;padding: 5px 10px;font-size:4vw;color: #040000}
+    .goods_img{border-bottom:1px solid #CCC;}
+    .hd{overflow:hidden; height:25px;position:absolute;right:5px; z-index:3; bottom:2px;}
+    .hd li{width:20px; height:20px; background-color:rgba(204,204,204,0.5);line-height:20px; text-align:center;  margin-left:5px;font-family:"楷体"; border-radius:50%; float:left; cursor:pointer;text-indent:-9999px; }
+
+    .hd li.on{background-color:rgba(7,216,115,0.5);}
+    .goods_title{font-size:4vw;color: #3d3a39;border-bottom:1px solid #cfcfd0;overflow: auto;margin-top: 2vh;padding-bottom: 2vh;}
+    .goods_title p{line-height: 28px;}
+    .num{border-radius: 8px; border: 1px solid #d8d8d8;display: inline-block;width: 25%;text-align: center;font-size: 3vw;height: 25px;margin-top: 2%;line-height: 25px; float: right;}
+    .num span{line-height: 20px;font-size: 3vw;}
+    .goods_details{padding: 5px 10px;}
+    .hengxian{width:18%;height:1px;padding:0px;overflow:hidden;display:inline-block;background: #CCCCCC;margin-bottom: 5px;}
+    .fix_bottom{position: fixed;width: 100%;height: 50px;background: #f3f3f4;bottom: 0;font-size: 1.6rem;color: #909090;text-align: center;border-top: 1px solid #d8d8d8;}
+    .foot_bot{display: inline-block;height: 50px;display: inline-block;}
+    .global-nav__nav-shop-cart-num{position: absolute; top:8px; color: #07d873;text-align: center; font-weight:normal; font-size:14px;width:12px; height:12px; line-height:12px; border-radius: 50%; }
+    #gouwu{width: 35%;background: #f3f3f4;color: #909090;line-height: 50px;}
+    #lijig{width: 35%;background: #07d873;color: #fff;line-height: 50px;float: right;}
+    .cart_1{background:url(__PUBLIC__/images/cart.png) no-repeat;background-position:0 2px;background-size: auto 400px;display:block;  width:25px; height:25px; margin:auto;}
+    #input-num{width: 50%;text-align: center;border-top:0px;border-bottom: 0px;line-height: 20px;border-left:1px solid #d8d8d8; border-right:1px solid #d8d8d8;height: 22px;margin-top: -4px;border-radius:0px;-webkit-appearance: none;}
+    #qx{line-height: 36px;}
+    #buynow{display: none;width: 100%;margin-top: 2vh;}
+    .buynow1{padding: 5px 20px;width: 100%;color: #828080;overflow: auto;}
+    .buynow1 .buyimg{width: 26vw;float: left;margin-right: 5%;}
+    .buynow1_text{float: left;font-size: 4vw;width: 65%}
+    .Gnum{width: 100%;height: 70px;font-size: 3.5vw;margin-top: 12vh;}
+    .buynow_btn{width: 100%;height: 50px;color: #fff;background: #07d873;text-align: center;line-height: 50px;position: fixed;bottom: 0px;left: 0px;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var kind = {$memberArr.kind};
+        var width = $('.goodimg').css('width');
+        var width1 = $('.buyimg').css('width');
+        var heig = parseInt(width);
+        var heig1 = parseInt(width1);
+        heig = heig+"px";
+        heig1 = heig1+"px";
+        $('.goodimg').css('height',heig);
+        $('.buyimg').css('height',heig1);
+        if (kind==0) {
+            $('.sp11').css('color','red');
+            $('.sp12').css('display','none');
+        }else{
+            $('.sp12').css('color','red');
+            $('.sp11').css('color','#ccc');
+        }
+    })
+     
+</script>
+<body style="background-color:#f3f3f4; margin:0 auto;">
+<!-- <header id="hear">
+    <a class="back" href="{:U('Goods/index')}" >
+        <span class="glyphicon glyphicon-menu-left"></span>
+        <span class="text">返回</span>
+    </a>
+    <h4>沙漠粮仓</h4>
+</header> -->
+<div class="cart">
+    <form action="{:U('Goods/addCart')}" method='post' id="Form1" >
+        <div id="scrollimg" class="scrollimg">
+            <div class="bd">
+                <ul>
+                <empty name="goodsArr['pics']">
+                    <img src="__PUBLIC__/images/sm.jpg" class="goodimg">
+                    <else/>
+                    <volist name="goodsArr['pics']" id="list">
+                        <li>
+                            <a class="pic" href="#"><img src="{$list}" class="goodimg pics"></a>
+                        </li>
+                    </volist>
+                </empty>
+                </ul>
+            </div>
+            <!-- <div class="hd">
+                <ul></ul>
+            </div> -->
+        </div>
+        <script type="text/javascript">
+            if ($(".bd li").length<2) {
+                TouchSlide({
+                    slideCell:"#scrollimg",
+                    titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                    mainCell:".bd ul",
+                    effect:"leftLoop",
+                    autoPage:false,//自动分页
+                    autoPlay:false //自动播放
+                });
+            }else{
+                TouchSlide({
+                    slideCell:"#scrollimg",
+                    titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                    mainCell:".bd ul",
+                    effect:"leftLoop",
+                    autoPage:false,//自动分页
+                    autoPlay:true //自动播放
+                });
+            }
+            
+        </script>
+
+        <div class="lli goods_title">
+            <p style="overflow: auto;color: #000;font-size: 5vw;"><span>{$goodsArr.titles}</span></p>
+            <p><span class="sp11">￥{$goodsArr.tmoney}</span>&nbsp;&nbsp;<span class="sp12">/&nbsp;&nbsp;VIP:￥{$goodsArr.vipmoney}</span></p>
+        </div>
+        <div class="lli goods_details">
+            <div style="height: 45px;line-height: 45px;color: #909090;text-align: center;margin-top: 2%;">
+                <span class="hengxian"></span>
+                <span style="font-size: 20px;">产品详情</span>
+                <span class="hengxian" ></span>
+            </div>
+            <div style="width:100%;overflow:hidden;color: #909090">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$goodsArr.desc}</div>
+        </div>
+        <div style="width: 100%;height: 50px;"></div>
+        <div class="fix_bottom">
+            <input type="hidden" name="good_id" value="{$goodsArr.id}">
+            <a class="foot_bot" href="{:U('Goods/cart',array('gid'=>$goodsArr['id']))}" style="width: 25%;border-right: 1px solid #d8d8d8;height: 38px;">
+                    <em class="global-nav__nav-shop-cart-num" id="cart_quantity" style="left:17%;width: 16px;height: 15px;line-height: 15px;">{$num}
+                    </em>
+                    <img src="__PUBLIC__/images/cart.png">
+                    <!-- <i class="fa fa-cart-plus" aria-hidden="true" style="color: #909090;font-size: 2rem"></i> -->
+            </a>
+            <span class="foot_bot" id="gouwu"></span>
+            <span class="foot_bot" id="lijig"></span>
+        </div>
+    </form>
+</div>
+<div id="buynow">
+    <form action="{:U('Goods/order')}"  method="post" id="goodform">
+        <div class="buynow1">
+            <img src="{$goodsArr['pics'][0]}" class="buyimg">
+            <div class="buynow1_text">
+                <p style="overflow: hidden;line-height: 20px;color: #000;">{$goodsArr['titles']}</p>
+                <p style="color: red;"><span class="sp11">￥{$goodsArr.tmoney}</span>&nbsp;&nbsp;<span class="sp12">/&nbsp;&nbsp;VIP:￥{$goodsArr.vipmoney}</span></p>
+            </div>
+            <div class="Gnum">
+                <span>购买数量:</span>
+                <span class="sp2 num">
+                    <span class="glyphicon glyphicon-minus" id="num_jian"></span>
+                    <input type="text" name="good_num" value="1" id="input-num" onpropertychange="OnPropChanged()">
+                    <span class="glyphicon glyphicon-plus" id="num_jia"></span>
+                </span>
+            </div>
+        </div>
+        <input type="hidden" name="good_id" value="{$goodsArr.id}">
+        <div class="buynow_btn">
+            立即购买
+        </div>
+    </form>
+</div>
+<script language="javascript">
+    
+    $("#gouwu").click(function () {
+        $("#Form1").submit();
+    })
+    $("#lijig").click(function () {
+        //alert('aa');
+        layer.open({
+            type: 1,
+            title: '购买信息',
+            shadeClose: true,
+            shade: 0.8,
+            shift: 2,//从最底部往上滑入
+            offset: '50%',//只定义top坐标，水平保持居中
+            area: ['100%', '50%'],
+            content: $("#buynow") //iframe的url
+        });
+    })
+    $(".buynow_btn").click(function () {
+        var nums = {$goodsArr.nums}; // 库存数量
+        if(nums<1){
+            layer.alert('此商品已售罄');
+        }else{
+            $("#goodform").submit();
+        }
+    })
+    $("#num_jia").click(function(){
+        var input_num = $("#input-num").val();
+        input_num = parseInt(input_num) + 1;
+        $("#input-num").val(input_num)
+        get_goods_price();
+    });
+    $("#num_jian").click(function(){
+        var input_num = $("#input-num").val();
+        if(input_num <= 1) {
+            input_num = 1;
+        } else {
+            input_num = parseInt(input_num) - 1;
+        }
+        $("#input-num").val(input_num)
+    });
+    $(document).ready(function(){
+        // 更新商品价格
+        get_goods_price();
+    });
+    function get_goods_price()
+    {
+        var nums = {$goodsArr.nums}; // 库存数量
+        if (nums<1) {
+            $("#lijig").attr('disabled',true);
+            $("#lijig").html('已售罄');
+            $("#gouwu").attr('disabled',false);
+            $("#gouwu").html('加入购物车');
+            layer.alert('此商品已售罄');
+        }else{
+            $("#lijig").attr('disabled',false);
+            $("#lijig").html('立即购买');
+            $("#gouwu").attr('disabled',false);
+            $("#gouwu").html('加入购物车');
+        }
+    }
+</script>
+<!--<include file="Public/wxshare"/>-->
+</body>
+</html>

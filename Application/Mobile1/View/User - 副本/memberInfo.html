@@ -1,0 +1,111 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>个人资料</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/user.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/layer.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.css"/>
+    <script src="__PUBLIC__/jQuery-2.1.4/jquery.min.js"></script>
+    <script src="__PUBLIC__/layer/layer.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.js"></script>
+</head>
+<style type="text/css">
+    .percontent ul li{width: 100%;border-bottom: 1px solid #b5b4b5;border-top: 1px solid #b5b4b5;background-color: #ffffff;padding:10px 15px 10px 15px;font-size: 18px;overflow:auto; zoom:1;}
+    .percontent .spleft{float: left;color: #231815;}
+    .percontent .spright{float: right;color: #898a89;}
+    .percontent .portrait .spleft{margin-top: 8%}
+    .percontent .portrait .spright{width: 25%;height:10%;display: flex;align-items: center;/*margin-left: 62%;*/}
+    .percontent .portrait .img-circle{width: 100%;float: left;line-height: 120px;}
+    .percontent .portrait .spright .glyphicon{float: right;}
+    .percontent .name{margin-top:8px;border-bottom: 0px solid #b5b4b5;}
+    .percontent .name .spright{float: right;text-align: right;}
+    .percontent .perweixin{margin-top:8px;}
+    #submit{width:100%;left: 0;bottom: 0px;height: 50px;background-color: #006400;color: #ffffff;text-align: center;line-height: 50px;position: absolute;font-size: 20px;}
+    .header{height: 55px;border-bottom: 0 solid #ccc;background-color: #ffffff}
+    .sb-back{line-height: 55px;margin-left: 8px;float: left;}
+    .h-mid{line-height: 55px;text-align: center;height: 55px;width: 86%}
+    #heatatle{font-size: 20px;color: #96908f;margin:0 auto;}
+</style>
+<body style="background-color:#EAEAEC;margin:0 auto;">
+<header>
+    <div class="tab_nav">
+        <div class="header">
+            <a class="sb-back" href="{:U('User/index')}" title="返回">
+                <img class="" src="__PUBLIC__/images/back.png" style="height: 25px;">
+            </a>
+            <div class="h-mid" id="heatatle">
+                个人资料
+            </div>
+        </div>
+    </div>
+</header>
+<div class="percontent">
+    <form name="form1" method="post" action="{:U('User/memberInfo')}" onsubmit="return checkForm();">
+        <ul>
+            <li class="portrait">
+                <div class="spleft">头像</div>
+                <div class="spright">
+                    <notempty name="memberArr['userimage']">
+                        <img class="img-circle" src="{$memberArr['userimage']}" >
+                        <else/>
+                        <img class="img-circle" src="__PUBLIC__/images/people.jpg" >
+                    </notempty>
+                </div>
+            </li>
+            <li class="perweixin">
+                <div class="spleft">微信昵称</div>
+                <div class="spright">
+                    {$memberArr['nickname']}
+                </div>
+            </li>
+            <li class="name">
+                <div class="spleft">姓名</div>
+                <div class="spright">
+                    <input type="text" name="username" value="{$memberArr['username']}"  style="border:none;text-align: right;width:80%;height:7vw">
+                    <span class="glyphicon glyphicon-menu-right"></span>
+                </div>
+            </li>
+            <li class="">
+                <div class="spleft">手机</div>
+                <div class="spright">
+                    <input type="text" name="userphone" value="{$memberArr['userphone']}" style="border:0px;text-align: right;">
+                    <span class="glyphicon glyphicon-menu-right"></span>
+                </div>
+            </li>
+        </ul>
+        <input id="submit" type="submit" value="保存修改">
+    </form>
+</div>
+
+<script type="text/javascript">
+    function checkMobile(tel) {
+        var reg = /(^1[3|4|5|7|8][0-9]{9}$)/;
+        if (reg.test(tel)) {
+            return true;
+        }else{
+            return false;
+        };
+    }
+
+    function checkForm() {
+        var username = $('input[name="username"]').val();
+        var mobile = $('input[name="userphone"]').val();
+        if(username == ''){
+            layer.alert('姓名不能为空');
+            return false;
+        }
+        if(!checkMobile(mobile)){
+            layer.alert('手机号码格式有误');
+            return false;
+        }
+        return true;
+    }
+</script>
+<include file="Public/wxshare"/>
+</body>
+</html>

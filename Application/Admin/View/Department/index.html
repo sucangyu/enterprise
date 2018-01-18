@@ -1,0 +1,74 @@
+<include file="Public/min-header"/>
+<style type="text/css">
+.panel-title{height: 33px;}
+.fa-list{line-height: 33px}
+.title{line-height: 33px}
+</style>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i class="fa fa-list"></i> <span class="title">部门列表</span>
+                        <button type="button" onclick="location.href='{:U('Department/addDepartment')}'" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>添加新部门</button>
+                    </h3>
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="navbar navbar-default">
+                        <form action="" id="search-form2" class="navbar-form form-inline" method="post" onsubmit="return false">
+                            <div class="form-group">
+                                <label class="control-label" for="input-titles">部门名称</label>
+                                <div class="input-group">
+                                    <input type="text" name="title" value="" placeholder="部门名称" id="input-titles" class="form-control">
+                                    <!--<span class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></span>-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="input-head">部门负责人</label>
+                                <div class="input-group">
+                                    <input type="text" name="head" value="" placeholder="部门负责人" id="input-head" class="form-control">
+                                    <!--<span class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></span>-->
+                                </div>
+                            </div>
+                            <!-- <input type="hidden" name="order_by" value="id">
+                            <input type="hidden" name="sort" value="desc"> -->
+                            <button type="submit" onclick="ajax_get_table('search-form2',1)" id="button-filter search-order" class="btn btn-primary pull-right"><i class="fa fa-search">查找</i></button>
+                        </form>
+                    </div>
+                    <div id="ajax_return">
+
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script>
+    $(document).ready(function(){
+        ajax_get_table('search-form2',1);
+
+    });
+
+    // ajax 抓取页面
+    function ajax_get_table(tab,page){
+        cur_page = page; //当前页面 保存为全局变量
+        var url = "{:U('Department/ajaxindex')}";
+        $.ajax({
+            type : "POST",
+            url:url+"?p="+page,//+tab,
+            data : $('#'+tab).serialize(),// 你的formid
+            success: function(data){
+                $("#ajax_return").html('');
+                $("#ajax_return").append(data);
+            }
+        });
+    }
+</script>
+</body>
+</html>

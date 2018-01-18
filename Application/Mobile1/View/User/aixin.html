@@ -1,0 +1,51 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>爱心排行榜</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile2/css/Mobil_hea_fot.css"/>
+</head>
+<style type="text/css">
+    .lie{width:100%;margin-top: 0px;float:left;background-color: #F7F7F7}
+    .ll{float:left;width:96%;height:20vw;border-bottom: 0.5px solid #ccc;margin-left: 2vw;}
+    /*.ll span{float:left;font-size: 7vw;color:#9E9F9F;margin-top: 5vw;margin-left: 5vw;}*/
+    /*.ll img{float:left;border-radius: 100%;width:23%;height:90%;margin-left:3vw;margin-top:2%}*/
+    .ll ul{float:left;line-height:8vw;width:32%;margin-left: 1vw;}
+    /*.ll ul li{float:left;height:7vh;width:100%;margin-left: 1vw;overflow: hidden;}*/
+    .ai{float:right;margin-right:3vw;margin-top:2vh;text-align: center}
+    .ai1{float:right;margin-top:18px;border: 0px solid green;border-radius: 1vh;float:right;padding: 0px 3px;}
+    /*.ai2{float:right;width:100%;}*/
+
+</style>
+
+<body style="margin:0 auto;">
+    <div class="lie">
+        <volist name="aixinArr" id="vo">
+            <div class="ll">
+                <span style="float:left;font-size: 5vw;color:#9E9F9F;margin-top: 7vw;margin-left: 2vw;">{++$key}</span>
+                <notempty name="vo['userimage']">
+                    <img src="{$vo['userimage']}" style="float:left;border-radius: 100%;width:50px;height:50px;margin-left:10px;margin-top:18px;">
+                    <else/>
+                    <img src="__PUBLIC__/images/people.jpg" style="float:left;border-radius: 100%;width:50px;height:50px;margin-left:10px;margin-top:18px;">
+                </notempty>
+                <ul>
+                    <li><span style="height:5.4vh;width:100%;overflow: hidden;float:left;margin-top:18px;color:#000;font-size:0.75em">{$vo['nickname']}</span></li>
+                    <li><span style="height:5vh;width:100%;overflow: hidden;float:left;margin-top:-10px;color:#9E9F9F;font-size:0.6em;">爱心编号:{$vo['id']+C('MEMBER_NUM')}</span></li>
+                </ul>
+                <div class="ai">
+                    <div class="ai1">
+                        <img src="__PUBLIC__/images/xx.png" style="width:20px;height:20px;margin-top:8px;margin-right:3px;float:right;">
+                        <span style="font-size:3vh;color:#000;">{$vo['coins']|round}&nbsp;</span>
+                    </div>
+                    <div class="ai2">
+                        <span style="float:right;margin-right:6.5vw;margin-top:-2vw;font-size: 0.65em;color:#9E9F9F"></span>
+                    </div>
+                </div>
+            </div>
+        </volist>
+     </div>
+<include file="Public/footer"/>
+</body>
+</html>
