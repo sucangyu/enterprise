@@ -22,9 +22,11 @@
         #one{ height:16vh; overflow:hidden; float: left;width: 90%;margin-left: 0px;} 
         #one a{text-decoration:none;font-family:Arial;font-size:16px;color:#333;height: 22px;display: inline-block;width: 92%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;} 
         #one li{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-bottom: 15px;margin-left: -10px;}
+        #one li .badge{margin-top: -15px;}
         #one li:hover{ background-color:#eee;}
         .caption h4{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
         .goodimg{width: 100%;}
+        .ajax_return{min-height:600px;}
     </style>
 </head>
 <body>
@@ -66,27 +68,15 @@
         <div class="col-lg-8 col-sm-8 col-xs-12" style="margin-top: 15px;">
             <!-- 标签页 -->
             <ul class="nav nav-tabs" style="margin-bottom: 20px;">
-              <li role="presentation" class="active"><a href="#">全部</a></li>
-              <!-- <li role="presentation"><a href="#">分类一</a></li>
-              <li role="presentation"><a href="#">分类二</a></li> -->
+              <li role="presentation" class="navli" data-id=""><a onclick="ajax_get_table('',1)">全部</a></li>
+              <volist name="cationlist" id="vo3">
+                  <li role="presentation" class="navli" data-id="{$vo3.id}"><a onclick="ajax_get_table({$vo3.id},1)">{$vo3.title}</a></li>
+              </volist>
             </ul>
-            <volist name="goodlist" id="vo2" key="i">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <a href="{:U('Goods/detail',array('id'=>$vo2['goods_id']))}"><img class="goodimg" src="<php>echo json_decode($vo2['original_img'])[0];</php>" alt="..."/></a>
-                        <div class="caption">
-                            <h4><a href="{:U('Goods/detail',array('id'=>$vo2['goods_id']))}">{$vo2.goods_name}</a></h4>
-                            <p>
-                              <if condition="$vo2.market_price neq 0.00 ">
-                                  <s>{$vo2.market_price}</s>&nbsp;
-                              </if>
-                              <strong style="color: red;">{$vo2.shop_price}</strong>
-                            </p>
-                            <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
-                        </div>
-                    </div>
-                </div>
-            </volist>
+            <div id="ajax_return">
+
+            </div>
+            
             
 
         </div>
@@ -117,9 +107,6 @@
               <li class="list-group-item"><i class="glyphicon glyphicon-map-marker">&nbsp;</i>
                 {$ress.province}&nbsp;{$ress.city}&nbsp;{$ress.district}&nbsp;{$enprArr.address}
               </li>
-              <li class="list-group-item"><i class="glyphicon glyphicon-earphone">&nbsp;</i> 
-                <a href="tel:{$enprArr.phone}" style="color: #333">{$enprArr.phone}</a>
-              </li>
               <li class="list-group-item"><i class="glyphicon glyphicon-envelope">&nbsp;</i>
                 {$enprArr.email}
               </li>
@@ -127,20 +114,29 @@
               </li>
               <li class="list-group-item"><i class="glyphicon glyphicon-comment">&nbsp;</i>{$enprArr.qq}
               </li>
+              <volist name="enprArr.phone" id="vo5" key="p">
+                <li class="list-group-item"><i class="glyphicon glyphicon-earphone">&nbsp;</i> 
+                  <a href="tel:{$vo5}" style="color: #333">{$p}: {$vo5}</a>
+                </li>
+              </volist>
             </ul>
             <script> 
                 
                 $(document).ready(function(){
-                  //定义商品图片的高
-                    var width = $('.goodimg').css('width');
-                    var heig = parseInt(width);//var heig = parseInt(width)*0.75 宽高比4:3
-                    heig = heig+"px";
-                    $('.goodimg').css('height',heig);
-                    //alert(width);
                     //为第一张轮播图添加class名
                     $(".item:first").addClass("active");
-                })
+                    //为第一标签页添加class名
+                    $(".navli:first").addClass("active");
+                    //加载第一页
+                    ajax_get_table('',1);
+                });
 
+
+
+                $(".navli").click(function(){
+                    $(".navli").removeClass("active");
+                    $(this).addClass("active");
+                });
                     
 
                 var one =document.getElementById("one");
@@ -153,6 +149,24 @@
                         }
                         one.scrollTop++; 
                     },30);
+
+
+                
+                // ajax 抓取页面
+                function ajax_get_table(tab,page){
+                    cur_page = page; //当前页面 保存为全局变量
+                    var url = "{:U('Goods/ajaxindex')}";
+                    $.ajax({
+                        type : "POST",
+                        url:url+"?p="+page,//+tab,
+                        data : {cat_id:tab},// 商品分类
+                        success: function(data){
+                            $("#ajax_return").html('');
+                            $("#ajax_return").append(data);
+                        }
+                    });
+                }
+
             </script> 
         </div>
     </div>

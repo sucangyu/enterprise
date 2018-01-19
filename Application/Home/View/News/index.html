@@ -67,9 +67,6 @@
                 <li class="list-group-item"><i class="glyphicon glyphicon-map-marker">&nbsp;</i>
                 {$ress.province}&nbsp;{$ress.city}&nbsp;{$ress.district}&nbsp;{$enprArr.address}
                 </li>
-                <li class="list-group-item"><i class="glyphicon glyphicon-earphone">&nbsp;</i> 
-                <a href="tel:{$enprArr.phone}" style="color: #333">{$enprArr.phone}</a>
-                </li>
                 <li class="list-group-item"><i class="glyphicon glyphicon-envelope">&nbsp;</i>
                 {$enprArr.email}
                 </li>
@@ -77,6 +74,11 @@
                 </li>
                 <li class="list-group-item"><i class="glyphicon glyphicon-comment">&nbsp;</i>{$enprArr.qq}
                 </li>
+                <volist name="enprArr.phone" id="vo5" key="p">
+                    <li class="list-group-item"><i class="glyphicon glyphicon-earphone">&nbsp;</i> 
+                      <a href="tel:{$vo5}" style="color: #333">{$p}: {$vo5}</a>
+                    </li>
+                </volist>
             </ul>
             <div class="page-header">
                 <h4>最新产品 <small>NEW GOOD</small></h4>
@@ -108,7 +110,25 @@
                     //alert(width);
                     //为第一张轮播图添加class名
                     $(".item:first").addClass("active");
+                    //加载第一页
+                    ajax_get_table('',1);
                 })
+
+                // ajax 抓取页面
+                function ajax_get_table(tab,page){
+                    cur_page = page; //当前页面 保存为全局变量
+                    var url = "{:U('News/ajaxindex')}";
+                    $.ajax({
+                        type : "POST",
+                        url:url+"?p="+page,//+tab,
+                        data : {cat_id:tab},// 商品分类
+                        success: function(data){
+                            $("#ajax_return").html('');
+                            $("#ajax_return").append(data);
+                        }
+                    });
+                }
+
             </script> 
         </div>
         <!--产品-->
@@ -116,27 +136,10 @@
             <div class="page-header">
               <h4>最新资讯 <small>NEWS</small></h4>
             </div>
-            <volist name="newlist" id="vo1" key="a">
-                <div class="media">
-                  <div class="media-left">
-                    <a href="{:U('News/detail',array('id'=>$vo1['id']))}">
-                        <empty name="vo1.paperimg">
-                        <img class="media-object" src="__PUBLIC__/images/new.jpg" alt="...">
-                        <else /> 
-                        <img class="media-object" src="{$vo1.paperimg}" alt="...">
-                        </empty> 
-                      
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="media-heading">
-                        <a href="{:U('News/detail',array('id'=>$vo1['id']))}">{$vo1.title}</a>
-                    </h4>
+            <div id="ajax_return">
 
-                    {$vo1.paper}
-                  </div>
-                </div>
-            </volist>
+            </div>
+            
         </div>
     </div>
 </div>

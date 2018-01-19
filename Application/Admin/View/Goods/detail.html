@@ -122,6 +122,21 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td>商品分类:</td>
+                                        <td>
+                                            <select class="form-control" name="cat_id" style="width:350px;">
+                                                <foreach name="cationArr" item="vo1">
+                                                    <if condition="$goodsInfo['cat_id'] eq $vo1['id']">
+                                                        <option value="{$vo1.id}" selected>{$vo1.title}</option>
+                                                    <else/>
+                                                        <option value="{$vo1.id}">{$vo1.title}</option>
+                                                    </if>
+                                                    
+                                                </foreach>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>商品简介:<i style="color: red;">*</i></td>
                                         <td>
                                             <textarea rows="3" cols="80" name="goods_remark">{$goodsInfo.goods_remark}</textarea>

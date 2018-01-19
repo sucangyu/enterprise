@@ -28,19 +28,16 @@ class GoodsController extends CommonController
     {
 
         $where = array();
-//        // 搜索条件
-        //(I('goods_name') !== '') && $where = "goods_name = ".I('goods_name');
+        // 搜索条件
         if(I('goods_name')!='')
         {   $goods_name = I('goods_name');
             $where['goods_name'] = array('like',"%$goods_name%");
         }
+        if(I('is_recommend')!='')
+        {   
+            $where['is_recommend'] = I('is_recommend');
+        }
 
-        // 关键词搜索
-        // $key_word = I('key_word') ? trim(I('key_word')) : '';
-        // if($key_word)
-        // {
-        //     $where = "$where and (goods_name like '%$key_word%' or goods_sn like '%$key_word%')" ;
-        // }
 
         $model = M('Goods');
         $count = $model->where($where)->count();
@@ -53,7 +50,6 @@ class GoodsController extends CommonController
 
         $goodsList = $model->where($where)->order($order_str)->limit($Page->firstRow.','.$Page->listRows)->select();
 
-        // var_dump($goodsList);
         $this->assign('goodsList',$goodsList);
         $this->assign('page',$show);// 赋值分页输出
         $this->display();
@@ -61,8 +57,8 @@ class GoodsController extends CommonController
 
     public function goods()
     {
-        // $goodArr = M('Goods')->select();
-        // $this->assign('goodArr',$goodArr);
+        $cationArr = M('classification')->select();
+        $this->assign('cationArr',$cationArr);
         $this->display(_goods);
     }
 
@@ -78,6 +74,7 @@ class GoodsController extends CommonController
         $data['goods_name']=$_POST['goods_name'];
         $data['goods_remark']=$_POST['goods_remark'];
         $data['goods_sn']=$_POST['goods_sn'];
+        $data['cat_id']=$_POST['cat_id'];
         $data['keywords'] = $_POST['keywords'];
         $data['is_recommend']=$_POST['stats'];
         $data['original_img']=json_encode($_POST['pics']);
@@ -115,7 +112,8 @@ class GoodsController extends CommonController
         }
         $goodsM=M('goods');
         $goodsInfo = $goodsM->find($goodid);
-        //$projArr = M('Projlist')->select();
+        $cationArr = M('classification')->select();
+        
         if(!goodsInfo)
             exit($this->error('商品不存在'));
         if($_POST){
@@ -123,6 +121,7 @@ class GoodsController extends CommonController
             $data['goods_name']=$_POST['goods_name'];
             $data['goods_remark']=$_POST['goods_remark'];
             $data['goods_sn']=$_POST['goods_sn'];
+            $data['cat_id']=$_POST['cat_id'];
             $data['keywords'] = $_POST['keywords'];
             $data['is_recommend']=$_POST['stats'];
             $data['original_img']=json_encode($_POST['pics']);
@@ -148,7 +147,7 @@ class GoodsController extends CommonController
         }
 //        var_dump($goodsInfo);
         $goodsInfo['original_img'] = json_decode($goodsInfo['original_img']);
-        //$this->assign('projArr',$projArr);
+        $this->assign('cationArr',$cationArr);
         $this->assign('goodsInfo',$goodsInfo);
         $this->display();
     }
@@ -185,5 +184,108 @@ class GoodsController extends CommonController
         $this->ajaxReturn(json_encode($return_arr));
     }
 
+
+    //商品分类
+    public function cationList() 
+    {
+        $this->display();
+    }
+    /**
+     * 商品分类列表
+     */
+    public function ajaxcationlist(){
+        // 搜索条件
+        $condition = array();
+        I('title') ? $condition['title'] = array('like','%'.I('title').'%') : false;
+        $sort_order = I('order_by').' '.I('sort');
+
+        $cationM=M('classification');
+        $count = $cationM->where($condition)->count();
+        $Page  = new AjaxPage($count,10);
+        //  搜索条件下 分页赋值
+        foreach($condition as $key=>$val)
+        {
+            $Page->parameter[$key]   =   urlencode($val);
+        }
+        $cationList = $cationM->where($condition)->order($sort_order)->limit($Page->firstRow.','.$Page->listRows)->select();
+        $show = $Page->show();
+        $this->assign('cationList',$cationList);
+        $this->assign('page',$show);// 赋值分页输出
+        $this->display();
+    }
+    /**
+     * 添加商品分类页面
+     */
+    public function addcation()
+    {
+        $cationM=M('classification');
+        M()->startTrans();
+        if($_POST){
+            //  项目信息编辑
+            $data['title']=$_POST['title'];
+            $data['regtime']=$_POST['regtime'];
+
+            $row = $cationM->add($data);
+            if ($row) {
+                M()->commit();
+                $this->show("<script>alert('分类添加成功');location.href='".U('Goods/cationList')."'</script>");
+                exit;
+            }else{
+                M()->rollback();
+                $this->show("<script>alert('分类添加失败');location.href='".U('Goods/cationList')."'</script>");
+                exit;
+            }
+        }
+        $this->display();
+    }
+
+    /**
+     * 商品分类详细信息查看
+     */
+    public function cationdetail()
+    {
+        $id = I('get.id');
+        if (!$id) {
+            $id = I('post.id');
+        }
+        $cationM=M('classification');
+        $cationArr = $cationM->find($id);
+        M()->startTrans();
+        if(!$cationArr)
+            exit($this->error('分类不存在'));
+        if($_POST){
+            //  项目信息编辑
+            $data['title']=$_POST['title'];
+
+            $row = $cationM->where(array('id'=>$id))->save($data);
+            if ($row) {
+                M()->commit();
+                $this->show("<script>alert('分类修改成功');location.href='".U('Goods/cationList')."'</script>");
+                exit;
+            }else{
+                M()->rollback();
+                $this->show("<script>alert('分类修改失败');location.href='".U('Goods/cationList')."'</script>");
+                exit;
+            }
+        }
+        //$projArr['projimages'] = json_decode($projArr['projimages']);
+        $this->assign('cationArr',$cationArr);
+        $this->display();
+    }
+
+    //商品分类删除操作
+    public function cationdel(){
+        $id = $_GET['id'];
+
+        $res = M('classification')->where("id = ".$id)->delete();
+        if($res){
+            $return_arr = array('status'=>1,'msg' => '操作成功','data' =>'');
+            $this->ajaxReturn(json_encode($return_arr));
+        }else{
+            $return_arr = array('status'=>0,'msg' => '操作失败','data' =>'');
+            $this->ajaxReturn(json_encode($return_arr));
+        }
+
+    }
 
 }

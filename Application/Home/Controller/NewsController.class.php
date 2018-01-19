@@ -1,6 +1,8 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+use Think\AjaxPage;
+use Think\Page;
 class NewsController extends CommonController
 {
     //首页
@@ -8,17 +10,43 @@ class NewsController extends CommonController
     {
         
         $shufflingM=M('shuffling');
-        $newM=M('new');
+        //$newM=M('new');
         $goodsM = M('Goods');
         $shufflingArr = $shufflingM->select();
-        $newlist = $newM->where('isdel=0')->order('time desc')->select();
+        //$newlist = $newM->where('isdel=0')->order('time desc')->select();
         $goodlist = $goodsM->order('regtime desc,is_recommend desc')->limit(3)->select();
         $this->assign('shufflingArr', $shufflingArr);
-        $this->assign('newlist', $newlist);
+        //$this->assign('newlist', $newlist);
         $this->assign('goodlist', $goodlist);
         $this->display();
         
     }
+    /**
+     * 新闻列表
+     */
+    public function ajaxindex(){
+        // 搜索条件
+        $condition = 'isdel=0';
+        $sort_order = 'time desc';
+        $newM=M('new');
+        $count = $newM->where($condition)->count();
+        $Page  = new AjaxPage($count,10);
+        //  搜索条件下 分页赋值
+        foreach($condition as $key=>$val)
+        {
+            $Page->parameter[$key]   =   urlencode($val);
+        }
+
+        $newlist = $newM->where($condition)->order($sort_order)->limit($Page->firstRow.','.$Page->listRows)->select();
+        //var_dump($newlist);
+        $show = $Page->show();
+        $this->assign('newlist',$newlist);
+//        var_dump($goodlist);
+        $this->assign('page',$show);// 赋值分页输出
+        $this->display();
+    }
+
+
     //新闻详情页
     public function detail()
     {

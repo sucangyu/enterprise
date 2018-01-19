@@ -26,6 +26,10 @@
         $(obj).parent().remove(); // 删除完服务器的, 再删除 html上的图片
     }
 
+    function ClearPicArr1(obj)
+    {
+        $(obj).parent().remove(); // 删除电话
+    }
     KindEditor.ready(function(K) {
         var editor = K.editor({
             allowFileManager : false,
@@ -75,6 +79,17 @@
                     }
                 });
             });
+        });
+
+        K('#phone').click(function() {
+
+            var div2 = $('#show_phone');
+            var html = '<div style="width:150px; text-align:center; margin: 5px; display:inline-block;float:left;" class="goods_xc">';
+            html += '<input type="text" value="" name="comp_phone[]" maxlength="20" class="form-control" style="width:150px;"><br>';
+            html += '<a href="javascript:void(0)" onclick="ClearPicArr1(this)">删除</a></div>';
+            div2.append(html);
+            editor.hideDialog();
+                    
         });
     });
 </script>
@@ -138,8 +153,25 @@
                                     <tr>
                                         <td>公司电话:<i style="color: red;">*</i></td>
                                         <td>
-                                            <input type="text" value="{$enprArr.phone}" name="comp_phone" maxlength="20" class="form-control" style="width:150px;"/>
+                                            <div id="show_phone">
+                                                <foreach name="enprArr['phone']" item="vo1" key="i" >
+                                                    <div style="width:150px; text-align:center; margin: 5px; display:inline-block;float: left;" class="goods_xc">
+                                                        <input type="text" value="{$vo1}" name="comp_phone[]" maxlength="20" class="form-control" style="width:150px;"/>
+                                                        <br>
+                                                        <a href="javascript:void(0)" onclick="ClearPicArr1(this)">删除</a>
+                                                    </div>
+                                                </foreach>
+                                            </div>
+                                            <div class="goods_xc" style="width:100px; text-align:center; margin: 5px; display:inline-block;">
+                                                <!-- <input type="hidden" name="comp_images[]" value="" /> -->
+                                                <a href="javascript:void(0);" id="phone"> <img src="__PUBLIC__/imgs/add-button.jpg" width="100" height="100" /></a>
+                                                <br/>
+                                                <a href="javascript:void(0)">&nbsp;&nbsp;</a>
+                                            </div>
                                             <span id="err_comp_phone" class="error" style="color:#F00; display:none;"></span>
+
+                                            <!-- <input type="text" value="{$enprArr.phone}" name="comp_phone" maxlength="20" class="form-control" style="width:150px;"/> -->
+                                            
                                         </td>
                                     </tr>
                                     <tr>
@@ -174,7 +206,7 @@
                                         <td>公司地址:<i style="color: red;">*</i></td>
                                         <td>
                                             省:                                            
-                                            <select style="width: 150px;" id="pre" name="pre" onchange="chg(this);">
+                                            <select class="form-control" style="width: 150px;" id="pre" name="pre" onchange="chg(this);">
                                                 <option value="-1">请选择</option>
                                                 <foreach name="reg" item="re" key="i" >
                                                     <if condition="$enprArr['province'] eq $re['id']">
@@ -186,11 +218,11 @@
                                                 </foreach>
                                             </select>
                                             市：
-                                            <select style="width: 150px;" id="city" name="city" onchange="chg2(this)" ;>
+                                            <select class="form-control" style="width: 150px;" id="city" name="city" onchange="chg2(this)" ;>
                                                 <option value="-1">请选择</option>
                                             </select>
                                             区：
-                                            <select style="width: 150px;" id="area" name="area">
+                                            <select class="form-control" style="width: 150px;" id="area" name="area">
                                                 <option value="-1">请选择</option>
                                             </select>
                                             详细地址:
@@ -255,7 +287,7 @@
 
         var comp_name = $("input[name='comp_name']").val();//公司名称
         var comp_desc = $("textarea[name='comp_desc']").val();//公司简介
-        var comp_phone = $("input[name='comp_phone']").val();//电话
+        var comp_phone = $("input[name='comp_phone[]']").val();//电话
         var comp_email = $("input[name='comp_email']").val();//邮箱
         var log_img = $("input[name='log_img']").val();//log图
         var area = $("#area").val();//区

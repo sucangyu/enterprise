@@ -26,7 +26,11 @@
                 <li><a href="{:U('Recr/index')}">人才招聘</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="tel:{$enprArr.phone}"><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;{$enprArr.phone}</a></li>
+                <li>
+                  <a href="tel:{$enprArr.phone}"><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;
+                    {$enprArr['phone'][0]}
+                  </a>
+                </li>
                 <li><a href="#"><i class="glyphicon glyphicon-envelope"></i>&nbsp;{$enprArr.email}</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->

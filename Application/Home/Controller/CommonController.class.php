@@ -20,6 +20,7 @@ class CommonController extends Controller
     {
         $enprM = M('Enpr_info');
         $enprArr = $enprM->find();
+        $enprArr['phone'] = json_decode($enprArr['phone']);
         $ress = $this->memaddress($enprArr['province'],$enprArr['city'],$enprArr['district']);
         // var_dump($ress);
         // die;

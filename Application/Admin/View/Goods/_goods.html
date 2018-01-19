@@ -114,6 +114,16 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td>商品分类:</td>
+                                        <td>
+                                            <select class="form-control" name="cat_id" style="width:350px;">
+                                                <foreach name="cationArr" item="vo1">
+                                                    <option value="{$vo1.id}">{$vo1.title}</option>
+                                                </foreach>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>商品简介:<i style="color: red;">*</i></td>
                                         <td>
                                             <textarea rows="3" cols="80" name="goods_remark">{$goodsInfo.goods_remark}</textarea>
@@ -208,73 +218,7 @@
                             </div>
                             <!--其他信息-->
 
-                            <!-- 商品相册-->
-                            <!-- <div class="tab-pane" id="tab_goods">
-                                <table class="table table-bordered">
-                                    <tbody>
-                                    <tr>
-                                        <td>批次号:</td>
-                                        <td>
-                                            <input type="text" readonly="readonly" style="width:200px;"  name="batchnum" value="{$date}">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>项目标题:</td>
-                                        <td>
-                                            <select name="proj_id" style="width:200px;height:30px;">
-                                                <option value="">选择项目</option>
-                                                <foreach name="projArr" item="vo" >
-                                                    <option value="{$vo.id}">
-                                                        {$vo.titles}
-                                                    </option>
-                                                </foreach>
 
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-sm-2">开始时间:</td>
-                                        <td >
-                                            <div class="input-prepend input-group">
-                                                <span class="add-on input-group-addon">
-                                                        <i class="glyphicon glyphicon-calendar fa fa-calendar"> </i>
-                                                </span>
-                                                <input type="date" placeholder="请选择开始时间" value="" class="s_e_time" name="begintime" onkeyup="this.value=this.value.replace(/[^\d.]/g,'')" onpaste="this.value=this.value.replace(/[^\d.]/g,'')" class="form-control" id="send_time">
-                                            </div>
-                                            <span id="err_send_time" style="color:#F00; display:none;"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-sm-2">结束时间:</td>
-                                        <td >
-                                            <div class="input-prepend input-group">
-                                                <span class="add-on input-group-addon">
-                                                        <i class="glyphicon glyphicon-calendar fa fa-calendar"> </i>
-                                                </span>
-                                                <input type="date" placeholder="请选择结束时间" value="" class="s_e_time" name="endtime" onkeyup="this.value=this.value.replace(/[^\d.]/g,'')" onpaste="this.value=this.value.replace(/[^\d.]/g,'')" class="form-control" id="end_time">
-                                            </div>
-                                            <span id="err_end_time" style="color:#F00; display:none;"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>认领最大数量:</td>
-                                        <td>
-                                            <input type="text" value="" name="getmaxnum" class="form-control" style="width:200px;" onkeyup="this.value=this.value.replace(/[^\d.]/g,'')" onpaste="this.value=this.value.replace(/[^\d.]/g,'')" />
-                                            <span id="err_getmaxnum" style="color:#F00; display:none;"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>认领时资源数量需求比:</td>
-                                        <td>
-                                            <input type="text" value="" name="minpropertynum" class="form-control" style="width:200px;" onkeyup="this.value=this.value.replace(/[^\d.]/g,'')" onpaste="this.value=this.value.replace(/[^\d.]/g,'')" />
-                                            <span style="color:#dcdcdc">比如2为两份资源才能兑换一份(2:1)</span>
-                                            <span id="err_proj_num" style="color:#F00; display:none;"></span>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div> -->
-                            <!--商品相册-->
 
                         </div>
                         <div class="pull-right">

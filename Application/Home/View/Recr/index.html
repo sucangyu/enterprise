@@ -22,6 +22,7 @@
         #one{ height:16vh; overflow:hidden; float: left;width: 90%;margin-left: 0px;} 
         #one a{text-decoration:none;font-family:Arial;font-size:16px;color:#333;height: 22px;display: inline-block;width: 92%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;} 
         #one li{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-bottom: 15px;margin-left: -10px;}
+        #one li .badge{margin-top: -15px;}
         #one li:hover{ background-color:#eee;}
         .caption h4{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
         .goodimg{width: 100%;}
@@ -107,9 +108,6 @@
               <li class="list-group-item"><i class="glyphicon glyphicon-map-marker">&nbsp;</i>
                 {$ress.province}&nbsp;{$ress.city}&nbsp;{$ress.district}&nbsp;{$enprArr.address}
               </li>
-              <li class="list-group-item"><i class="glyphicon glyphicon-earphone">&nbsp;</i> 
-                <a href="tel:{$enprArr.phone}" style="color: #333">{$enprArr.phone}</a>
-              </li>
               <li class="list-group-item"><i class="glyphicon glyphicon-envelope">&nbsp;</i>
                 {$enprArr.email}
               </li>
@@ -117,6 +115,11 @@
               </li>
               <li class="list-group-item"><i class="glyphicon glyphicon-comment">&nbsp;</i>{$enprArr.qq}
               </li>
+              <volist name="enprArr.phone" id="vo5" key="p">
+                <li class="list-group-item"><i class="glyphicon glyphicon-earphone">&nbsp;</i> 
+                  <a href="tel:{$vo5}" style="color: #333">{$p}: {$vo5}</a>
+                </li>
+              </volist>
             </ul>
             <script> 
                 

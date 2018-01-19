@@ -18,6 +18,7 @@ class CompanyController extends CommonController
     {
         $enprM = M('Enpr_info');
         $enprArr = $enprM->find();
+        $enprArr['phone'] = json_decode($enprArr['phone']);
         $regionM = M('Region');
         $regArr = $regionM->where(array('parent_id' =>0 ))->select();
         $shufflingM=M('shuffling');
@@ -29,7 +30,7 @@ class CompanyController extends CommonController
             $data['desc']=$_POST['comp_desc'];
             $data['pic']=$_POST['comp_pic'];
             $data['log_img']=$_POST['log_img'];
-            $data['phone']=$_POST['comp_phone'];
+            $data['phone']=json_encode($_POST['comp_phone']);
             $data['fax']=$_POST['comp_fax'];
             $data['email']=$_POST['comp_email'];
             $data['QQ']=$_POST['comp_QQ'];
