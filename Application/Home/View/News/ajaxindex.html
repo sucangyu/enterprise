@@ -1,0 +1,37 @@
+<div style="min-height:60vh;">
+<volist name="newlist" id="vo1" key="a">
+    <div class="media">
+      <div class="media-left">
+        <a href="{:U('News/detail',array('id'=>$vo1['id']))}">
+            <empty name="vo1.paperimg">
+            <img class="media-object" src="__PUBLIC__/images/new.jpg" alt="...">
+            <else /> 
+            <img class="media-object" src="{$vo1.paperimg}" alt="...">
+            </empty> 
+          
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
+            <a href="{:U('News/detail',array('id'=>$vo1['id']))}">{$vo1.title}</a>
+        </h4>
+
+        {$vo1.paper}
+      </div>
+    </div>
+</volist>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-3 text-left"></div>
+    <div class="col-sm-9 text-right">{$page}</div>
+</div>
+<script>
+    // 点击分页触发的事件
+    $(".pagination  a").click(function(){
+        var dataId = $(".nav-tabs>.active").attr("data-id");
+        cur_page = $(this).data('p');
+        ajax_get_table(dataId,cur_page);
+    });
+</script>

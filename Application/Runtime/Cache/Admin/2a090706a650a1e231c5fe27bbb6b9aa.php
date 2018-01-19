@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?><script>alert('商品修改成功');location.href='/enterprise/index.php/Admin/Goods/goodsList.html'</script>
