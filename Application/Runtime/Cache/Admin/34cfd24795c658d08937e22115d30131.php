@@ -1,1 +1,0 @@
-<?php if (!defined('THINK_PATH')) exit();?><script>alert('分类修改失败');location.href='/enterprise/index.php/Admin/Goods/cationList.html'</script>

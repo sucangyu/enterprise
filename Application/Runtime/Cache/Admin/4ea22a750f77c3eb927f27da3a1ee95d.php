@@ -1,1 +1,0 @@
-<?php if (!defined('THINK_PATH')) exit();?><script>alert('友情链接修改成功');location.href='/enterprise/index.php/Admin/Company/linkList.html'</script>
