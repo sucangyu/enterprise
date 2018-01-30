@@ -68,15 +68,18 @@
             <div class="page-header">
               <h4>招聘信息 <small>Recruitment information</small></h4>
             </div>
-            <table class="table table-striped">
-                <volist name="list" id="vo2" key="i">
-                    <tr>
-                        <td><a href="{:U('Recr/detail',array('id'=>$vo2['id']))}">{$vo2.title}</a></td>
-                        <td>{$vo2.salary}</td>
-                        <td>{$vo2.treatment}</td>
-                    </tr>
-                </volist>
-            </table>
+            <div  style="min-height:50vh;">
+              <table class="table table-striped" >
+                  <volist name="list" id="vo2" key="i">
+                      <tr>
+                          <td><a href="{:U('Recr/detail',array('id'=>$vo2['id']))}">{$vo2.title}</a></td>
+                          <td>{$vo2.salary}</td>
+                          <td>{$vo2.treatment}</td>
+                      </tr>
+                  </volist>
+              </table>
+            </div>
+            
             <div class="pagination pagination-sm"><!--翻页代码输出div-->
               {$page}
             </div>

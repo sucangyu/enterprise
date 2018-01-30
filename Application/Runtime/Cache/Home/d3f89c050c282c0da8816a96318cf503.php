@@ -105,13 +105,16 @@
             <div class="page-header">
               <h4>招聘信息 <small>Recruitment information</small></h4>
             </div>
-            <table class="table table-striped">
-                <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?><tr>
-                        <td><a href="<?php echo U('Recr/detail',array('id'=>$vo2['id']));?>"><?php echo ($vo2["title"]); ?></a></td>
-                        <td><?php echo ($vo2["salary"]); ?></td>
-                        <td><?php echo ($vo2["treatment"]); ?></td>
-                    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-            </table>
+            <div  style="min-height:50vh;">
+              <table class="table table-striped" >
+                  <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?><tr>
+                          <td><a href="<?php echo U('Recr/detail',array('id'=>$vo2['id']));?>"><?php echo ($vo2["title"]); ?></a></td>
+                          <td><?php echo ($vo2["salary"]); ?></td>
+                          <td><?php echo ($vo2["treatment"]); ?></td>
+                      </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+              </table>
+            </div>
+            
             <div class="pagination pagination-sm"><!--翻页代码输出div-->
               <?php echo ($page); ?>
             </div>
