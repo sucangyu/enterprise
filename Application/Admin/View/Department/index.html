@@ -3,6 +3,8 @@
 .panel-title{height: 33px;}
 .fa-list{line-height: 33px}
 .title{line-height: 33px}
+#email{padding: 0 20px 20px 20px;display: none;}
+#nullEmail{display: none;color: red;}
 </style>
 <div class="wrapper">
     <include file="Public/breadcrumb"/>
@@ -13,6 +15,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         <i class="fa fa-list"></i> <span class="title">部门列表</span>
+                        <button type="button" onclick="send()" class="btn btn-info pull-right"><i class="glyphicon glyphicon-envelope"></i>群发邮件</button>
                         <button type="button" onclick="location.href='{:U('Department/addDepartment')}'" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>添加新部门</button>
                     </h3>
                     
@@ -48,6 +51,29 @@
     </section>
     <!-- /.content -->
 </div>
+
+<div id="email">
+    <form method="post" id="sendEmail" action="__CONTROLLER__/sendEmail">
+        <div class="form-group">
+            <label for="exampleInputEmail1">收件人</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email">
+        </div>
+        <span id="nullEmail"></span>
+        <div class="form-group">
+            <label for="title">主题</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="邮件标题">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">内容</label>
+            <textarea class="span12 ckeditor" style="width: 100%;height:30vh;" id="content" name="content" title=""></textarea>
+        </div>
+        <div class="form-group">
+            <span></span>
+            <span style="float: right;">发送者:{$Think.session.admin_name}</span>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">发送</button>
+    </form>
+</div>
 <!-- /.content-wrapper -->
 <script>
     $(document).ready(function(){
@@ -64,11 +90,13 @@
             url:url+"?p="+page,//+tab,
             data : $('#'+tab).serialize(),// 你的formid
             success: function(data){
+                //console.log(data);
                 $("#ajax_return").html('');
                 $("#ajax_return").append(data);
             }
         });
     }
+    
 </script>
 </body>
 </html>

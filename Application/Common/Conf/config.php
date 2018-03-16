@@ -14,12 +14,17 @@ return array(
 //    'DB_DEBUG'  =>  TRUE, // 数据库调试模式 开启后可以记录SQL日志
 //    'SHOW_PAGE_Trace'=>true,
 //     'SESSION_PRE'=>'',//session 前缀
-//     'MIN_YEAR'=>60*60*24*365,//认领的时间年限-
-// //    'MIN_YEAR'=>0,//认领的时间年限-
-//     'MEMBER_NUM'=>6000000,//编号的基数值
-//     'COMMENT_CONTENT'=>'让我们聚集善的力量，让沙漠变成绿洲',//编号的基数值
-    //微信配置
-    // 'WX_APPID'=>'',
-    // 'WX_APPSECRET'=>'',
-    // 'RETURN_URL'=>'http://sjapi.yiwo15.com/jsshamo/index.php/Mobile/Index/index',
+    //即时通讯(融云即时通讯在线聊天)
+    'RONG_IS_DEV'            => true,//是否是在开发中
+    'RONG_DEV_APP_KEY'       => '8luwapkvu3xwl', //融云开发环境下的key    仅供测试使用
+    'RONG_DEV_APP_SECRET'    => '1Aw1D7F6Td25', //融云开发环境下的SECRET  仅供测试使用
+    'RONG_PRO_APP_KEY'       => '', //融云生产环境下的key
+    'RONG_PRO_APP_SECRET'    => '', //融云生产环境下的SECRET
+    //群发邮件
+    'EMAIL_FROM_NAME'        => '发件人',        // 发件人
+    'EMAIL_SMTP'             => 'smtp.qq.com',  // smtp
+    'EMAIL_USERNAME'         => 'QQ邮箱',        // 账号
+    'EMAIL_PASSWORD'         => 'wjylmwzizganbahd',        // 密码  注意: 163和QQ邮箱是授权码；不是登录的密码
+    'EMAIL_SMTP_SECURE'      => 'ssl',          // 如果使用QQ邮箱；需要把此项改为  ssl
+    'EMAIL_PORT'             => '25',          // 如果使用QQ邮箱；需要把此项改为  465
 );

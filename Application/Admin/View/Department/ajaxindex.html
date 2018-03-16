@@ -12,6 +12,9 @@
                     <a>部门负责人</a>
                 </td>
                 <td class="text-center">
+                    <a>邮箱</a>
+                </td>
+                <td class="text-center">
                     <a>部门图</a>
                 </td>
                 <td class="text-center"><a>操作</a></td>
@@ -21,10 +24,11 @@
             <volist name="deparList" id="list">
                 <tr>
                     <td class="text-center">
-                        <input type="checkbox" name="selected[]" value="6">
+                        <input type="checkbox" name="selected[]" value="{$list.id}">
                         <input type="hidden" name="shipping_code[]" value="flat.flat">
                     </td>
-                    <td class="text-center">{$list.title}</td>
+                    <td class="text-center" id="title{$list.id}">{$list.title}</td>
+                    <td class="text-center" id="email{$list.id}">{$list.email}</td>
                     <td class="text-center">
                         <div style="width: 100px;word-wrap:break-word;margin:0 auto;height: 90px;overflow:hidden">{$list.head}
                         </div>
@@ -38,6 +42,7 @@
                     <td class="text-left">
                         <a href="{:U('Department/detail',array('id'=>$list['id']))}" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="查看详情"><i class="fa fa-eye">查看详情</i></a>
                         <a href="javascript:void(0);" onclick="del({$list['id']})" class="btn btn-danger" title="删除"><i class="fa fa-trash-o"></i>删除</a> 
+                        <a href="javascript:void(0);" onclick="send({$list['id']})" class="btn btn-info" title="发送邮件"><i class="glyphicon glyphicon-envelope"></i>发送邮件</a> 
                     </td>
                 </tr>
             </volist>
@@ -76,5 +81,50 @@
         });
         return false;
     
+    }
+
+
+    //发邮件弹出层
+    function send(id){
+        $("#nullEmail").html('');
+        var email = $("#email"+id).html();
+        var title = '';
+        if (!email) {
+            title = $("#title"+id).html();
+        }
+        if (!id) {
+            var id = '';
+            title = '';
+            email = '';
+            $("input:checkbox[name='selected[]']:checked").each(function() { // 遍历name=test的多选框
+                id = $(this).val();  // 每一个被选中项的值
+                var emailHtml = $("#email"+id).html();
+                var titleHtml = $("#title"+id).html();
+                if (emailHtml) {
+                    email += emailHtml + ",";
+                }else{
+                    title += titleHtml + ",";
+                }
+            });
+        }
+        $("#exampleInputEmail1").val(email);
+        if (title) {
+            $("#nullEmail").html(title+'没有填写邮件请手动添加以英文逗号分隔');
+            $("#nullEmail").css('display','block');        
+        }
+        if (id) {
+            layer.open({
+                type: 1,
+                title: '邮件发送',
+                shadeClose: true,
+                offset: '30%',
+                shade: 0.8,
+                area: ['60%', '65%'],
+                content: $("#email") //iframe的url
+            });
+        }else{
+            layer.alert('请选择收件人');
+        }
+        
     }
 </script>

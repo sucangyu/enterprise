@@ -25,7 +25,7 @@ class DepartmentController extends CommonController
         // 搜索条件
         $condition = array();
         I('title') ? $condition['title'] = array('like','%'.I('title').'%') : false;
-        $sort_order = I('order_by').' '.I('sort');
+        //$sort_order = I('order_by').' '.I('sort').;
         I('head') ? $condition['head'] = array('like','%'.I('head').'%') : false;
 
         $departmentM = M('department');
@@ -36,11 +36,52 @@ class DepartmentController extends CommonController
         {
             $Page->parameter[$key]   =   urlencode($val);
         }
-        $deparList = $departmentM->where($condition)->order($sort_order)->limit($Page->firstRow.','.$Page->listRows)->select();
+        $deparList = $departmentM->where($condition)->limit($Page->firstRow.','.$Page->listRows)->select();
         $show = $Page->show();
         $this->assign('deparList',$deparList);
         $this->assign('page',$show);// 赋值分页输出
         $this->display();
+    }
+    /**
+    *发送邮件
+    */
+    public function sendEmail(){
+        $email = $_POST['email'];
+        $title = $_POST['title'];
+        $content =$_POST['content'];
+
+        if (substr($email, 0-strlen(",")) == ",") {
+            rtrim($email, ",");
+        }
+        if (strstr($email,",")) {
+            $email = explode(",",$email);
+        }else{
+            $email[0] = $email;
+        }
+        
+        for ($i=0; $i < count($email); $i++) {
+            if (!$email||filter_var($email[$i], FILTER_VALIDATE_EMAIL)) {
+                var_dump($email);
+                die;
+                $this->error("邮件格式不正确,请重新发送");
+            }
+        }
+        if (!$title) {
+            $this->error('请填写标题');
+        }
+        if (!$content) {
+            $this->error('请填写发送内容');
+        }
+        var_dump($email.'<br/>'.$title.'<br/>'.$content);
+        $return = send_email($email,$title,$content);
+        var_dump($return);
+        die;
+        if ($return['error'] == 0) {
+            $this->success('发送成功');
+        }else{
+            $this->error($return['message']);
+        }
+        
     }
     /**
      * 添加部门页面
