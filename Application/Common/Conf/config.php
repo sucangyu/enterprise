@@ -21,10 +21,10 @@ return array(
     'RONG_PRO_APP_KEY'       => '', //融云生产环境下的key
     'RONG_PRO_APP_SECRET'    => '', //融云生产环境下的SECRET
     //群发邮件
-    'EMAIL_FROM_NAME'        => '发件人',        // 发件人
+    'EMAIL_FROM_NAME'        => '系统',        // 发件人
     'EMAIL_SMTP'             => 'smtp.qq.com',  // smtp
-    'EMAIL_USERNAME'         => 'QQ邮箱',        // 账号
-    'EMAIL_PASSWORD'         => 'wjylmwzizganbahd',        // 密码  注意: 163和QQ邮箱是授权码；不是登录的密码
+    'EMAIL_USERNAME'         => '727817393@qq.com',        // 账号
+    'EMAIL_PASSWORD'         => 'fueimhnzyyjgbfjd',        // 密码  注意: 163和QQ邮箱是授权码；不是登录的密码
     'EMAIL_SMTP_SECURE'      => 'ssl',          // 如果使用QQ邮箱；需要把此项改为  ssl
-    'EMAIL_PORT'             => '25',          // 如果使用QQ邮箱；需要把此项改为  465
+    'EMAIL_PORT'             => '465',          // 如果使用QQ邮箱；需要把此项改为  465
 );

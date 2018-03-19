@@ -60,9 +60,8 @@ class DepartmentController extends CommonController
         }
         
         for ($i=0; $i < count($email); $i++) {
-            if (!$email||filter_var($email[$i], FILTER_VALIDATE_EMAIL)) {
-                var_dump($email);
-                die;
+            if (!$email||!filter_var($email[$i], FILTER_VALIDATE_EMAIL)) {
+                
                 $this->error("邮件格式不正确,请重新发送");
             }
         }
@@ -72,10 +71,7 @@ class DepartmentController extends CommonController
         if (!$content) {
             $this->error('请填写发送内容');
         }
-        var_dump($email.'<br/>'.$title.'<br/>'.$content);
         $return = send_email($email,$title,$content);
-        var_dump($return);
-        die;
         if ($return['error'] == 0) {
             $this->success('发送成功');
         }else{
