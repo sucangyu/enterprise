@@ -1,0 +1,53 @@
+<include file="Public/min-header"/>
+<style type="text/css">
+.panel-title{height: 33px;}
+.fa-list{line-height: 33px}
+.title{line-height: 33px}
+</style>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i class="fa fa-list"></i> <span class="title">数据库在线备份下载和还原</span>
+                        <a href="{:U('System/backupMysql',array('Action'=>'backup'))}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>备份添加</a>
+                    </h3>
+                    
+                </div>
+                <div class="panel-body">
+                    <div id="ajax_return">
+
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script>
+    $(document).ready(function(){
+        ajax_get_table('search-form2',1);
+
+    });
+
+    // ajax 抓取页面
+    function ajax_get_table(tab,page){
+        cur_page = page; //当前页面 保存为全局变量
+        var url = "{:U('System/ajaxBackupMysql')}";
+        $.ajax({
+            type : "POST",
+            url:url+"?p="+page,//+tab,
+            data : $('#'+tab).serialize(),// 你的formid
+            success: function(data){
+                $("#ajax_return").html('');
+                $("#ajax_return").append(data);
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -193,137 +193,6 @@ function canBuy($proj_id)
     }
     return $can_buy;
 }
-//获取认领资格--简短版
-function canGet1($property_id)
-{
-    $can_get = 0;//认领资格
-    $propertylistM = M('Propertylist');
-    if(!empty($property_id)&&!empty($propertylistArr = $propertylistM->find($property_id)))
-    {//1.资产校验
-        //2.项目校验
-        $proj_id = $propertylistArr['proj_id'];
-        $projlistM = M('Projlist');
-        if(empty($proj_id)||empty($projlistArr=$projlistM->find($proj_id)))
-        {
-            return $can_get;
-        }
-
-        $setBatch = strtotime(date('Y').'-01-01');
-        //3.认领子项校验
-        $projchildM = M('Projchild');
-        $w['batchnum'] = $setBatch;
-        $w['proj_id'] = $proj_id;
-        $w['stats'] = 1;
-        $w['begintime'] = array('elt',time());
-        $w['endtime'] = array('egt',time());
-        $w['kind'] = 1;
-        //获取开启的认领项目
-        $projchildArr = $projchildM->where($w)->select();
-        if(empty($projchildArr)||empty($projchildArr[0]['minpropertynum']))
-        {
-            return $can_get;
-        }
-
-        //4.校验当前资产的获取时间年限
-        $min_year = C('MIN_YEAR');
-        if(($propertylistArr['regtime']+$min_year)>time())
-        {
-            return $can_get;
-        }
-
-        $can_get = 1;
-    }
-    return $can_get;
-}
-//获取认领资格--完整版（根据资产id重新校验所有）
-/*
- * 参数1-资产id  $property_id
- * 参数2-认领期数,格式为‘2017-01-01’默认为当前时间年份  $batchnum
- *
- * */
-function canGet2($property_id,$batchnum)
-{
-    $can_get['sts'] = 0;//认领资格
-    $can_get['msg'] = '不满足条件';
-    $propertylistM = M('Propertylist');
-    if(!empty($property_id)&&!empty($propertylistArr = $propertylistM->find($property_id)))
-    {//1.资产校验
-        //2.项目校验
-        $proj_id = $propertylistArr['proj_id'];
-        $projlistM = M('Projlist');
-        if(empty($proj_id)||empty($projlistArr=$projlistM->find($proj_id)))
-        {
-            $can_get['msg'] = '项目不存在';
-            return $can_get;
-        }
-
-        //3.认领子项校验
-        $projchildM = M('Projchild');
-        $w['proj_id'] = $proj_id;
-        $w['stats'] = 1;
-        $w['begintime'] = array('elt',time());
-        $w['endtime'] = array('egt',time());
-        $w['kind'] = 1;
-        //获取开启的认领项目
-        $projchildArr = $projchildM->where($w)->select();
-        if(empty($projchildArr)||empty($projchildArr['minpropertynum']))
-        {
-            $can_get['msg'] = '认领项目暂未开启';
-            return $can_get;
-        }
-
-        //4.校验当前资产的获取时间年限
-        $min_year = C('MIN_YEAR');
-        if(($propertylistArr['regtime']+$min_year)>time())
-        {
-            $can_get['msg'] = '您的资产年限还不够';
-            return $can_get;
-        }
-
-        //4.一切正常时校验当前资产是否还有认领数额--
-        if($propertylistArr['kind']==1||($propertylistArr['kind']==2&&$propertylistArr['sendkind']==2))
-        {//自己支持所得资产或他人赠送的未认领部分或他人赠送的已领部分已经不在一个批次内-只需要校验是否数额足够（含已领部分）
-            $treenum = intval($propertylistArr['treenum']);
-            $temp_canGetNum = floor($treenum/$projchildArr['minpropertynum']);//可以领取资源总数量
-
-            unset($w);
-            if(!empty($batchnum))
-            {
-                $w['batchnum'] = strtotime($batchnum);
-            }else
-            {
-                $w['batchnum'] = strtotime(date('Y').'-01-01');
-            }
-            $w['kind'] = 1;
-            $w['mid'] = $propertylistArr['mid'];
-            $w['property_id'] = $property_id;
-            $has_getNum = M('Claimlist')->where($w)->sum('claimnum');
-            if(!empty($has_getNum))
-            {
-                $has_getNum = intval($has_getNum);
-            }else
-            {
-                $has_getNum = 0;
-            }
-
-            if($temp_canGetNum-$has_getNum<=0)
-            {
-                $can_get['msg'] = '您的资产已不足继续认领';
-                return $can_get;
-            }
-        }else
-        {//他人赠送已认领部分
-            if($propertylistArr['sendkind']==2)
-            {//分为三种情况
-                //a.
-
-            }
-
-        }
-
-    }
-    return $can_get;
-}
 
 //生成订单号
 function create_uuid($prefix){    //可以指定前缀
@@ -333,53 +202,7 @@ function create_uuid($prefix){    //可以指定前缀
     return $prefix . $uuid;
 }
 
-/*
-     * 获取可认领的资源数
-     * $batchnum  当前期号
-     * $mid  会员id
-     * $property_id 资产id
-     * $proj_id 项目id
-     * $tree 当前资产包剩余资源数量
-     * */
-function getMaxTreeNum($batchnum,$mid,$property_id,$proj_id,$tree)
-{
-    $treeNum = 0;
-    //获取当期已认领的数量
-    $propertylistM = M('Propertylist');
-    $claimlistM = M('Claimlist');
-    $w['batchnum'] = $batchnum;
-    $w['kind'] = 1;
-    $w['mid'] = $mid;
-    $w['property_id'] = $property_id;
-    $w['proj_id'] = $proj_id;
-    $w['paystas'] = 1;
 
-    $hasGetNum = $claimlistM->where($w)->sum('needtreenum');
-    $hasGetNum = !empty($hasGetNum)?intval($hasGetNum):0;
-
-    //获取当期已送出的部分资源数
-    unset($w);
-    $w['kind'] = 2;
-    $w['ppid'] = $property_id;
-    $w['sendkind'] = $batchnum;
-    $w['givemid'] = $mid;
-    $w['proj_id'] = $proj_id;
-    $hasSendNum = $propertylistM->where($w)->sum('inittreenum');
-    $hasSendNum = !empty($hasSendNum)?intval($hasSendNum):0;
-
-    //实际可领数目计算公式 = 实际剩余数量+已送部分-已领数目
-    if($tree+$hasSendNum-$hasGetNum>0)
-    {
-        $treeNum = $tree+$hasSendNum-$hasGetNum;
-    }
-    return $treeNum;
-}
-
-//根据订单获取商品列表
-function getGoodsList($order_id)
-{
-    return D('Ordergoods')->relation(true)->where('order_id='.$order_id)->select();
-}
 
 
 
@@ -443,5 +266,57 @@ function send_email($address,$subject,$content){
         return array("error"=>1,"message"=>$phpmailererror);
     }else{
         return array("error"=>0);
+    }
+}
+
+
+//处理方法
+function rmdirr($dirname) {
+    if (!file_exists($dirname)) {
+        return false;
+    }
+    if (is_file($dirname) || is_link($dirname)) {
+        return unlink($dirname);
+    }
+    $dir = dir($dirname);
+    if ($dir) {
+        while (false !== $entry = $dir->read()) {
+            if ($entry == '.' || $entry == '..') {
+                continue;
+            }
+            //递归
+            rmdirr($dirname . DIRECTORY_SEPARATOR . $entry);
+        }
+    }
+}
+
+
+//获取文件修改时间
+function getfiletime($file, $DataDir) {
+    $a = filemtime($DataDir . $file);
+    $time = date("Y-m-d H:i:s", $a);
+    return $time;
+}
+
+//获取文件的大小
+function getfilesize($file, $DataDir) {
+    $perms = stat($DataDir . $file);
+    $size = $perms['size'];
+    // 单位自动转换函数
+    $kb = 1024;         // Kilobyte
+    $mb = 1024 * $kb;   // Megabyte
+    $gb = 1024 * $mb;   // Gigabyte
+    $tb = 1024 * $gb;   // Terabyte
+
+    if ($size < $kb) {
+        return $size . " B";
+    } else if ($size < $mb) {
+        return round($size / $kb, 2) . " KB";
+    } else if ($size < $gb) {
+        return round($size / $mb, 2) . " MB";
+    } else if ($size < $tb) {
+        return round($size / $gb, 2) . " GB";
+    } else {
+        return round($size / $tb, 2) . " TB";
     }
 }
