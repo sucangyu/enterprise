@@ -1,0 +1,131 @@
+[ 2018-12-14T17:20:25+08:00 ] ::1 /enterprise/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `enpr_info` [ RunTime:0.7250s ]
+SQL: SELECT * FROM `enpr_info` LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.1030s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17359 ) LIMIT 1   [ RunTime:0.0480s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17360 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17361 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shuffling` [ RunTime:0.0870s ]
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.1420s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.1070s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0540s ]
+SQL: SELECT * FROM `department`  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `shuffling`  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `new` WHERE ( isdel=0 ) ORDER BY time desc  [ RunTime:0.0250s ]
+SQL: SELECT * FROM `goods` ORDER BY regtime desc,is_recommend desc LIMIT 3   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.015001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.016001s ]
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 67 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.261015s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.261015s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.067004s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.067004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.077004s ]
+INFO: [ app_end ] --END-- [ RunTime:0.077004s ]
+
+[ 2018-12-14T17:25:34+08:00 ] ::1 /enterprise/index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `enpr_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `enpr_info` LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0070s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17359 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17360 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17361 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `shuffling` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `department`  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `shuffling`  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `new` WHERE ( isdel=0 ) ORDER BY time desc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `goods` ORDER BY regtime desc,is_recommend desc LIMIT 3   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 67 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-12-14T17:25:39+08:00 ] ::1 /enterprise/index.php/Home/News/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `enpr_info` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `enpr_info` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0130s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17359 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17360 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17361 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `shuffling` [ RunTime:0.0150s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `shuffling`  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `goods` ORDER BY regtime desc,is_recommend desc LIMIT 3   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Home\3e24b471de08a8366f7660bb176a5e74.php 第 61 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-12-14T17:25:39+08:00 ] ::1 /enterprise/index.php/Home/News/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `enpr_info` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `enpr_info` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0260s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17359 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17360 ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `name` FROM `region` WHERE ( id=17361 ) LIMIT 1   [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `new` WHERE ( isdel=0 ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wampp\htdocs\enterprise\Application\Home\Controller\NewsController.class.php 第 35 行.
+SQL: SELECT * FROM `new` WHERE ( isdel=0 ) ORDER BY time desc LIMIT 0,10   [ RunTime:0.0040s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

@@ -1,0 +1,48 @@
+[ 2018-05-22T10:47:43+08:00 ] ::1 /enterprise/Public/css/home/__PUBLIC__/images/fabric.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Public
+
+[ 2018-05-22T10:47:43+08:00 ] ::1 /enterprise/Public/css/home/__PUBLIC__/images/cover.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Public
+
+[ 2018-05-22T10:51:27+08:00 ] ::1 /enterprise/Public/css/home/__PUBLIC__/images/fabric.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Public
+
+[ 2018-05-22T10:51:27+08:00 ] ::1 /enterprise/Public/css/home/__PUBLIC__/images/cover.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Public
+
+[ 2018-05-22T13:09:59+08:00 ] ::1 /enterprise/Public/css/home/__PUBLIC__/images/fabric.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Public
+
+[ 2018-05-22T13:09:59+08:00 ] ::1 /enterprise/Public/css/home/__PUBLIC__/images/cover.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载模块:Public
+
+[ 2018-05-22T13:10:26+08:00 ] ::1 /enterprise/Public/css/home/__PUBLIC__/images/fabric.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Public
+
+[ 2018-05-22T13:10:26+08:00 ] ::1 /enterprise/Public/css/home/__PUBLIC__/images/cover.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Public
+

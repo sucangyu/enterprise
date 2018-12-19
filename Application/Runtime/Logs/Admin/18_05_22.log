@@ -1,0 +1,3369 @@
+[ 2018-05-22T10:53:57+08:00 ] ::1 /enterprise/index.php/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0070s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:53:58+08:00 ] ::1 /enterprise/index.php/Admin/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:54:11+08:00 ] ::1 /enterprise/index.php/Admin/Index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `user` WHERE `username` = 'admin' AND `password` = '21232f297a57a5a743894a0e4a801fc3' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `role` [ RunTime:0.0140s ]
+NOTIC: [8] Undefined index: mapping_order D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model\RelationModel.class.php 第 186 行.
+NOTIC: [8] Undefined index: mapping_limit D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model\RelationModel.class.php 第 187 行.
+NOTIC: [8] Undefined index: relation_foreign_key D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model\RelationModel.class.php 第 188 行.
+SQL: SELECT b.name,id FROM role_user AS a, role AS b WHERE a.Role_id = b.id AND a. user_id='1' [ RunTime:0.0110s ]
+SQL: UPDATE `user` SET `logintime`='1526957651',`loginIP`='::1' WHERE ( id=1 ) [ RunTime:0.0240s ]
+SQL: SHOW COLUMNS FROM `login_log` [ RunTime:0.0030s ]
+SQL: INSERT INTO `login_log` (`user_id`,`log_time`,`log_ip`) VALUES ('1','1526957651','::1') [ RunTime:0.0110s ]
+NOTIC: [8] Undefined index: name D:\wampp\htdocs\enterprise\Application\Admin\Controller\IndexController.class.php 第 83 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:54:12+08:00 ] ::1 /enterprise/index.php/Admin/Main/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` WHERE ( level = 2 ) ORDER BY sort  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='27' ) ORDER BY sort  [ RunTime:0.0130s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='55' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='40' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='34' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='68' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='23' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='2' ) ORDER BY sort  [ RunTime:0.0130s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='31' ) ORDER BY sort  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: order_amount D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ceb25a752d454a3315706634952427db.php 第 225 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T10:54:13+08:00 ] ::1 /enterprise/index.php/Admin/Main/welcome.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SELECT VERSION() as version [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: version D:\wampp\htdocs\enterprise\Application\Admin\Controller\MainController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 68 行.
+NOTIC: [8] Undefined index: handle_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 81 行.
+NOTIC: [8] Undefined index: goods D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 90 行.
+NOTIC: [8] Undefined index: article D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 99 行.
+NOTIC: [8] Undefined index: users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 108 行.
+NOTIC: [8] Undefined index: new_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 123 行.
+NOTIC: [8] Undefined index: today_login D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 126 行.
+NOTIC: [8] Undefined index: new_users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 129 行.
+NOTIC: [8] Undefined index: comment D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 132 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:54:18+08:00 ] ::1 /enterprise/index.php/Admin/Department/recruiList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\557c373045578bf8c883721a43f9ce6d.php 第 74 行.
+NOTIC: [8] Undefined variable: projArr D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\557c373045578bf8c883721a43f9ce6d.php 第 90 行.
+NOTIC: [8] Undefined variable: projArr D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\557c373045578bf8c883721a43f9ce6d.php 第 129 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T10:54:18+08:00 ] ::1 /enterprise/index.php/Admin/Department/ajaxRecruiList.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `recruitment` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `recruitment` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `recruitment` ORDER BY regtime desc LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0030s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:54:18+08:00 ] ::1 /enterprise/index.php/Admin/Department/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\2dbbfc7cc9356e8aaacba4b83c676c79.php 第 75 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:54:19+08:00 ] ::1 /enterprise/index.php/Admin/Department/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `department` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `department` LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:55:03+08:00 ] ::1 /enterprise/index.php/Admin/Company/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `enpr_info` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `enpr_info` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `region` WHERE `parent_id` = 0  [ RunTime:0.0160s ]
+SQL: SHOW COLUMNS FROM `shuffling` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `shuffling` WHERE `ep_id` = 3  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 164 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 239 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 301 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 301 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 301 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T10:55:04+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxCityList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `region` WHERE `parent_id` = 17360  [ RunTime:0.0200s ]
+
+[ 2018-05-22T10:55:04+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxCityList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `region` WHERE `parent_id` = 17359  [ RunTime:0.0180s ]
+
+[ 2018-05-22T10:55:10+08:00 ] ::1 /enterprise/index.php/Admin/Company/imglist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\1d5e7ce870fbce57b6266436545cf388.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:55:10+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaximglist.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shuffling` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `shuffling` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `shuffling` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T10:55:14+08:00 ] ::1 /enterprise/index.php/Admin/Company/linkList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\454afe988bc1610150e9e664c3331946.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T10:55:14+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxlinklist.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `link` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `link` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `link` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T10:56:06+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 79 行.
+NOTIC: [8] Undefined variable: uid D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 98 行.
+NOTIC: [8] Undefined variable: time D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 109 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T10:56:06+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: begin D:\wampp\htdocs\enterprise\Application\Admin\Controller\NewslistController.class.php 第 48 行.
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `new` WHERE `isdel` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `new` WHERE `isdel` = 0 ORDER BY id desc LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:56:16+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/detail/id/8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `new` WHERE `id` = 8 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `user` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\889ac9391e9a6d8dfb8b565924715c7a.php 第 111 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T10:56:38+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 79 行.
+NOTIC: [8] Undefined variable: uid D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 98 行.
+NOTIC: [8] Undefined variable: time D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 109 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T10:56:38+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: begin D:\wampp\htdocs\enterprise\Application\Admin\Controller\NewslistController.class.php 第 48 行.
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `new` WHERE `isdel` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `new` WHERE `isdel` = 0 ORDER BY id desc LIMIT 0,10   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-05-22T11:12:36+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: begin D:\wampp\htdocs\enterprise\Application\Admin\Controller\NewslistController.class.php 第 48 行.
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `new` WHERE `isdel` = 0 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT * FROM `new` WHERE `isdel` = 0 ORDER BY id desc LIMIT 0,10   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.014001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.016001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.017001s ]
+
+[ 2018-05-22T11:12:40+08:00 ] ::1 /enterprise/index.php/Admin/Department/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\2dbbfc7cc9356e8aaacba4b83c676c79.php 第 75 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T11:12:40+08:00 ] ::1 /enterprise/index.php/Admin/Department/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `department` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `department` LIMIT 0,10   [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-05-22T11:12:47+08:00 ] ::1 /enterprise/index.php/Admin/Department/detail/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `department` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\927b4eab090714439169b16e2f9dfba9.php 第 122 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:04:18+08:00 ] ::1 /enterprise/index.php/Admin/Company/linkList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\454afe988bc1610150e9e664c3331946.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.013000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:04:18+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxlinklist.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `link` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `link` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `link` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-05-22T13:04:25+08:00 ] ::1 /enterprise/index.php/Admin/Company/linkdetail/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `link` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `link` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ef5d83d972ecf35889e4a2ec41f3ed3b.php 第 100 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:07:50+08:00 ] ::1 /enterprise/index.php/Admin/Department/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\2dbbfc7cc9356e8aaacba4b83c676c79.php 第 75 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:07:50+08:00 ] ::1 /enterprise/index.php/Admin/Department/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `department` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `department` LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:07:55+08:00 ] ::1 /enterprise/index.php/Admin/Department/recruiList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\557c373045578bf8c883721a43f9ce6d.php 第 74 行.
+NOTIC: [8] Undefined variable: projArr D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\557c373045578bf8c883721a43f9ce6d.php 第 90 行.
+NOTIC: [8] Undefined variable: projArr D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\557c373045578bf8c883721a43f9ce6d.php 第 129 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:07:55+08:00 ] ::1 /enterprise/index.php/Admin/Department/ajaxRecruiList.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `recruitment` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `recruitment` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `recruitment` ORDER BY regtime desc LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0020s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title`,`head` FROM `department` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:08:04+08:00 ] ::1 /enterprise/index.php/Admin/Department/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\2dbbfc7cc9356e8aaacba4b83c676c79.php 第 75 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:08:04+08:00 ] ::1 /enterprise/index.php/Admin/Department/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `department` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `department` LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:11:47+08:00 ] ::1 /enterprise/index.php/Admin/Company/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `enpr_info` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `enpr_info` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `region` WHERE `parent_id` = 0  [ RunTime:0.0180s ]
+SQL: SHOW COLUMNS FROM `shuffling` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `shuffling` WHERE `ep_id` = 3  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 164 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 239 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 301 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 301 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 301 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-05-22T13:11:48+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxCityList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `region` WHERE `parent_id` = 17359  [ RunTime:0.0170s ]
+
+[ 2018-05-22T13:11:48+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxCityList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `region` WHERE `parent_id` = 17360  [ RunTime:0.0230s ]
+
+[ 2018-05-22T13:11:54+08:00 ] ::1 /enterprise/index.php/Admin/Company/linkList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\454afe988bc1610150e9e664c3331946.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:11:54+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxlinklist.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `link` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `link` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `link` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:12:02+08:00 ] ::1 /enterprise/index.php/Admin/Company/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `enpr_info` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `enpr_info` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `region` WHERE `parent_id` = 0  [ RunTime:0.0170s ]
+SQL: SHOW COLUMNS FROM `shuffling` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `shuffling` WHERE `ep_id` = 3  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 164 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 239 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 301 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 301 行.
+NOTIC: [8] Array to string conversion D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\6eb939ff62aea883767ed8fa0a0c5387.php 第 301 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:12:02+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxCityList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `region` WHERE `parent_id` = 17359  [ RunTime:0.0170s ]
+
+[ 2018-05-22T13:12:02+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxCityList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `region` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `region` WHERE `parent_id` = 17360  [ RunTime:0.0270s ]
+
+[ 2018-05-22T13:26:10+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0240s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 79 行.
+NOTIC: [8] Undefined variable: uid D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 98 行.
+NOTIC: [8] Undefined variable: time D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 109 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.016001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.016001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.007001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007001s ]
+
+[ 2018-05-22T13:26:10+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: begin D:\wampp\htdocs\enterprise\Application\Admin\Controller\NewslistController.class.php 第 48 行.
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `new` WHERE `isdel` = 0 LIMIT 1   [ RunTime:0.0230s ]
+SQL: SELECT * FROM `new` WHERE `isdel` = 0 ORDER BY id desc LIMIT 0,10   [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:26:12+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/detail/id/8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `new` WHERE `id` = 8 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `user` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\889ac9391e9a6d8dfb8b565924715c7a.php 第 111 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:31:51+08:00 ] ::1 /enterprise/index.php/Admin/Company/linkList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.065004s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.036002s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.037002s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\454afe988bc1610150e9e664c3331946.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.131007s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.131007s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.034002s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.034002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.009001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.009001s ]
+
+[ 2018-05-22T13:31:51+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxlinklist.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `link` [ RunTime:0.0330s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `link` LIMIT 1   [ RunTime:0.0600s ]
+SQL: SELECT * FROM `link` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:39:00+08:00 ] ::1 /enterprise/index.php/Admin/Department/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\2dbbfc7cc9356e8aaacba4b83c676c79.php 第 75 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:39:00+08:00 ] ::1 /enterprise/index.php/Admin/Department/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `department` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `department` LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:39:27+08:00 ] ::1 /enterprise/index.php/Admin/Department/detail/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `department` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\927b4eab090714439169b16e2f9dfba9.php 第 122 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:39:47+08:00 ] ::1 /enterprise/index.php/Admin/Department/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\2dbbfc7cc9356e8aaacba4b83c676c79.php 第 75 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:39:47+08:00 ] ::1 /enterprise/index.php/Admin/Department/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `department` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `department` LIMIT 0,10   [ RunTime:0.0060s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-05-22T13:44:00+08:00 ] ::1 /enterprise/index.php/Admin/Company/linkList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\454afe988bc1610150e9e664c3331946.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:44:00+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaxlinklist.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `link` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `link` LIMIT 1   [ RunTime:0.0250s ]
+SQL: SELECT * FROM `link` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:44:03+08:00 ] ::1 /enterprise/index.php/Admin/Company/imglist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\1d5e7ce870fbce57b6266436545cf388.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:44:03+08:00 ] ::1 /enterprise/index.php/Admin/Company/ajaximglist.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `shuffling` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `shuffling` LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT * FROM `shuffling` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:47:27+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0140s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:47:49+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/editNode/id/73.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 73 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE `level` <> '3' ORDER BY `sort` asc  [ RunTime:0.0120s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\8ab0117a91d13c66157b1d9995cf9226.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:48:03+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/do_editNode.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: validate D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `node` SET `name`='linkList',`title`='合作伙伴链接',`status`='1',`level`='3',`pid`='27',`sort`='2' WHERE `id` = 73 [ RunTime:0.0800s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:48:04+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:48:18+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/editNode/id/75.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 75 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE `level` <> '3' ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\8ab0117a91d13c66157b1d9995cf9226.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:48:25+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/do_editNode.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: validate D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `node` SET `name`='addlink',`title`='添加合作伙伴链接页面',`status`='1',`level`='3',`pid`='27',`sort`='151' WHERE `id` = 75 [ RunTime:0.2470s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:48:26+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:48:32+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/editNode/id/74.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 74 LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` WHERE `level` <> '3' ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\8ab0117a91d13c66157b1d9995cf9226.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:48:36+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/do_editNode.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: validate D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `node` SET `name`='ajaxlinklist',`title`='合作伙伴链接列表',`status`='1',`level`='3',`pid`='27',`sort`='150' WHERE `id` = 74 [ RunTime:0.2480s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:48:37+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:48:42+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/editNode/id/76.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 76 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE `level` <> '3' ORDER BY `sort` asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\8ab0117a91d13c66157b1d9995cf9226.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:48:46+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/do_editNode.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: validate D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `node` SET `name`='linkdetail',`title`='合作伙伴链接详情',`status`='1',`level`='3',`pid`='27',`sort`='152' WHERE `id` = 76 [ RunTime:0.2120s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:48:48+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:49:35+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/delNode/id/44.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 44 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `access` WHERE ( node_id=44 )  [ RunTime:0.0210s ]
+SQL: DELETE FROM `node` WHERE `id` = 44 [ RunTime:0.0220s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:49:36+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-05-22T13:49:49+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/delNode/id/45.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 45 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `access` WHERE ( node_id=45 )  [ RunTime:0.0000s ]
+SQL: DELETE FROM `node` WHERE `id` = 45 [ RunTime:0.0100s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:49:50+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:50:00+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/delNode/id/48.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 48 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `access` WHERE ( node_id=48 )  [ RunTime:0.0000s ]
+SQL: DELETE FROM `node` WHERE `id` = 48 [ RunTime:0.0160s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:50:01+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:50:10+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/delNode/id/49.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 49 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `access` WHERE ( node_id=49 )  [ RunTime:0.0010s ]
+SQL: DELETE FROM `node` WHERE `id` = 49 [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:50:11+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004001s ]
+
+[ 2018-05-22T13:50:25+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/delNode/id/80.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 80 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `access` WHERE ( node_id=80 )  [ RunTime:0.0000s ]
+SQL: DELETE FROM `node` WHERE `id` = 80 [ RunTime:0.0120s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:50:26+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:53:36+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0200s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:53:48+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/editNode/id/40.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` WHERE `id` = 40 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE `level` <> '3' ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\8ab0117a91d13c66157b1d9995cf9226.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-05-22T13:53:59+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/do_editNode.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: validate D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `node` SET `name`='Newslist',`title`='新闻管理',`status`='1',`level`='2',`pid`='1',`sort`='3' WHERE `id` = 40 [ RunTime:0.1630s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:54:00+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:54:01+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 79 行.
+NOTIC: [8] Undefined variable: uid D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 98 行.
+NOTIC: [8] Undefined variable: time D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\c250a2f36a594f82a6e61fa2d1d81553.php 第 109 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-05-22T13:54:01+08:00 ] ::1 /enterprise/index.php/Admin/Newslist/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: begin D:\wampp\htdocs\enterprise\Application\Admin\Controller\NewslistController.class.php 第 48 行.
+SQL: SHOW COLUMNS FROM `new` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `new` WHERE `isdel` = 0 LIMIT 1   [ RunTime:0.0380s ]
+SQL: SELECT * FROM `new` WHERE `isdel` = 0 ORDER BY id desc LIMIT 0,10   [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:54:04+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:54:14+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/editNode/id/66.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE `id` = 66 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE `level` <> '3' ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\8ab0117a91d13c66157b1d9995cf9226.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:54:21+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/do_editNode.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined index: validate D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: UPDATE `node` SET `name`='index',`title`='新闻列表',`status`='1',`level`='3',`pid`='40',`sort`='0' WHERE `id` = 66 [ RunTime:0.0470s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:54:22+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:54:32+08:00 ] ::1 /enterprise/index.php/Admin/Main/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE ( level = 2 ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='27' ) ORDER BY sort  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='55' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='40' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='34' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='68' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='23' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='2' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='31' ) ORDER BY sort  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: order_amount D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ceb25a752d454a3315706634952427db.php 第 225 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:54:33+08:00 ] ::1 /enterprise/index.php/Admin/Main/welcome.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SELECT VERSION() as version [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: version D:\wampp\htdocs\enterprise\Application\Admin\Controller\MainController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 68 行.
+NOTIC: [8] Undefined index: handle_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 81 行.
+NOTIC: [8] Undefined index: goods D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 90 行.
+NOTIC: [8] Undefined index: article D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 99 行.
+NOTIC: [8] Undefined index: users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 108 行.
+NOTIC: [8] Undefined index: new_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 123 行.
+NOTIC: [8] Undefined index: today_login D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 126 行.
+NOTIC: [8] Undefined index: new_users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 129 行.
+NOTIC: [8] Undefined index: comment D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 132 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:54:36+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:54:54+08:00 ] ::1 /enterprise/index.php/Admin/Main/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` WHERE ( level = 2 ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='27' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='55' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='40' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='34' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='68' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='23' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='2' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='31' ) ORDER BY sort  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: order_amount D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ceb25a752d454a3315706634952427db.php 第 225 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:54:55+08:00 ] ::1 /enterprise/index.php/Admin/Main/welcome.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SELECT VERSION() as version [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: version D:\wampp\htdocs\enterprise\Application\Admin\Controller\MainController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 68 行.
+NOTIC: [8] Undefined index: handle_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 81 行.
+NOTIC: [8] Undefined index: goods D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 90 行.
+NOTIC: [8] Undefined index: article D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 99 行.
+NOTIC: [8] Undefined index: users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 108 行.
+NOTIC: [8] Undefined index: new_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 123 行.
+NOTIC: [8] Undefined index: today_login D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 126 行.
+NOTIC: [8] Undefined index: new_users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 129 行.
+NOTIC: [8] Undefined index: comment D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 132 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:54:57+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0120s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:55:33+08:00 ] ::1 /enterprise/index.php/Admin/Main/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` WHERE ( level = 2 ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='27' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='55' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='40' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='34' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='68' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='23' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='2' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='31' ) ORDER BY sort  [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: order_amount D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ceb25a752d454a3315706634952427db.php 第 225 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-05-22T13:55:34+08:00 ] ::1 /enterprise/index.php/Admin/Main/welcome.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SELECT VERSION() as version [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: version D:\wampp\htdocs\enterprise\Application\Admin\Controller\MainController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 68 行.
+NOTIC: [8] Undefined index: handle_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 81 行.
+NOTIC: [8] Undefined index: goods D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 90 行.
+NOTIC: [8] Undefined index: article D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 99 行.
+NOTIC: [8] Undefined index: users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 108 行.
+NOTIC: [8] Undefined index: new_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 123 行.
+NOTIC: [8] Undefined index: today_login D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 126 行.
+NOTIC: [8] Undefined index: new_users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 129 行.
+NOTIC: [8] Undefined index: comment D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 132 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:55:50+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:56:23+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/delNode/id/34.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `access` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` WHERE `id` = 34 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT * FROM `access` WHERE ( node_id=34 )  [ RunTime:0.0310s ]
+SQL: DELETE FROM `node` WHERE `id` = 34 [ RunTime:0.0060s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:56:24+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:56:25+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:56:32+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/delNode/id/68.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE `id` = 68 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `access` WHERE ( node_id=68 )  [ RunTime:0.0000s ]
+SQL: DELETE FROM `node` WHERE `id` = 68 [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:56:33+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:56:34+08:00 ] ::1 /enterprise/index.php/Admin/Main/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `node` WHERE ( level = 2 ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='27' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='55' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='40' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='23' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='2' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='31' ) ORDER BY sort  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined variable: order_amount D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ceb25a752d454a3315706634952427db.php 第 225 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:56:34+08:00 ] ::1 /enterprise/index.php/Admin/Main/welcome.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SELECT VERSION() as version [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: version D:\wampp\htdocs\enterprise\Application\Admin\Controller\MainController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 68 行.
+NOTIC: [8] Undefined index: handle_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 81 行.
+NOTIC: [8] Undefined index: goods D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 90 行.
+NOTIC: [8] Undefined index: article D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 99 行.
+NOTIC: [8] Undefined index: users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 108 行.
+NOTIC: [8] Undefined index: new_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 123 行.
+NOTIC: [8] Undefined index: today_login D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 126 行.
+NOTIC: [8] Undefined index: new_users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 129 行.
+NOTIC: [8] Undefined index: comment D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 132 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:56:52+08:00 ] ::1 /enterprise/index.php/Admin/Department/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\2dbbfc7cc9356e8aaacba4b83c676c79.php 第 75 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:56:53+08:00 ] ::1 /enterprise/index.php/Admin/Department/ajaxindex.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `department` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `department` LIMIT 1   [ RunTime:0.0210s ]
+SQL: SELECT * FROM `department` LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:57:01+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:57:14+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/delNode/id/43.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `access` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `node` WHERE `id` = 43 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `access` WHERE ( node_id=43 )  [ RunTime:0.0010s ]
+SQL: DELETE FROM `node` WHERE `id` = 43 [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:57:16+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:57:22+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/delNode/id/46.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `access` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `node` WHERE `id` = 46 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `access` WHERE ( node_id=46 )  [ RunTime:0.0000s ]
+SQL: DELETE FROM `node` WHERE `id` = 46 [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:57:24+08:00 ] ::1 /enterprise/index.php/Admin/Rbac/nodeList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` ORDER BY `sort` asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3c03c32562e086d80daa273060f53c01.php 第 71 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:58:50+08:00 ] ::1 /enterprise/index.php/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:58:51+08:00 ] ::1 /enterprise/index.php/Admin/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:59:06+08:00 ] ::1 /enterprise/index.php/Admin/Index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `user` WHERE `username` = 'admin' AND `password` = '21232f297a57a5a743894a0e4a801fc3' LIMIT 1   [ RunTime:0.0490s ]
+SQL: SHOW COLUMNS FROM `role` [ RunTime:0.0100s ]
+NOTIC: [8] Undefined index: mapping_order D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model\RelationModel.class.php 第 186 行.
+NOTIC: [8] Undefined index: mapping_limit D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model\RelationModel.class.php 第 187 行.
+NOTIC: [8] Undefined index: relation_foreign_key D:\wampp\htdocs\enterprise\ThinkPHP\Library\Think\Model\RelationModel.class.php 第 188 行.
+SQL: SELECT b.name,id FROM role_user AS a, role AS b WHERE a.Role_id = b.id AND a. user_id='1' [ RunTime:0.0310s ]
+SQL: UPDATE `user` SET `logintime`='1526968746',`loginIP`='::1' WHERE ( id=1 ) [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `login_log` [ RunTime:0.0020s ]
+SQL: INSERT INTO `login_log` (`user_id`,`log_time`,`log_ip`) VALUES ('1','1526968746','::1') [ RunTime:0.0770s ]
+NOTIC: [8] Undefined index: name D:\wampp\htdocs\enterprise\Application\Admin\Controller\IndexController.class.php 第 83 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2018-05-22T13:59:08+08:00 ] ::1 /enterprise/index.php/Admin/Main/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `node` WHERE ( level = 2 ) ORDER BY sort  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='27' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='55' ) ORDER BY sort  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='40' ) ORDER BY sort  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='23' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='2' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='31' ) ORDER BY sort  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: order_amount D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ceb25a752d454a3315706634952427db.php 第 225 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:59:08+08:00 ] ::1 /enterprise/index.php/Admin/Main/welcome.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SELECT VERSION() as version [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: version D:\wampp\htdocs\enterprise\Application\Admin\Controller\MainController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 68 行.
+NOTIC: [8] Undefined index: handle_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 81 行.
+NOTIC: [8] Undefined index: goods D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 90 行.
+NOTIC: [8] Undefined index: article D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 99 行.
+NOTIC: [8] Undefined index: users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 108 行.
+NOTIC: [8] Undefined index: new_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 123 行.
+NOTIC: [8] Undefined index: today_login D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 126 行.
+NOTIC: [8] Undefined index: new_users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 129 行.
+NOTIC: [8] Undefined index: comment D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 132 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:59:13+08:00 ] ::1 /enterprise/index.php/Admin/System/backupMysql
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+NOTIC: [2] mkdir(): File exists D:\wampp\htdocs\enterprise\Application\Admin\Controller\SystemController.class.php 第 59 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\8abad17956f3a00cd1c564095b9409be.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:59:13+08:00 ] ::1 /enterprise/index.php/Admin/System/ajaxBackupMysql.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0040s ]
+NOTIC: [2] mkdir(): File exists D:\wampp\htdocs\enterprise\Application\Admin\Controller\SystemController.class.php 第 113 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:59:57+08:00 ] ::1 /enterprise/index.php/Admin/System/backupMysql/Action/RL/File/testqiye_20180323163752_755159868.sql.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+NOTIC: [2] mkdir(): File exists D:\wampp\htdocs\enterprise\Application\Admin\Controller\SystemController.class.php 第 59 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wampp\htdocs\enterprise\Application\Common\Org\MySQLReback.class.php 第 20 行.
+
+[ 2018-05-22T13:59:58+08:00 ] ::1 /enterprise/index.php/Admin/Main/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `node` WHERE ( level = 2 ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='27' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='55' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='40' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='34' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='68' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='23' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='2' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='31' ) ORDER BY sort  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: order_amount D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ceb25a752d454a3315706634952427db.php 第 225 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T13:59:58+08:00 ] ::1 /enterprise/index.php/Admin/Main/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE ( level = 2 ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='27' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='55' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='40' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='34' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='68' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='23' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='2' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='31' ) ORDER BY sort  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: order_amount D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ceb25a752d454a3315706634952427db.php 第 225 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T13:59:58+08:00 ] ::1 /enterprise/index.php/Admin/Main/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `node` WHERE ( level = 2 ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='27' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='55' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='40' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='34' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='68' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='23' ) ORDER BY sort  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='2' ) ORDER BY sort  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `node` WHERE ( 1=1 AND pid='31' ) ORDER BY sort  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: order_amount D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\ceb25a752d454a3315706634952427db.php 第 225 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T13:59:58+08:00 ] ::1 /enterprise/index.php/Admin/Main/welcome.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0020s ]
+SQL: SELECT VERSION() as version [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: version D:\wampp\htdocs\enterprise\Application\Admin\Controller\MainController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 68 行.
+NOTIC: [8] Undefined index: handle_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 81 行.
+NOTIC: [8] Undefined index: goods D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 90 行.
+NOTIC: [8] Undefined index: article D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 99 行.
+NOTIC: [8] Undefined index: users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 108 行.
+NOTIC: [8] Undefined index: new_order D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 123 行.
+NOTIC: [8] Undefined index: today_login D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 126 行.
+NOTIC: [8] Undefined index: new_users D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 129 行.
+NOTIC: [8] Undefined index: comment D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\89a96b9380e94957b60a130fd4752dc8.php 第 132 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-05-22T14:40:20+08:00 ] ::1 /enterprise/index.php/Admin/Goods/goodsList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3268fbbbd0eb3ffe30140f78ff508f86.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.058003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.058003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-05-22T14:40:20+08:00 ] ::1 /enterprise/index.php/Admin/Goods/ajaxGoodsList.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.0230s ]
+SQL: SELECT * FROM `goods` ORDER BY goods_id desc LIMIT 0,10   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T14:40:25+08:00 ] ::1 /enterprise/index.php/Admin/Goods/cationList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\a075b88f0f6e48cf97bacd7489341099.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T14:40:25+08:00 ] ::1 /enterprise/index.php/Admin/Goods/ajaxcationlist.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `classification` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `classification` LIMIT 1   [ RunTime:0.0210s ]
+SQL: SELECT * FROM `classification` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-05-22T14:40:29+08:00 ] ::1 /enterprise/index.php/Admin/Goods/goodsList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navigate_admin D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\3268fbbbd0eb3ffe30140f78ff508f86.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T14:40:29+08:00 ] ::1 /enterprise/index.php/Admin/Goods/ajaxGoodsList.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `goods` ORDER BY goods_id desc LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-05-22T15:06:42+08:00 ] ::1 /enterprise/index.php/Admin/Goods/ajaxGoodsList.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `goods` ORDER BY goods_id desc LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\wampp\htdocs\enterprise\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.073004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
